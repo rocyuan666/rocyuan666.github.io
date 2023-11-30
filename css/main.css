@@ -869,7 +869,7 @@ i.iconfont {
     --link-hover-color: #30a9de;
     --link-hover-bg-color: #364151;
     --line-color: #435266;
-    --navbar-bg-color: #1f3144;
+    --navbar-bg-color: #0a0e22;
     --navbar-text-color: #d0d0d0;
     --subtitle-color: #d0d0d0;
     --scrollbar-color: #687582;
@@ -905,7 +905,7 @@ i.iconfont {
     --link-hover-color: #30a9de;
     --link-hover-bg-color: #364151;
     --line-color: #435266;
-    --navbar-bg-color: #1f3144;
+    --navbar-bg-color: #0a0e22;
     --navbar-text-color: #d0d0d0;
     --subtitle-color: #d0d0d0;
     --scrollbar-color: #687582;
@@ -1205,6 +1205,8 @@ i.iconfont {
 }
 .index-card {
   margin-bottom: 2.5rem;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.05), 0 4px 15px 0 rgba(0,0,0,0.06);
+  border-radius: 0.4rem;
 }
 .index-img img {
   display: block;
