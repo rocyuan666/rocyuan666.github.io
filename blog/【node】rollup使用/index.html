@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【node】rollup使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【node】rollup使用">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90node%E3%80%91rollup%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【node】rollup使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90rollup%E3%80%91rollup%E4%BD%BF%E7%94%A8/1.png">
+<meta property="article:published_time" content="2022-03-13T14:51:44.000Z">
+<meta property="article:modified_time" content="2023-11-30T11:39:02.997Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90rollup%E3%80%91rollup%E4%BD%BF%E7%94%A8/1.png">
+  
+  
+  
+  <title>【node】rollup使用 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://rocyuan666.gitee.io/linux" target="_blank">
+                <i class="iconfont icon-qq-fill"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://rocyuan666.gitee.io/nginx" target="_blank">
+                <i class="iconfont icon-code"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github-fill"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【node】rollup使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-13 22:51" pubdate>
+          2022年3月13日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【node】rollup使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>项目中使用的开源插件需要进行二次开发，插件源码生产环境使用rollup打包构建，学习了下rollup，记录下。</p>
+<h1 id="安装rollup"><a href="#安装rollup" class="headerlink" title="安装rollup"></a>安装rollup</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -D rollup<br></code></pre></td></tr></table></figure>
+
+<h1 id="rollup打包"><a href="#rollup打包" class="headerlink" title="rollup打包"></a>rollup打包</h1><p>package.json配置脚本</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;build:lib&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rollup -c rollup.config.js&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>项目根目创建<code>rollup.config.js</code></p>
+<p><img src="/../../assets/%E3%80%90rollup%E3%80%91rollup%E4%BD%BF%E7%94%A8/1.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h1><h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><p>详细配置参考官网</p>
+<p>中文站：<a target="_blank" rel="noopener" href="https://www.rollupjs.com/guide/big-list-of-options">https://www.rollupjs.com/guide/big-list-of-options</a></p>
+<p>英文官网：<a target="_blank" rel="noopener" href="https://rollupjs.org/guide/en/#big-list-of-options">https://rollupjs.org/guide/en/#big-list-of-options</a></p>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p>入口文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-attr">input</span>: <span class="hljs-string">&quot;./lib/index.js&quot;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><p>出口文件，当需要打多个js包时（xxx.js 与 xxx.min.js）传数组</p>
+<h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>要写入的文件</p>
+<h4 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h4><p>放置所有生成的块的目录。如果生成多个块，则需要此选项。否则，可以使用<code>file</code>选项。</p>
+<h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><p>支持六种输出格式：amd &#x2F; cjs &#x2F;es &#x2F; iife &#x2F; umd &#x2F; system(不常用，但官网有)</p>
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>当<code>format</code>为<code>iife</code>和<code>umd</code>时必须提供，将作为全局变量挂在window(浏览器环境)下：<br>window[name值]&#x3D;…</p>
+<h4 id="entryFileNames"><a href="#entryFileNames" class="headerlink" title="entryFileNames"></a>entryFileNames</h4><p>打包资源名格式配置，默认[name].js，一共三种格式 format &#x2F; hash:长度 &#x2F; name</p>
+<h4 id="banner"><a href="#banner" class="headerlink" title="banner"></a>banner</h4><p>打包到块中的字符串，常用与顶部文档注释</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; terser &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;rollup-plugin-terser&quot;</span>);<br><br>&#123;<br>  <span class="hljs-attr">output</span>: [<br>    &#123;<br>      <span class="hljs-attr">dir</span>: <span class="hljs-string">&#x27;dist&#x27;</span>,<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Roc&quot;</span>,<br>      <span class="hljs-attr">entryFileNames</span>: <span class="hljs-string">&#x27;roc.min.js&#x27;</span>,<br>      <span class="hljs-attr">format</span>: <span class="hljs-string">&quot;umd&quot;</span>,<br>      <span class="hljs-attr">banner</span>: <span class="hljs-string">&quot;/** 文档注释... */&quot;</span>,<br>      <span class="hljs-attr">plugins</span>: [<br>        <span class="hljs-title function_">terser</span>()<br>      ], <span class="hljs-comment">// 给这个出口文件 单独配置插件</span><br>    &#125;<br>    <span class="hljs-comment">// ...</span><br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="external"><a href="#external" class="headerlink" title="external"></a>external</h3><p>告诉rollup不要将 某些库(下列示例：jquery) 打包，而作为外部依赖。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-attr">external</span>: [<span class="hljs-string">&quot;jquery&quot;</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="globals"><a href="#globals" class="headerlink" title="globals"></a>globals</h3><p>告诉 <code>rollup</code> <code>jquery</code> 是外部依赖，并且 <code>jquery</code> 模块的 ID 为全局变量 <code>$</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-string">&quot;jquery&quot;</span>: <span class="hljs-string">&quot;$&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h3><p>rollup插件配置，比如引入压缩代码插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; terser &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;rollup-plugin-terser&quot;</span>);<br><br>&#123;<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-title function_">terser</span>()<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>plugins</code>配置，需要熟悉很多rollup插件的用途及配置。</p>
+<h1 id="rollup插件"><a href="#rollup插件" class="headerlink" title="rollup插件"></a>rollup插件</h1><p>记录使用到的插件，官方github或npm仓库链接地址中有详细配置说明。</p>
+<h2 id="rollup-plugin-buble"><a href="#rollup-plugin-buble" class="headerlink" title="@rollup&#x2F;plugin-buble"></a>@rollup&#x2F;plugin-buble</h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/buble/#readme">https://github.com/rollup/plugins/tree/master/packages/buble/#readme</a></p>
+<p>使用Buble编译器转换ES6+代码的插件。</p>
+<h2 id="rollup-plugin-commonjs"><a href="#rollup-plugin-commonjs" class="headerlink" title="@rollup&#x2F;plugin-commonjs"></a>@rollup&#x2F;plugin-commonjs</h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/commonjs/#readme">https://github.com/rollup/plugins/tree/master/packages/commonjs/#readme</a></p>
+<p>用于将CommonJS模块转换为ES6</p>
+<h2 id="rollup-plugin-terser"><a href="#rollup-plugin-terser" class="headerlink" title="@rollup&#x2F;plugin-terser"></a><strong>@rollup&#x2F;plugin-terser</strong></h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/terser#readme">https://github.com/rollup/plugins/tree/master/packages/terser#readme</a></p>
+<p>Rollup插件，用于生成精简的js包（min.js）</p>
+<h2 id="rollup-plugin-javascript-obfuscator"><a href="#rollup-plugin-javascript-obfuscator" class="headerlink" title="rollup-plugin-javascript-obfuscator"></a>rollup-plugin-javascript-obfuscator</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/rollup-plugin-javascript-obfuscator">https://www.npmjs.com/package/rollup-plugin-javascript-obfuscator</a></p>
+<p>js代码混淆处理插件</p>
+<h2 id="rollup-plugin-babel"><a href="#rollup-plugin-babel" class="headerlink" title="@rollup&#x2F;plugin-babel"></a>@rollup&#x2F;plugin-babel</h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/babel#readme">https://github.com/rollup/plugins/tree/master/packages/babel#readme</a></p>
+<p>用于Rollup和Babel之间的无缝集成。</p>
+<h2 id="rollup-plugin-node-resolve"><a href="#rollup-plugin-node-resolve" class="headerlink" title="@rollup&#x2F;plugin-node-resolve"></a>@rollup&#x2F;plugin-node-resolve</h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/node-resolve/#readme">https://github.com/rollup/plugins/tree/master/packages/node-resolve/#readme</a></p>
+<p>在node_modules中查找并捆绑第三方依赖项（使用后会将使用到的第三方依赖打包进来，不需要打包进来配合选项“external”使用）</p>
+<h2 id="rollup-plugin-replace"><a href="#rollup-plugin-replace" class="headerlink" title="@rollup&#x2F;plugin-replace"></a>@rollup&#x2F;plugin-replace</h2><p><a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/tree/master/packages/replace#readme">https://github.com/rollup/plugins/tree/master/packages/replace#readme</a></p>
+<p>打包时替换文件中的字符串</p>
+<h2 id="rollup-plugin-node-externals"><a href="#rollup-plugin-node-externals" class="headerlink" title="rollup-plugin-node-externals"></a>rollup-plugin-node-externals</h2><p><a target="_blank" rel="noopener" href="https://github.com/Septh/rollup-plugin-node-externals#readme">https://github.com/Septh/rollup-plugin-node-externals#readme</a></p>
+<p>在汇总配置中自动将NodeJS内置模块和npm依赖项声明为“external（外部）”</p>
+<h2 id="rollup-plugin-postcss"><a href="#rollup-plugin-postcss" class="headerlink" title="rollup-plugin-postcss"></a>rollup-plugin-postcss</h2><p><a target="_blank" rel="noopener" href="https://github.com/egoist/rollup-plugin-postcss#readme">https://github.com/egoist/rollup-plugin-postcss#readme</a></p>
+<p>Rollup和PostCSS之间的无缝集成。</p>
+<h2 id="rollup-plugin-visualizer"><a href="#rollup-plugin-visualizer" class="headerlink" title="rollup-plugin-visualizer"></a>rollup-plugin-visualizer</h2><p><a target="_blank" rel="noopener" href="https://github.com/btd/rollup-plugin-visualizer">https://github.com/btd/rollup-plugin-visualizer</a></p>
+<p>可视化并分析Rollup打包，以查看哪些模块正在占用空间。</p>
+<h2 id="rollup-plugin-vue"><a href="#rollup-plugin-vue" class="headerlink" title="rollup-plugin-vue"></a>rollup-plugin-vue</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/rollup-plugin-vue">https://www.npmjs.com/package/rollup-plugin-vue</a></p>
+<p>vue SFC（.vue文件）处理</p>
+<h2 id="vue-template-compiler"><a href="#vue-template-compiler" class="headerlink" title="vue-template-compiler"></a>vue-template-compiler</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-template-compiler">https://www.npmjs.com/package/vue-template-compiler</a></p>
+<p>Vue 2.0模板编译器</p>
+<h2 id="rollup-plugin-typescript"><a href="#rollup-plugin-typescript" class="headerlink" title="@rollup&#x2F;plugin-typescript"></a>@rollup&#x2F;plugin-typescript</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@rollup/plugin-typescript">https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;@rollup&#x2F;plugin-typescript</a></p>
+<p>Rollup插件用于Rollup和Typescript之间的无缝集成。（依赖 tslib 模块 <code>npm install -D tslib</code>）</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="react-redux官方rollup配置"><a href="#react-redux官方rollup配置" class="headerlink" title="react-redux官方rollup配置"></a>react-redux官方rollup配置</h2><p>react-redux库rollup配置文件：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/reduxjs/react-redux/blob/master/rollup.config.js">https://github.com/reduxjs/react-redux/blob/master/rollup.config.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> nodeResolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span><br><span class="hljs-keyword">import</span> babel <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-babel&#x27;</span><br><span class="hljs-keyword">import</span> replace <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-replace&#x27;</span><br><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-commonjs&#x27;</span><br><span class="hljs-keyword">import</span> &#123; terser &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rollup-plugin-terser&#x27;</span><br><span class="hljs-keyword">import</span> pkg <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./package.json&#x27;</span><br><br><span class="hljs-keyword">const</span> env = process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span><br><br><span class="hljs-keyword">const</span> extensions = [<span class="hljs-string">&#x27;.js&#x27;</span>, <span class="hljs-string">&#x27;.ts&#x27;</span>, <span class="hljs-string">&#x27;.tsx&#x27;</span>, <span class="hljs-string">&#x27;.json&#x27;</span>]<br><br><span class="hljs-keyword">const</span> config = &#123;<br>  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/index.ts&#x27;</span>,<br>  <span class="hljs-attr">external</span>: <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(pkg.<span class="hljs-property">peerDependencies</span> || &#123;&#125;).<span class="hljs-title function_">concat</span>(<span class="hljs-string">&#x27;react-dom&#x27;</span>),<br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;umd&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;ReactRedux&#x27;</span>,<br>    <span class="hljs-attr">globals</span>: &#123;<br>      <span class="hljs-attr">react</span>: <span class="hljs-string">&#x27;React&#x27;</span>,<br>      <span class="hljs-attr">redux</span>: <span class="hljs-string">&#x27;Redux&#x27;</span>,<br>      <span class="hljs-string">&#x27;react-dom&#x27;</span>: <span class="hljs-string">&#x27;ReactDOM&#x27;</span>,<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-title function_">nodeResolve</span>(&#123;<br>      extensions,<br>    &#125;),<br>    <span class="hljs-title function_">babel</span>(&#123;<br>      <span class="hljs-attr">include</span>: <span class="hljs-string">&#x27;src/**/*&#x27;</span>,<br>      <span class="hljs-attr">exclude</span>: <span class="hljs-string">&#x27;**/node_modules/**&#x27;</span>,<br>      <span class="hljs-attr">babelHelpers</span>: <span class="hljs-string">&#x27;runtime&#x27;</span>,<br>      extensions,<br>    &#125;),<br>    <span class="hljs-title function_">replace</span>(&#123;<br>      <span class="hljs-string">&#x27;process.env.NODE_ENV&#x27;</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(env),<br>      <span class="hljs-attr">preventAssignment</span>: <span class="hljs-literal">true</span>,<br>    &#125;),<br>    <span class="hljs-title function_">commonjs</span>(),<br>  ],<br>&#125;<br><br><span class="hljs-keyword">if</span> (env === <span class="hljs-string">&#x27;production&#x27;</span>) &#123;<br>  config.<span class="hljs-property">plugins</span>.<span class="hljs-title function_">push</span>(<br>    <span class="hljs-title function_">terser</span>(&#123;<br>      <span class="hljs-attr">compress</span>: &#123;<br>        <span class="hljs-attr">pure_getters</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">unsafe</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">unsafe_comps</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">warnings</span>: <span class="hljs-literal">false</span>,<br>      &#125;,<br>    &#125;)<br>  )<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> config<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/blog/" class="category-chain-item">blog</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E3%80%90vue%E3%80%91vuedraggable%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" title="【vue】vuedraggable中文文档">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【vue】vuedraggable中文文档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91vscode%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4bash/" title="【记录】vscode设置默认bash">
+                        <span class="hidden-mobile">【记录】vscode设置默认bash</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
