@@ -16,12 +16,12 @@
   <meta name="author" content="rocyuan">
   <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
   
-    <meta name="description" content="【记录】uniapp授权登录&amp;支付">
+    <meta name="description" content="【uniapp】uniapp授权登录&amp;支付">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【记录】uniapp授权登录&amp;支付">
-<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/index.html">
+<meta property="og:title" content="【uniapp】uniapp授权登录&amp;支付">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90uniapp%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/index.html">
 <meta property="og:site_name" content="rocyuan">
-<meta property="og:description" content="【记录】uniapp授权登录&amp;支付">
+<meta property="og:description" content="【uniapp】uniapp授权登录&amp;支付">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/1.png">
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/2.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/4.png">
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/5.png">
 <meta property="article:published_time" content="2021-04-16T12:15:45.000Z">
-<meta property="article:modified_time" content="2023-11-30T03:25:44.662Z">
+<meta property="article:modified_time" content="2024-03-13T03:39:27.473Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -37,7 +37,7 @@
   
   
   
-  <title>【记录】uniapp授权登录&amp;支付 - rocyuan</title>
+  <title>【uniapp】uniapp授权登录&amp;支付 - rocyuan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -291,7 +291,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【记录】uniapp授权登录&amp;支付"></span>
+            <span id="subtitle" data-typed-text="【uniapp】uniapp授权登录&amp;支付"></span>
           
         </div>
 
@@ -314,7 +314,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2k 字
         
       </span>
     
@@ -325,7 +325,7 @@
         
         
         
-          6 分钟
+          9 分钟
         
       </span>
     
@@ -362,7 +362,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">【记录】uniapp授权登录&amp;支付</h1>
+            <h1 id="seo-header">【uniapp】uniapp授权登录&amp;支付</h1>
             
             
               <div class="markdown-body">
@@ -376,6 +376,8 @@
 <li>UniversalLinks：iOS平台通用链接，必须与微信开放平台配置的一致</li>
 </ul>
 <p>微信开放平台地址：<a target="_blank" rel="noopener" href="https://open.weixin.qq.com/">https://open.weixin.qq.com/</a><br><strong>注册认证微信开放平台需要的资料：</strong><br><img src="/../../assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/1.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// #ifdef APP-PLUS</span><br><span class="hljs-title function_">goAppLogin</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> that = <span class="hljs-variable language_">this</span>;<br>  <span class="hljs-keyword">var</span> all, <span class="hljs-title class_">Service</span>;<br>  plus.<span class="hljs-property">oauth</span>.<span class="hljs-title function_">getServices</span>(<br>    <span class="hljs-keyword">function</span>(<span class="hljs-params">Services</span>) &#123;<br>      all = <span class="hljs-title class_">Services</span>;<br>      <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(all).<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (all[key].<span class="hljs-property">id</span> == <span class="hljs-string">&#x27;weixin&#x27;</span>) &#123;<br>          <span class="hljs-title class_">Service</span> = all[key];<br>        &#125;<br>      &#125;);<br>      <span class="hljs-title class_">Service</span>.<span class="hljs-title function_">authorize</span>(<br>        <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;<br>          <span class="hljs-keyword">const</span> sendObj = &#123;<br>            <span class="hljs-attr">code</span>: e.<span class="hljs-property">code</span>,<br>            <span class="hljs-attr">scope</span>: e.<span class="hljs-property">scope</span><br>          &#125;<br>          <span class="hljs-comment">// goAppLogin 后端接口</span><br>          <span class="hljs-keyword">let</span> res = <span class="hljs-keyword">await</span> that.<span class="hljs-property">$api</span>.<span class="hljs-title function_">goAppLogin</span>(sendObj);<br>          <span class="hljs-keyword">if</span>(res.<span class="hljs-property">code</span> !== <span class="hljs-number">200</span>) &#123;<br>            <span class="hljs-comment">// 失败后业务</span><br>            that.<span class="hljs-property">$u</span>.<span class="hljs-title function_">toast</span>(res.<span class="hljs-property">msg</span>);<br>            <span class="hljs-keyword">return</span><br>          &#125;<br>          <span class="hljs-comment">// 成功后业务</span><br>          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">code</span>)<br>        &#125;,<br>        <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;<br>          that.<span class="hljs-property">$u</span>.<span class="hljs-title function_">toast</span>(<span class="hljs-string">&#x27;授权失败！&#x27;</span>);<br>        &#125;<br>      );<br>    &#125;,<br>    <span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err);<br>      that.<span class="hljs-property">$u</span>.<span class="hljs-title function_">toast</span>(<span class="hljs-string">&#x27;授权失败！&#x27;</span>);<br>    &#125;<br>  );<br>&#125;<br><span class="hljs-comment">// #endif</span><br></code></pre></td></tr></table></figure>
+
 <h3 id="QQ授权登录"><a href="#QQ授权登录" class="headerlink" title="QQ授权登录"></a>QQ授权登录</h3><p>QQ授权登录需要：腾讯QQ开放平台申请应用的AppID</p>
 <ul>
 <li>appid：腾讯QQ开放平台申请应用的AppID值。</li>
@@ -384,6 +386,7 @@
 <p><img src="/../../assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/2.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>个人接入：</strong></p>
 <p><img src="/../../assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/3.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h4><p>参考微信登录</p>
 <h3 id="新浪微博授权登录"><a href="#新浪微博授权登录" class="headerlink" title="新浪微博授权登录"></a>新浪微博授权登录</h3><p>新浪微博授权登录需要：新浪微博平台应用appkey、appsecret、redirect_uri（授权回调页地址）</p>
 <ul>
 <li>appkey: “新浪微博平台应用appkey”；</li>
@@ -396,6 +399,7 @@
 <p><img src="/../../assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/4.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>个人接入：</strong></p>
 <p><img src="/../../assets/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91uniapp%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95&%E6%94%AF%E4%BB%98/5.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="代码示例-2"><a href="#代码示例-2" class="headerlink" title="代码示例"></a>代码示例</h4><p>参考微信登录</p>
 <h3 id="apple授权登录"><a href="#apple授权登录" class="headerlink" title="apple授权登录"></a>apple授权登录</h3><p>ios13+支持，App Store审核规范。</p>
 <h2 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h2><p>在使用支付前，需要向各支付平台申请开通支付功能。<br>uniapp支付支持微信、支付宝、Apple应用内支付（ios）。<br>参考地址：<a target="_blank" rel="noopener" href="https://ask.dcloud.net.cn/article/71">https://ask.dcloud.net.cn/article/71</a></p>
 <h3 id="微信支付"><a href="#微信支付" class="headerlink" title="微信支付"></a>微信支付</h3><p>微信支付需要到微信开放平台开通支付功能，申请应用后可以获取AppID和AppSecret值。<br>微信登录，微信分享，微信支付配置的信息需要保持一致<br>开通支付功能后可获取支付业务服务器配置数据：</p>
