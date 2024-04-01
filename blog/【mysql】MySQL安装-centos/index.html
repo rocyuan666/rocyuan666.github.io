@@ -16,42 +16,22 @@
   <meta name="author" content="rocyuan">
   <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
   
-    <meta name="description" content="【mysql】MySQL安装文档">
+    <meta name="description" content="【mysql】MySQL安装-centos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【mysql】MySQL安装文档">
-<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:title" content="【mysql】MySQL安装-centos">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85-centos/index.html">
 <meta property="og:site_name" content="rocyuan">
-<meta property="og:description" content="【mysql】MySQL安装文档">
+<meta property="og:description" content="【mysql】MySQL安装-centos">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/1.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/2.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/3.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/4.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/5.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/6.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/7.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/8.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/9.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/10.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/11.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/12.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/13.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/14.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/15.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/16.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/17.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/18.png">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/19.png">
-<meta property="article:published_time" content="2022-05-13T12:24:15.000Z">
-<meta property="article:modified_time" content="2023-11-30T11:53:11.196Z">
+<meta property="article:published_time" content="2022-05-16T13:54:18.000Z">
+<meta property="article:modified_time" content="2024-04-01T12:48:19.604Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/1.png">
   
   
   
-  <title>【mysql】MySQL安装文档 - rocyuan</title>
+  <title>【mysql】MySQL安装-centos - rocyuan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -305,7 +285,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【mysql】MySQL安装文档"></span>
+            <span id="subtitle" data-typed-text="【mysql】MySQL安装-centos"></span>
           
         </div>
 
@@ -316,8 +296,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-13 20:24" pubdate>
-          2022年5月13日
+        <time datetime="2022-05-16 21:54" pubdate>
+          2022年5月16日
         </time>
       </span>
     
@@ -328,7 +308,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          1.8k 字
         
       </span>
     
@@ -339,7 +319,7 @@
         
         
         
-          9 分钟
+          8 分钟
         
       </span>
     
@@ -376,99 +356,38 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">【mysql】MySQL安装文档</h1>
+            <h1 id="seo-header">【mysql】MySQL安装-centos</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p><strong>安装环境:Win10 64位</strong><br><strong>软件版本:MySQL 5.7.24 解压版</strong></p>
-</blockquote>
-<h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p>点开下面的链接：<br><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/1.png" srcset="/img/loading.gif" lazyload></p>
-<p>选择选择和自己<strong>系统位数</strong>相对应的版本点击右边的<code>Download</code>，此时会进到另一个页面，同样在接近页面底部的地方找到如下图所示的位置：</p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/2.png" srcset="/img/loading.gif" lazyload></p>
-<p>不用理会上面的登录和注册按钮，直接点击<code>No thanks, just start my download.</code>就可以下载。</p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/3.png" srcset="/img/loading.gif" lazyload></p>
-<hr>
-<h2 id="二、安装-解压"><a href="#二、安装-解压" class="headerlink" title="二、安装(解压)"></a>二、安装(解压)</h2><p>下载完成后我们得到的是一个压缩包，将其解压，我们就可以得到MySQL 5.7.24的软件本体了(就是一个文件夹)，我们可以把它放在你想安装的位置。</p>
-<hr>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/4.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h2><h3 id="1-添加环境变量"><a href="#1-添加环境变量" class="headerlink" title="1. 添加环境变量"></a>1. 添加环境变量</h3><blockquote>
-<p>环境变量里面有很多选项，这里我们只用到<code>Path</code>这个参数。为什么在初始化的开始要添加环境变量呢？<br>在黑框(即CMD)中输入一个可执行程序的名字，Windows会先在环境变量中的<code>Path</code>所指的路径中寻找一遍，如果找到了就直接执行，没找到就在当前工作目录找，如果还没找到，就报错。我们添加环境变量的目的就是能够在任意一个黑框直接调用MySQL中的相关程序而不用总是修改工作目录，大大简化了操作。</p>
-</blockquote>
-<p>右键<code>此电脑</code>→<code>属性</code>，点击<code>高级系统设置</code></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/5.png" srcset="/img/loading.gif" lazyload></p>
-<p>点击<code>环境变量</code></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/6.png" srcset="/img/loading.gif" lazyload></p>
-<p>在<code>系统变量</code>中新建MYSQL_HOME</p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/7.png" srcset="/img/loading.gif" lazyload></p>
-<p>在<code>系统变量</code>中找到并<strong>双击</strong><code>Path</code></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/8.png" srcset="/img/loading.gif" lazyload></p>
-<p>点击<code>新建</code></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/9.png" srcset="/img/loading.gif" lazyload></p>
-<p>最后点击确定。</p>
-<p><strong>如何验证是否添加成功？</strong></p>
-<p>右键开始菜单(就是屏幕左下角)，选择<code>命令提示符(管理员)</code>，打开黑框，敲入<code>mysql</code>，回车。<br>如果提示<code>Can&#39;t connect to MySQL server on &#39;localhost&#39;</code>则证明添加成功；<br>如果提示<code>mysql不是内部或外部命令，也不是可运行的程序或批处理文件</code>则表示添加添加失败，请重新检查步骤并重试。</p>
-<h3 id="2-新建配置文件"><a href="#2-新建配置文件" class="headerlink" title="2. 新建配置文件"></a>2. 新建配置文件</h3><p>新建一个文本文件，内容如下：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">[mysql]</span><br><span class="hljs-attr">default-character-set</span>=<span class="hljs-string">utf8</span><br><br><span class="hljs-attr">[mysqld]</span><br><span class="hljs-attr">character-set-server</span>=<span class="hljs-string">utf8</span><br><span class="hljs-attr">default-storage-engine</span>=<span class="hljs-string">INNODB</span><br><span class="hljs-attr">sql_mode</span>=<span class="hljs-string">STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></code></pre></td></tr></table></figure>
+                <h1 id="1-下载-rpm-源"><a href="#1-下载-rpm-源" class="headerlink" title="1 下载 rpm 源"></a>1 下载 rpm 源</h1><p>mysql 所有版本 与 KEY 源：<a target="_blank" rel="noopener" href="https://repo.mysql.com/">https://repo.mysql.com</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
 
-<p>把上面的文本文件另存为，在保存类型里选<code>所有文件 (*.*)</code>，文件名叫<code>my.ini</code>，存放的路径为MySQL的<code>根目录</code>(例如我的是<code>D:\software\mysql-5.7.24-winx64</code>,根据自己的MySQL目录位置修改)。</p>
-<h3 id="3-初始化MySQL"><a href="#3-初始化MySQL" class="headerlink" title="3. 初始化MySQL"></a>3. 初始化MySQL</h3><p>在刚才的黑框中敲入<code>mysqld --initialize-insecure</code>，回车，稍微等待一会，如果出现没有出现报错信息(如下图)则证明data目录初始化没有问题，此时再查看MySQL目录下已经有data目录生成。</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">mysqld <span class="hljs-comment">--initialize-insecure</span><br></code></pre></td></tr></table></figure>
+<h1 id="2-添加-yum-仓库"><a href="#2-添加-yum-仓库" class="headerlink" title="2 添加 yum 仓库"></a>2 添加 yum 仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/10.png" srcset="/img/loading.gif" lazyload></p>
-<p>tips：如果出现如下错误</p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/11.png" srcset="/img/loading.gif" lazyload></p>
-<p>是由于权限不足导致的，去<code>C:\Windows\System32</code> 下以管理员方式运行 cmd.exe</p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/12.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/13.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="4-注册MySQL服务"><a href="#4-注册MySQL服务" class="headerlink" title="4. 注册MySQL服务"></a>4. 注册MySQL服务</h3><p>在黑框里敲入<code>mysqld -install</code>，回车。</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">mysqld -<span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
+<p>添加后 &#x2F;etc&#x2F;yum.repos.d&#x2F; 目录下会存在 mysql-community.repo 仓库</p>
+<h1 id="3-下载密钥"><a href="#3-下载密钥" class="headerlink" title="3 下载密钥"></a>3 下载密钥</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/RPM-GPG-KEY-mysql-2023<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/14.png" srcset="/img/loading.gif" lazyload></p>
-<p>现在你的计算机上已经安装好了MySQL服务了。</p>
-<p>MySQL服务器</p>
-<h3 id="5-启动MySQL服务"><a href="#5-启动MySQL服务" class="headerlink" title="5. 启动MySQL服务"></a>5. 启动MySQL服务</h3><p>在黑框里敲入<code>net start mysql</code>，回车。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">net start mysql  <span class="hljs-comment">// 启动mysql服务</span><br>    <br>net stop mysql  <span class="hljs-comment">// 停止mysql服务</span><br></code></pre></td></tr></table></figure>
+<h1 id="4-替换密钥"><a href="#4-替换密钥" class="headerlink" title="4 替换密钥"></a>4 替换密钥</h1><p>查看 mysql-community.repo 中所要安装的包密钥存放位置 gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-mysql</p>
+<p>在 &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F; 目录下将下载的 RPM-GPG-KEY-mysql-2023 密钥更名为 RPM-GPG-KEY-mysql 或 修改 mysql-community.repo 文件中 gpgkey 所指定的文件</p>
+<h1 id="5-安装"><a href="#5-安装" class="headerlink" title="5 安装"></a>5 安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-server<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/15.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="6-修改默认账户密码"><a href="#6-修改默认账户密码" class="headerlink" title="6. 修改默认账户密码"></a>6. 修改默认账户密码</h3><p>在黑框里敲入<code>mysqladmin -u root password 1234</code>，这里的<code>1234</code>就是指默认管理员(即root账户)的密码，可以自行修改成你喜欢的。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mysqladmin</span> -u root password <span class="hljs-number">1234</span><br></code></pre></td></tr></table></figure>
+<h1 id="6-启动"><a href="#6-启动" class="headerlink" title="6 启动"></a>6 启动</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start mysqld<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/16.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>至此，MySQL 5.7 解压版安装完毕！</strong></p>
-<hr>
-<h2 id="四、登录MySQL"><a href="#四、登录MySQL" class="headerlink" title="四、登录MySQL"></a>四、登录MySQL</h2><p>右键开始菜单，选择<code>命令提示符</code>，打开黑框。<br>在黑框中输入，<code>mysql -uroot -p1234</code>，回车，出现下图且左下角为<code>mysql&gt;</code>，则登录成功。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">mysql</span> -uroot -p1234<br></code></pre></td></tr></table></figure>
+<h1 id="7-查看临时密码"><a href="#7-查看临时密码" class="headerlink" title="7 查看临时密码"></a>7 查看临时密码</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /<span class="hljs-keyword">var</span>/<span class="hljs-keyword">log</span>/mysqld.<span class="hljs-keyword">log</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/17.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>到这里你就可以开始你的MySQL之旅了！</strong></p>
-<p>退出mysql：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span><br>quit<br></code></pre></td></tr></table></figure>
+<p>找到这行：<br>[Note] [MY-010454] [Server] A temporary password is generated for root@localhost: hz8swEv%h+DN<br>hz8swEv%h+DN 为临时密码</p>
+<h1 id="8-修改临时密码"><a href="#8-修改临时密码" class="headerlink" title="8 修改临时密码"></a>8 修改临时密码</h1><p>在 MySQL 8 中，默认的密码策略要求密码必须包含：小写字母、大写字母、数字和特殊字符，并且长度不能少于 8 个字符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysqladmin -uroot -p password<br></code></pre></td></tr></table></figure>
 
-<p>登陆参数：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mysql</span> -u用户名 -p密码 -h要连接的mysql服务器的ip地址(默认<span class="hljs-number">127.0.0.1</span>) -P端口号(默认<span class="hljs-number">3306</span>)<br></code></pre></td></tr></table></figure>
+<h1 id="9-登录"><a href="#9-登录" class="headerlink" title="9 登录"></a>9 登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -uroot -p<br></code></pre></td></tr></table></figure>
 
-<hr>
-<h2 id="五、卸载MySQL"><a href="#五、卸载MySQL" class="headerlink" title="五、卸载MySQL"></a>五、卸载MySQL</h2><p>如果你想卸载MySQL，也很简单。</p>
-<p>右键开始菜单，选择<code>命令提示符(管理员)</code>，打开黑框。</p>
-<ol>
-<li>敲入<code>net stop mysql</code>，回车。</li>
-</ol>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">net stop mysql<br></code></pre></td></tr></table></figure>
+<p>输入密码登录</p>
+<h1 id="10-问题"><a href="#10-问题" class="headerlink" title="10 问题"></a>10 问题</h1><h2 id="启动权限报错"><a href="#启动权限报错" class="headerlink" title="启动权限报错"></a>启动权限报错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">● mysqld.service - MySQL Server<br>   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)<br>   Active: failed (Result: exit-code) since 一 2024-04-01 10:17:17 CST; 2min 23s ago<br>     Docs: man:mysqld(8)<br>           http://dev.mysql.com/doc/refman/en/using-systemd.html<br>  Process: 2074 ExecStart=/usr/sbin/mysqld <span class="hljs-variable">$MYSQLD_OPTS</span> (code=exited, status=1/FAILURE)<br>  Process: 2051 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)<br> Main PID: 2074 (code=exited, status=1/FAILURE)<br>   Status: <span class="hljs-string">&quot;Server shutdown complete&quot;</span><br>    Error: 13 (权限不够)<br><br>4月 01 10:17:17 localhost.localdomain systemd[1]: Starting MySQL Server...<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Failed to start MySQL Server.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Unit mysqld.service entered failed state.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service failed.<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/18.png" srcset="/img/loading.gif" lazyload></p>
-<ol start="2">
-<li>再敲入<code>mysqld -remove mysql</code>，回车。</li>
-</ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">mysqld -<span class="hljs-built_in">remove</span> mysql<br></code></pre></td></tr></table></figure>
-
-<p><img src="/assets/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/19.png" srcset="/img/loading.gif" lazyload></p>
-<ol start="3">
-<li>最后删除MySQL目录及相关的环境变量。</li>
-</ol>
-<p><strong>至此，MySQL卸载完成！</strong></p>
+<p>解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R mysql:mysql /var/lib/mysql/<br>sudo <span class="hljs-built_in">chmod</span> -R 750 /var/lib/mysql/<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -509,9 +428,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AD%A6%E4%B9%A0/" title="【mysql】MySQL学习">
+                      <a href="/blog/%E3%80%90uniapp%E3%80%91uniapp%E4%BD%BF%E7%94%A8wxjsSDK/" title="【uniapp】uniapp使用wxjsSDK">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【mysql】MySQL学习</span>
+                        <span class="hidden-mobile">【uniapp】uniapp使用wxjsSDK</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -519,8 +438,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/%E3%80%90linux%E3%80%91%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA/" title="【linux】应用市场">
-                        <span class="hidden-mobile">【linux】应用市场</span>
+                      <a href="/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AD%A6%E4%B9%A0/" title="【mysql】MySQL学习">
+                        <span class="hidden-mobile">【mysql】MySQL学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
