@@ -16,22 +16,22 @@
   <meta name="author" content="rocyuan">
   <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
   
-    <meta name="description" content="个人信息姓名：RocYuan（袁鹏）性别：男生日：1996-08-17地址：陕西省西安市邮箱：&#114;&#x6f;&#99;&#121;&#x75;&#x61;&#110;&#54;&#x36;&#54;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://rocyuan666.gitee.io/about/index.html">
+    <meta name="description" content="【mysql】MySQL安装-centos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【mysql】MySQL安装-centos">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85-centos/index.html">
 <meta property="og:site_name" content="rocyuan">
-<meta property="og:description" content="个人信息姓名：RocYuan（袁鹏）性别：男生日：1996-08-17地址：陕西省西安市邮箱：&#114;&#x6f;&#99;&#121;&#x75;&#x61;&#110;&#54;&#x36;&#54;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;">
+<meta property="og:description" content="【mysql】MySQL安装-centos">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-29T07:46:03.731Z">
-<meta property="article:modified_time" content="2023-11-29T07:46:03.731Z">
+<meta property="article:published_time" content="2022-05-16T13:54:18.000Z">
+<meta property="article:modified_time" content="2024-04-01T03:23:26.781Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>关于 - rocyuan</title>
+  <title>【mysql】MySQL安装-centos - rocyuan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -279,15 +279,55 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于"></span>
+            <span id="subtitle" data-typed-text="【mysql】MySQL安装-centos"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-16 21:54" pubdate>
+          2022年5月16日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -303,76 +343,138 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/img/rocyuan.jpg" srcset="/img/loading.gif" lazyload class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">RocYuan</div>
-    <div class="about-intro">大鹏一日同风起，扶摇直上九万里</div>
-    <div class="about-icons">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-        
-        
-        
-        <a href=https://github.com/rocyuan666 class="
-           hint--bottom hint--rounded"
-           aria-label=GitHub
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【mysql】MySQL安装-centos</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-下载-rpm-源"><a href="#1-下载-rpm-源" class="headerlink" title="1 下载 rpm 源"></a>1 下载 rpm 源</h1><p>mysql 所有版本 与 KEY 源：<a target="_blank" rel="noopener" href="https://repo.mysql.com/">https://repo.mysql.com</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-添加-yum-仓库"><a href="#2-添加-yum-仓库" class="headerlink" title="2 添加 yum 仓库"></a>2 添加 yum 仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
+
+<p>添加后 &#x2F;etc&#x2F;yum.repos.d&#x2F; 目录下会存在 mysql-community.repo 仓库</p>
+<h1 id="3-下载密钥"><a href="#3-下载密钥" class="headerlink" title="3 下载密钥"></a>3 下载密钥</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/RPM-GPG-KEY-mysql-2023<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-替换密钥"><a href="#4-替换密钥" class="headerlink" title="4 替换密钥"></a>4 替换密钥</h1><p>查看 mysql-community.repo 中所要安装的包密钥存放位置 gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-mysql</p>
+<p>在 &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F; 目录下将下载的 RPM-GPG-KEY-mysql-2023 密钥更名为 RPM-GPG-KEY-mysql 或 修改 mysql-community.repo 文件中 gpgkey 所指定的文件</p>
+<h1 id="5-安装"><a href="#5-安装" class="headerlink" title="5 安装"></a>5 安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-server<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-启动"><a href="#6-启动" class="headerlink" title="6 启动"></a>6 启动</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start mysqld<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-查看临时密码"><a href="#7-查看临时密码" class="headerlink" title="7 查看临时密码"></a>7 查看临时密码</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /<span class="hljs-keyword">var</span>/<span class="hljs-keyword">log</span>/mysqld.<span class="hljs-keyword">log</span><br></code></pre></td></tr></table></figure>
+
+<p>找到这行：<br>[Note] [MY-010454] [Server] A temporary password is generated for root@localhost: hz8swEv%h+DN<br>hz8swEv%h+DN 为临时密码</p>
+<h1 id="8-修改临时密码"><a href="#8-修改临时密码" class="headerlink" title="8 修改临时密码"></a>8 修改临时密码</h1><p>在 MySQL 8 中，默认的密码策略要求密码必须包含：小写字母、大写字母、数字和特殊字符，并且长度不能少于 8 个字符。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;Root7858...&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="9-登录"><a href="#9-登录" class="headerlink" title="9 登录"></a>9 登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -uroot -p<br></code></pre></td></tr></table></figure>
+
+<p>输入密码登录</p>
+<h1 id="10-问题"><a href="#10-问题" class="headerlink" title="10 问题"></a>10 问题</h1><h2 id="启动权限报错"><a href="#启动权限报错" class="headerlink" title="启动权限报错"></a>启动权限报错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">● mysqld.service - MySQL Server<br>   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)<br>   Active: failed (Result: exit-code) since 一 2024-04-01 10:17:17 CST; 2min 23s ago<br>     Docs: man:mysqld(8)<br>           http://dev.mysql.com/doc/refman/en/using-systemd.html<br>  Process: 2074 ExecStart=/usr/sbin/mysqld <span class="hljs-variable">$MYSQLD_OPTS</span> (code=exited, status=1/FAILURE)<br>  Process: 2051 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)<br> Main PID: 2074 (code=exited, status=1/FAILURE)<br>   Status: <span class="hljs-string">&quot;Server shutdown complete&quot;</span><br>    Error: 13 (权限不够)<br><br>4月 01 10:17:17 localhost.localdomain systemd[1]: Starting MySQL Server...<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Failed to start MySQL Server.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Unit mysqld.service entered failed state.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service failed.<br></code></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R mysql:mysql /var/lib/mysql/<br>sudo <span class="hljs-built_in">chmod</span> -R 750 /var/lib/mysql/<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-        
-        
-        <a href=https://www.npmjs.com/search?q=rocyuan class="
-           hint--bottom hint--rounded"
-           aria-label=Npm
-           target="_blank"
-        >
-          <i class="iconfont icon-npmjs-line" aria-hidden="true"></i>
-          
-        </a>
+  <a href="/categories/blog/" class="category-chain-item">blog</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E3%80%90uniapp%E3%80%91uniapp%E4%BD%BF%E7%94%A8wxjsSDK/" title="【uniapp】uniapp使用wxjsSDK">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【uniapp】uniapp使用wxjsSDK</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AD%A6%E4%B9%A0/" title="【mysql】MySQL学习">
+                        <span class="hidden-mobile">【mysql】MySQL学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/qrcode.jpg" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
-      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
     </div>
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><p>姓名：RocYuan（袁鹏）<br>性别：男<br>生日：1996-08-17<br>地址：陕西省西安市<br>邮箱：<a href="mailto:&#114;&#x6f;&#99;&#121;&#x75;&#x61;&#110;&#54;&#x36;&#54;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;">&#114;&#x6f;&#99;&#121;&#x75;&#x61;&#110;&#54;&#x36;&#54;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;</a>  </p>
-
-  </div>
-
-  
-</article>
-
 
 
 
@@ -399,11 +501,8 @@
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
     
 
     
@@ -496,6 +595,46 @@
   
 
 
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
