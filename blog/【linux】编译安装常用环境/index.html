@@ -16,22 +16,22 @@
   <meta name="author" content="rocyuan">
   <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
   
-    <meta name="description" content="emptyDir">
+    <meta name="description" content="【linux】编译安装常用环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="emptyDir">
-<meta property="og:url" content="https://rocyuan666.gitee.io/fs-extra/emptyDir/index.html">
+<meta property="og:title" content="【linux】编译安装常用环境">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90linux%E3%80%91%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="rocyuan">
-<meta property="og:description" content="emptyDir">
+<meta property="og:description" content="【linux】编译安装常用环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-05T10:34:05.000Z">
-<meta property="article:modified_time" content="2023-11-30T12:13:06.661Z">
+<meta property="article:published_time" content="2022-04-30T07:22:55.000Z">
+<meta property="article:modified_time" content="2024-04-09T11:44:35.430Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>emptyDir - rocyuan</title>
+  <title>【linux】编译安装常用环境 - rocyuan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -285,7 +285,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="emptyDir"></span>
+            <span id="subtitle" data-typed-text="【linux】编译安装常用环境"></span>
           
         </div>
 
@@ -296,8 +296,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-05 18:34" pubdate>
-          2022年3月5日
+        <time datetime="2022-04-30 15:22" pubdate>
+          2022年4月30日
         </time>
       </span>
     
@@ -308,7 +308,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          731 字
+          182 字
         
       </span>
     
@@ -319,7 +319,7 @@
         
         
         
-          4 分钟
+          1 分钟
         
       </span>
     
@@ -356,21 +356,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">emptyDir</h1>
+            <h1 id="seo-header">【linux】编译安装常用环境</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="emptyDir-dir-callback"><a href="#emptyDir-dir-callback" class="headerlink" title="emptyDir(dir[, callback])"></a>emptyDir(dir[, callback])</h1><p>确保目录为空。如果目录不为空，则删除目录内容。如果目录不存在，则创建该目录。目录本身不会被删除。</p>
-<p><strong>Alias:</strong> <code>emptydir()</code></p>
-<ul>
-<li><code>dir</code> <code>&lt;String&gt;</code></li>
-<li><code>callback</code> <code>&lt;Function&gt;</code> <ul>
-<li><code>err</code> <code>&lt;Error&gt;</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs-extra&#x27;</span>)<br><br><span class="hljs-comment">// 假设这个目录有很多文件和文件夹</span><br><span class="hljs-comment">// 使用回调：</span><br>fs.<span class="hljs-title function_">emptyDir</span>(<span class="hljs-string">&#x27;/tmp/some/dir&#x27;</span>, <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err)<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;success!&#x27;</span>)<br>&#125;)<br><br><span class="hljs-comment">// 使用 Promise:</span><br>fs.<span class="hljs-title function_">emptyDir</span>(<span class="hljs-string">&#x27;/tmp/some/dir&#x27;</span>)<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;success!&#x27;</span>)<br>&#125;)<br>.<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err)<br>&#125;)<br><br><span class="hljs-comment">// 使用 async/await:</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">example</span> () &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">await</span> fs.<span class="hljs-title function_">emptyDir</span>(<span class="hljs-string">&#x27;/tmp/some/dir&#x27;</span>)<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;success!&#x27;</span>)<br>  &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err)<br>  &#125;<br>&#125;<br><br><span class="hljs-title function_">example</span>()<br></code></pre></td></tr></table></figure>
+                <h1 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h1><p>编译安装 nginx、python3、git 依赖集合</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install -y make gcc gcc-c++ zlib zlib-devel pcre pcre-devel openssl openssl-devel libffi-devel libtool curl-devel expat-devel gettext-devel perl-ExtUtils-MakeMaker<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -389,7 +381,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/fs-extra/" class="category-chain-item">fs-extra</a>
+  <a href="/categories/blog/" class="category-chain-item">blog</a>
   
   
 
@@ -411,9 +403,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/%E3%80%90linux%E3%80%91%E5%AE%89%E8%A3%85shadowsocks/" title="【linux】安装shadowsocks">
+                      <a href="/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85-windows/" title="【mysql】MySQL安装-windows">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【linux】安装shadowsocks</span>
+                        <span class="hidden-mobile">【mysql】MySQL安装-windows</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -421,8 +413,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/fs-extra/copy-sync/" title="copy-sync">
-                        <span class="hidden-mobile">copy-sync</span>
+                      <a href="/blog/%E3%80%90linux%E3%80%91%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA/" title="【linux】应用市场">
+                        <span class="hidden-mobile">【linux】应用市场</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
