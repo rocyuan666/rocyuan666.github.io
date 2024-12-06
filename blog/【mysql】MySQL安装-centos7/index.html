@@ -16,32 +16,22 @@
   <meta name="author" content="rocyuan">
   <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
   
-    <meta name="description" content="【3d】web3d需求制作">
+    <meta name="description" content="【mysql】MySQL安装-centos7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【3d】web3d需求制作">
-<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%903d%E3%80%91web3d%E9%9C%80%E6%B1%82%E5%88%B6%E4%BD%9C/index.html">
+<meta property="og:title" content="【mysql】MySQL安装-centos7">
+<meta property="og:url" content="https://rocyuan666.gitee.io/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AE%89%E8%A3%85-centos7/index.html">
 <meta property="og:site_name" content="rocyuan">
-<meta property="og:description" content="【3d】web3d需求制作">
+<meta property="og:description" content="【mysql】MySQL安装-centos7">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/1.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/2.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/3.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/4.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/6.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/7.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/8.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/9.jpg">
-<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/11.jpg">
-<meta property="article:published_time" content="2023-08-26T15:05:11.000Z">
-<meta property="article:modified_time" content="2023-11-30T11:39:02.978Z">
+<meta property="article:published_time" content="2022-05-16T13:54:18.000Z">
+<meta property="article:modified_time" content="2024-12-06T15:01:00.813Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://rocyuan666.gitee.io/assets/%E3%80%903d%E3%80%91web3d/1.jpg">
   
   
   
-  <title>【3d】web3d需求制作 - rocyuan</title>
+  <title>【mysql】MySQL安装-centos7 - rocyuan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -295,7 +285,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【3d】web3d需求制作"></span>
+            <span id="subtitle" data-typed-text="【mysql】MySQL安装-centos7"></span>
           
         </div>
 
@@ -306,8 +296,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-26 23:05" pubdate>
-          2023年8月26日
+        <time datetime="2022-05-16 21:54" pubdate>
+          2022年5月16日
         </time>
       </span>
     
@@ -318,7 +308,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          974 字
+          1.9k 字
         
       </span>
     
@@ -329,7 +319,7 @@
         
         
         
-          5 分钟
+          9 分钟
         
       </span>
     
@@ -366,37 +356,41 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">【3d】web3d需求制作</h1>
+            <h1 id="seo-header">【mysql】MySQL安装-centos7</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>使用 <code>3D Builder</code> 和 <code>three.js</code> 建设某库区3d完整场景，实时显示罐中的液位、温度、重量，泵阀的开关状态。  </p>
-<ul>
-<li><code>3D Builder</code> 是一款简单易用的建模软件  </li>
-<li><code>three.js</code> 是一个 3D js 库</li>
-</ul>
-<p>建模的软件有很多如 <code>3D MAX</code>  <code>Maya</code>  <code>Blender</code> 等…,，这些软件都比较重，学习起来也比较费时（主业做前端，没必要专门搞建模），所以我选择了一款简单易用的建模软件 <code>3D Builder</code> 。</p>
-<p>先用 <code>3D Builder</code> 创建场景中不变的部分当做 3D 背景的模型（如上的地、房屋、罐、墙体…）；创建完成后，另存为 <code>.glb</code> 格式提供给 <code>three.js</code> 进行加载，然后在代码中调整可变的部分（如上的液位进度、温度展示、重量展示、泵阀状态…）。</p>
-<p>结果如下：</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/1.jpg" srcset="/img/loading.gif" lazyload></p>
-<h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><h2 id="3D-Builder-下载"><a href="#3D-Builder-下载" class="headerlink" title="3D Builder 下载"></a>3D Builder 下载</h2><p>在微软商店中搜索： <code>3D Builder</code> 下载</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/2.jpg" srcset="/img/loading.gif" lazyload></p>
-<h2 id="3D-Builder-使用"><a href="#3D-Builder-使用" class="headerlink" title="3D Builder 使用"></a>3D Builder 使用</h2><p>打开软件后，点击，“新建场景” 创建3d场景；创建好后，通过插入“立方体”、“圆柱体”、“球体”、“棱锥形”、“六边形”……等图形进行创作；可以将插入的形状进行“拆分”、“平滑”、“浮雕”、“拉伸”、“合并”、“相交”、“减去”、“挖洞”、“绘制颜色”、“绘制纹理”……等一系列操作；总之发挥想象力创作出能够还原需求需要的3d场景。</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/3.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>也可以将一部分（比如房子）创建成单独的一个文件，建模完成后可以直接导入添加到场景文件中。</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/4.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>上图的房子就是利用八个立方体创作出来的，门窗可以找合适的图片贴上去（会ps更好，图片不合适的话稍微p一下）。</p>
-<h1 id="建模完成"><a href="#建模完成" class="headerlink" title="建模完成"></a>建模完成</h1><p>3D Builder 默认的源文件后缀为 <code>.3mf</code> ；创建好模型后为了在 <code>threejs</code> 中使用，需要另存为 <code>threejs</code> 支持的格式 <code>.glb</code> 或者 <code>.gltf</code> （我一般储存为 <code>.glb</code> ）。</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/6.jpg" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/7.jpg" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/8.jpg" srcset="/img/loading.gif" lazyload></p>
-<h1 id="创建Threejs"><a href="#创建Threejs" class="headerlink" title="创建Threejs"></a>创建Threejs</h1><p>threejs官方文档：<br><a target="_blank" rel="noopener" href="https://threejs.org/docs/index.html#manual/zh/">three.js docs (threejs.org)</a><br>使用起来比较复杂繁琐，参考官方示例项目完成一款方便完成需求的编辑器。</p>
-<p>编辑器github地址：<a target="_blank" rel="noopener" href="https://github.com/rocyuan666/threejs-tool">threejs-tool</a></p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/9.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>举例：3d文字变化<br>左下方选择 <code>GLB模型</code> 将我们创建的3d场景导入进来，创建 <code>文本</code> 放入3d场景中，将文字拖动至需要展示的地方；通过填写右侧 <code>绑定</code> 下的属性 <code>显示值</code> （接口返回数据的key值）改变文字。以上项目需求的液位是通过创建 <code>立方体</code> 绑定 <code>缩放Y</code> 实现的；状态是通过添加 <code>圆锥</code> 、 <code>球体</code> 等 绑定 <code>颜色</code> 值实现（不同颜色代表不同状态）。</p>
-<p><img src="/../../assets/%E3%80%903d%E3%80%91web3d/11.jpg" srcset="/img/loading.gif" lazyload></p>
-<h1 id="查看预览"><a href="#查看预览" class="headerlink" title="查看预览"></a>查看预览</h1><p>访问 <code>/play</code> 路由访问。</p>
+                <h1 id="1-下载-rpm-源"><a href="#1-下载-rpm-源" class="headerlink" title="1 下载 rpm 源"></a>1 下载 rpm 源</h1><p>mysql 所有版本 与 KEY 源：<a target="_blank" rel="noopener" href="https://repo.mysql.com/">https://repo.mysql.com</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-添加-yum-仓库"><a href="#2-添加-yum-仓库" class="headerlink" title="2 添加 yum 仓库"></a>2 添加 yum 仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-release-el7.rpm<br></code></pre></td></tr></table></figure>
+
+<p>添加后 &#x2F;etc&#x2F;yum.repos.d&#x2F; 目录下会存在 mysql-community.repo 仓库</p>
+<h1 id="3-下载密钥"><a href="#3-下载密钥" class="headerlink" title="3 下载密钥"></a>3 下载密钥</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://repo.mysql.com/RPM-GPG-KEY-mysql-2023<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-替换密钥"><a href="#4-替换密钥" class="headerlink" title="4 替换密钥"></a>4 替换密钥</h1><p>查看 mysql-community.repo 中所要安装的包密钥存放位置 gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-mysql</p>
+<p>在 &#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F; 目录下将下载的 RPM-GPG-KEY-mysql-2023 密钥更名为 RPM-GPG-KEY-mysql 或 修改 mysql-community.repo 文件中 gpgkey 所指定的文件</p>
+<h1 id="5-安装"><a href="#5-安装" class="headerlink" title="5 安装"></a>5 安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mysql-community-server<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-启动"><a href="#6-启动" class="headerlink" title="6 启动"></a>6 启动</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start mysqld<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-查看临时密码"><a href="#7-查看临时密码" class="headerlink" title="7 查看临时密码"></a>7 查看临时密码</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> /<span class="hljs-keyword">var</span>/<span class="hljs-keyword">log</span>/mysqld.<span class="hljs-keyword">log</span><br></code></pre></td></tr></table></figure>
+
+<p>找到这行：<br>[Note] [MY-010454] [Server] A temporary password is generated for root@localhost: hz8swEv%h+DN<br>hz8swEv%h+DN 为临时密码</p>
+<h1 id="8-修改临时密码"><a href="#8-修改临时密码" class="headerlink" title="8 修改临时密码"></a>8 修改临时密码</h1><p>在 MySQL 8 中，默认的密码策略要求密码必须包含：小写字母、大写字母、数字和特殊字符，并且长度不能少于 8 个字符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysqladmin -u root -p password<br></code></pre></td></tr></table></figure>
+
+<h1 id="9-登录"><a href="#9-登录" class="headerlink" title="9 登录"></a>9 登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<p>输入密码登录</p>
+<h1 id="10-问题"><a href="#10-问题" class="headerlink" title="10 问题"></a>10 问题</h1><h2 id="启动权限报错"><a href="#启动权限报错" class="headerlink" title="启动权限报错"></a>启动权限报错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">● mysqld.service - MySQL Server<br>   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)<br>   Active: failed (Result: exit-code) since 一 2024-04-01 10:17:17 CST; 2min 23s ago<br>     Docs: man:mysqld(8)<br>           http://dev.mysql.com/doc/refman/en/using-systemd.html<br>  Process: 2074 ExecStart=/usr/sbin/mysqld <span class="hljs-variable">$MYSQLD_OPTS</span> (code=exited, status=1/FAILURE)<br>  Process: 2051 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)<br> Main PID: 2074 (code=exited, status=1/FAILURE)<br>   Status: <span class="hljs-string">&quot;Server shutdown complete&quot;</span><br>    Error: 13 (权限不够)<br><br>4月 01 10:17:17 localhost.localdomain systemd[1]: Starting MySQL Server...<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Failed to start MySQL Server.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: Unit mysqld.service entered failed state.<br>4月 01 10:17:17 localhost.localdomain systemd[1]: mysqld.service failed.<br></code></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R mysql:mysql /var/lib/mysql/<br>sudo <span class="hljs-built_in">chmod</span> -R 750 /var/lib/mysql/<br></code></pre></td></tr></table></figure>
+
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>centos6 编译安装 mysql5.6 参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33729196/article/details/91750709">https://blog.csdn.net/weixin_33729196&#x2F;article&#x2F;details&#x2F;91750709</a></p>
 
                 
               </div>
@@ -437,9 +431,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/%E3%80%90%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%91codesmith-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE(%E4%B8%80)/" title="【代码生成器】codesmith-安装与配置(一)">
+                      <a href="/blog/%E3%80%90uniapp%E3%80%91uniapp%E4%BD%BF%E7%94%A8wxjsSDK/" title="【uniapp】uniapp使用wxjsSDK">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【代码生成器】codesmith-安装与配置(一)</span>
+                        <span class="hidden-mobile">【uniapp】uniapp使用wxjsSDK</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -447,8 +441,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91noVNC%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/" title="【记录】noVNC使用配置">
-                        <span class="hidden-mobile">【记录】noVNC使用配置</span>
+                      <a href="/blog/%E3%80%90mysql%E3%80%91MySQL%E5%AD%A6%E4%B9%A0/" title="【mysql】MySQL学习">
+                        <span class="hidden-mobile">【mysql】MySQL学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
