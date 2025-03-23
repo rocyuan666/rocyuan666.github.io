@@ -24,7 +24,7 @@
 <meta property="og:description" content="【threejs】材质Material">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-09T13:38:19.000Z">
-<meta property="article:modified_time" content="2025-03-23T13:36:34.579Z">
+<meta property="article:modified_time" content="2025-03-23T13:55:36.068Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -379,8 +379,8 @@
 <li><code>MeshBasicMaterial</code> - 基础网格材质（不受光照影响，仅显示颜色或纹理。适用于不需要光照的简单物体、背景、调试等。）</li>
 <li><code>MeshPhongMaterial</code> - Phong 网格材质（受光照影响，支持高光反射。适用于需要高光反射的物体（如塑料、金属））</li>
 <li><code>MeshLambertMaterial</code> - Lambert 网格材质（受光照影响，但不支持高光反射。适用于需要漫反射的物体（如布料、纸张））</li>
-<li><code>MeshStandardMaterial</code> - 标准网格材质（基于物理的渲染（PBR），支持金属度和粗糙度。适用于需要真实感渲染的物体（如金属、陶瓷）。）</li>
-<li><code>MeshPhysicalMaterial</code> - 物理网格材质（MeshStandardMaterial 的扩展，支持更多物理属性（如清漆、透光率）。）</li>
+<li><code>MeshStandardMaterial</code> - 标准网格材质（受光照影响，基于物理的渲染（PBR），支持金属度和粗糙度。适用于需要真实感渲染的物体（如金属、陶瓷）。）</li>
+<li><code>MeshPhysicalMaterial</code> - 物理网格材质（受光照影响，MeshStandardMaterial 的扩展，支持更多物理属性（如清漆、透光率）。）</li>
 <li><code>MeshToonMaterial</code> - 卡通网格材质（卡通风格的渲染，颜色分层。适用于卡通风格的物体。）</li>
 <li><code>MeshNormalMaterial</code> - 法线网格材质（显示物体的法线方向。适用于调试法线或创建特殊效果。）</li>
 <li><code>MeshDepthMaterial</code> - 深度网格材质（根据物体与相机的距离显示灰度颜色。适用于深度可视化或后处理效果。）</li>
@@ -395,7 +395,7 @@
 <li><code>ShadowMaterial</code> - 阴影材质</li>
 <li><code>SpriteMaterial</code> - 点精灵材质</li>
 </ul>
-<p>文档中可查看具体材质样式及详细参数：<a target="_blank" rel="noopener" href="https://threejs.rocyuan.top/docs/?q=m#api/zh/materials/MeshBasicMaterial">https://threejs.rocyuan.top/docs/?q=m#api/zh/materials/MeshBasicMaterial</a></p>
+<p>文档：<a target="_blank" rel="noopener" href="https://threejs.rocyuan.top/docs/?q=m#api/zh/materials/MeshBasicMaterial">https://threejs.rocyuan.top/docs/?q=m#api/zh/materials/MeshBasicMaterial</a></p>
 <h1 id="材质选择"><a href="#材质选择" class="headerlink" title="材质选择"></a>材质选择</h1><ul>
 <li>简单物体：<code>MeshBasicMaterial</code></li>
 <li>需要光照的物体：<code>MeshPhongMaterial</code> 或 <code>MeshLambertMaterial</code></li>
@@ -442,9 +442,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/code-generate/%E3%80%90%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E3%80%91codesmith-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE(%E4%B8%80)/" title="【代码生成】codesmith-安装与配置(一)">
+                      <a href="/web3d/%E3%80%90threejs%E3%80%91%E5%87%A0%E4%BD%95%E4%BD%93Geometry/" title="【threejs】几何体Geometry">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【代码生成】codesmith-安装与配置(一)</span>
+                        <span class="hidden-mobile">【threejs】几何体Geometry</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -452,8 +452,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/web3d/%E3%80%90threejs%E3%80%91%E5%87%A0%E4%BD%95%E4%BD%93Geometry/" title="【threejs】几何体Geometry">
-                        <span class="hidden-mobile">【threejs】几何体Geometry</span>
+                      <a href="/web3d/%E3%80%90threejs%E3%80%91%E5%88%9B%E5%BB%BA%E4%B8%89%E7%BB%B4%E7%89%A9%E4%BD%93%E6%AD%A5%E9%AA%A4/" title="【threejs】创建三维物体步骤">
+                        <span class="hidden-mobile">【threejs】创建三维物体步骤</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
