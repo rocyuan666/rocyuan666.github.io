@@ -1,0 +1,1208 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【linux】命令备忘表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【linux】命令备忘表">
+<meta property="og:url" content="https://rocyuan666.gitee.io/linux/%E3%80%90linux%E3%80%91%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98%E8%A1%A8/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【linux】命令备忘表">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-02T14:50:05.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.671Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【linux】命令备忘表 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【linux】命令备忘表"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-10-02 22:50" pubdate>
+          2020年10月2日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【linux】命令备忘表</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-系统"><a href="#1-系统" class="headerlink" title="1) 系统"></a>1) 系统</h2><table>
+<thead>
+<tr>
+<th>uname</th>
+<th>显示 Linux 系统信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uname -r</td>
+<td>显示内核版本信息</td>
+</tr>
+<tr>
+<td>uptime</td>
+<td>显示系统运行了多长时间，包括平均负载</td>
+</tr>
+<tr>
+<td>hostname</td>
+<td>显示系统主机名</td>
+</tr>
+<tr>
+<td>hostname -i</td>
+<td>显示系统的 IP 地址</td>
+</tr>
+<tr>
+<td>last reboot</td>
+<td>显示系统重启历史</td>
+</tr>
+<tr>
+<td>date</td>
+<td>显示当前系统日期和时间</td>
+</tr>
+<tr>
+<td>timedatectl</td>
+<td>查询和更改系统时钟</td>
+</tr>
+<tr>
+<td>cal</td>
+<td>显示当前日历月和日</td>
+</tr>
+<tr>
+<td>w</td>
+<td>显示系统中当前登录的用户</td>
+</tr>
+<tr>
+<td>whoami</td>
+<td>显示您的登录身份</td>
+</tr>
+<tr>
+<td>finger username</td>
+<td>显示有关用户的信息</td>
+</tr>
+</tbody></table>
+<h2 id="2-硬件"><a href="#2-硬件" class="headerlink" title="2) 硬件"></a>2) 硬件</h2><table>
+<thead>
+<tr>
+<th>dmesg</th>
+<th>显示启动消息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cat &#x2F;proc&#x2F;cpuinfo</td>
+<td>显示有关 CPU 的更多信息，例如型号、型号名称、内核、供应商 ID</td>
+</tr>
+<tr>
+<td>cat &#x2F;proc&#x2F;meminfo</td>
+<td>显示有关硬件内存的更多信息，例如 Total 和 Free memory</td>
+</tr>
+<tr>
+<td>lshw</td>
+<td>显示有关系统硬件配置的信息</td>
+</tr>
+<tr>
+<td>lsblk</td>
+<td>显示块设备相关信息</td>
+</tr>
+<tr>
+<td>free -m</td>
+<td>显示系统中的空闲和已用内存（-m 标志表示内存以 MB 为单位）</td>
+</tr>
+<tr>
+<td>lspci -tv</td>
+<td>以树状图显示 PCI 设备</td>
+</tr>
+<tr>
+<td>lsusb -tv</td>
+<td>以树状图显示 USB 设备</td>
+</tr>
+<tr>
+<td>dmidecode</td>
+<td>显示来自 BIOS 的硬件信息</td>
+</tr>
+<tr>
+<td>hdparm -i &#x2F;dev&#x2F;xda</td>
+<td>显示有关磁盘数据的信息</td>
+</tr>
+<tr>
+<td>hdparm -tT &#x2F;dev&#x2F;xda &lt;:code&gt;</td>
+<td>在设备 xda 上进行读取速度测试</td>
+</tr>
+<tr>
+<td>badblocks -s &#x2F;dev&#x2F;xda</td>
+<td>测试磁盘上不可读的块</td>
+</tr>
+</tbody></table>
+<h2 id="3-用户"><a href="#3-用户" class="headerlink" title="3) 用户"></a>3) 用户</h2><table>
+<thead>
+<tr>
+<th>id</th>
+<th>显示活动用户的详细信息，例如 uid、gid 和组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>last</td>
+<td>显示系统中的最后一次登录</td>
+</tr>
+<tr>
+<td>who</td>
+<td>显示谁登录到系统</td>
+</tr>
+<tr>
+<td>groupadd “admin”</td>
+<td>添加组“管理员”</td>
+</tr>
+<tr>
+<td>adduser “rocyuan”</td>
+<td>添加用户 rocyuan</td>
+</tr>
+<tr>
+<td>userdel “rocyuan”</td>
+<td>删除用户 rocyuan</td>
+</tr>
+<tr>
+<td>usermod</td>
+<td>用于更改&#x2F;修改用户信息</td>
+</tr>
+</tbody></table>
+<h2 id="4-文件命令"><a href="#4-文件命令" class="headerlink" title="4) 文件命令"></a>4) 文件命令</h2><table>
+<thead>
+<tr>
+<th>ls -al</th>
+<th>列出文件 - 常规和隐藏文件及其权限。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pwd</td>
+<td>显示当前目录文件路径</td>
+</tr>
+<tr>
+<td>mkdir ‘directory_name’</td>
+<td>创建一个新目录</td>
+</tr>
+<tr>
+<td>rm file_name</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>rm -f filename</td>
+<td>强制删除文件</td>
+</tr>
+<tr>
+<td>rm -r directory_name</td>
+<td>递归删除目录</td>
+</tr>
+<tr>
+<td>rm -rf directory_name</td>
+<td>以递归方式强制删除目录</td>
+</tr>
+<tr>
+<td>cp file1 file2</td>
+<td>将file1的内容复制到file2</td>
+</tr>
+<tr>
+<td>cp -r dir1 dir2</td>
+<td>递归地将 dir1 复制到 dir2。dir2 如果不存在则创建</td>
+</tr>
+<tr>
+<td>mv file1 file2</td>
+<td>将文件1重命名为文件2</td>
+</tr>
+<tr>
+<td>ln -s &#x2F;path&#x2F;to&#x2F;file_name   link_name</td>
+<td>创建指向 file_name 的符号链接</td>
+</tr>
+<tr>
+<td>touch file_name</td>
+<td>创建一个新文件</td>
+</tr>
+<tr>
+<td>cat &gt; file_name</td>
+<td>将标准输入放入文件</td>
+</tr>
+<tr>
+<td>more file_name</td>
+<td>输出文件的内容</td>
+</tr>
+<tr>
+<td>head file_name</td>
+<td>显示文件的前 10 行</td>
+</tr>
+<tr>
+<td>tail file_name</td>
+<td>显示文件的最后 10 行</td>
+</tr>
+<tr>
+<td>gpg -c file_name</td>
+<td>加密文件</td>
+</tr>
+<tr>
+<td>gpg file_name.gpg</td>
+<td>解密文件</td>
+</tr>
+<tr>
+<td>wc</td>
+<td>打印文件中的字节数、字数和行数</td>
+</tr>
+<tr>
+<td>xargs</td>
+<td>从标准输入执行命令</td>
+</tr>
+</tbody></table>
+<h2 id="5-进程相关"><a href="#5-进程相关" class="headerlink" title="5) 进程相关"></a>5) 进程相关</h2><table>
+<thead>
+<tr>
+<th>ps</th>
+<th>显示当前活动的进程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ps aux &#124; grep ‘telnet’</td>
+<td>搜索进程 ‘telnet’ 的 id</td>
+</tr>
+<tr>
+<td>pmap</td>
+<td>显示进程的内存映射</td>
+</tr>
+<tr>
+<td>top</td>
+<td>显示所有正在运行的进程</td>
+</tr>
+<tr>
+<td>kill pid</td>
+<td>使用给定的 pid 终止进程</td>
+</tr>
+<tr>
+<td>killall proc</td>
+<td>杀死&#x2F;终止所有名为 proc 的进程</td>
+</tr>
+<tr>
+<td>pkill process-name</td>
+<td>使用名称向进程发送信号</td>
+</tr>
+<tr>
+<td>bg</td>
+<td>在后台恢复暂停的作业</td>
+</tr>
+<tr>
+<td>fg</td>
+<td>将暂停的作业置于前台</td>
+</tr>
+<tr>
+<td>fg n</td>
+<td>工作 n 到前台</td>
+</tr>
+<tr>
+<td>lsof</td>
+<td>列出进程打开的文件</td>
+</tr>
+<tr>
+<td>renice 19 PID</td>
+<td>使进程以非常低的优先级运行</td>
+</tr>
+<tr>
+<td>pgrep firefox</td>
+<td>查找 Firefox 进程 ID</td>
+</tr>
+<tr>
+<td>pstree</td>
+<td>在树模型中可视化流程</td>
+</tr>
+</tbody></table>
+<h2 id="6-文件权限"><a href="#6-文件权限" class="headerlink" title="6) 文件权限"></a>6) 文件权限</h2><table>
+<thead>
+<tr>
+<th>chmod octal filename</th>
+<th>将文件的文件权限更改为八进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>chmod 777 &#x2F;data&#x2F;test.c</td>
+<td>将 rwx 权限设置为所有者、组和所有人（有权访问服务器的其他所有人）</td>
+</tr>
+<tr>
+<td>chmod 755 &#x2F;data&#x2F;test.c</td>
+<td>将 rwx 设置为所有者，将 r_x 设置为组和所有人</td>
+</tr>
+<tr>
+<td>chmod 766 &#x2F;data&#x2F;test.c</td>
+<td>为所有者设置 rwx，为组和每个人设置 rw</td>
+</tr>
+<tr>
+<td>chown owner user-file</td>
+<td>更改文件的所有权</td>
+</tr>
+<tr>
+<td>chown owner-user:owner-group file_name</td>
+<td>更改文件的所有者和组所有者</td>
+</tr>
+<tr>
+<td>chown owner-user:owner-group directory</td>
+<td>更改目录的所有者和组所有者</td>
+</tr>
+</tbody></table>
+<h2 id="7-网络"><a href="#7-网络" class="headerlink" title="7) 网络"></a>7) 网络</h2><table>
+<thead>
+<tr>
+<th>ip addr show</th>
+<th>显示 IP 地址和所有网络接口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ip address add 192.168.0.1&#x2F;24 dev eth0</td>
+<td>将 IP 地址 192.168.0.1 分配给接口 eth0</td>
+</tr>
+<tr>
+<td>ifconfig</td>
+<td>显示所有网络接口的 IP 地址</td>
+</tr>
+<tr>
+<td>ping host</td>
+<td>ping 命令发送 ICMP 回显请求以建立与服务器&#x2F;PC 的连接</td>
+</tr>
+<tr>
+<td>whois domain</td>
+<td>检索有关域名的更多信息</td>
+</tr>
+<tr>
+<td>dig domain</td>
+<td>检索有关域的 DNS 信息</td>
+</tr>
+<tr>
+<td>dig -x host</td>
+<td>对域执行反向查找</td>
+</tr>
+<tr>
+<td>host google.com</td>
+<td>对域名执行 IP 查找</td>
+</tr>
+<tr>
+<td>hostname -i</td>
+<td>显示本地 IP 地址</td>
+</tr>
+<tr>
+<td>wget file_name</td>
+<td>从在线资源下载文件</td>
+</tr>
+<tr>
+<td>netstat -pnltu</td>
+<td>显示所有活动的监听端口</td>
+</tr>
+</tbody></table>
+<h2 id="8-压缩-存档"><a href="#8-压缩-存档" class="headerlink" title="8) 压缩&#x2F;存档"></a>8) 压缩&#x2F;存档</h2><table>
+<thead>
+<tr>
+<th>tar -cf home.tar home&lt;:code&gt;</th>
+<th>从文件 ‘home’ 创建名为 ‘home.tar’ 的存档文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tar -xf files.tar</td>
+<td>提取存档文件“files.tar”</td>
+</tr>
+<tr>
+<td>tar -zcvf home.tar.gz source-folder</td>
+<td>从源文件夹创建 gzipped tar 归档文件</td>
+</tr>
+<tr>
+<td>gzip file</td>
+<td>压缩扩展名为 .gz 的文件</td>
+</tr>
+</tbody></table>
+<h2 id="9-安装软件包"><a href="#9-安装软件包" class="headerlink" title="9) 安装软件包"></a>9) 安装软件包</h2><table>
+<thead>
+<tr>
+<th>rpm -i pkg_name.rpm</th>
+<th>安装一个 rpm 包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rpm -e pkg_name</td>
+<td>删除一个 rpm 包</td>
+</tr>
+<tr>
+<td>dnf install pkg_name</td>
+<td>使用 dnf 实用程序安装软件包</td>
+</tr>
+</tbody></table>
+<h2 id="10-安装源（编译）"><a href="#10-安装源（编译）" class="headerlink" title="10) 安装源（编译）"></a>10) 安装源（编译）</h2><table>
+<thead>
+<tr>
+<th>.&#x2F;configure</th>
+<th>检查您的系统是否有构建程序所需的软件。它将构建包含有效构建项目所需的说明的 Makefile</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>make</td>
+<td>它读取 Makefile 以编译具有所需操作的程序。该过程可能需要一些时间，具体取决于您的系统和程序的大小</td>
+</tr>
+<tr>
+<td>make install</td>
+<td>该命令在编译后将二进制文件安装在默认&#x2F;修改路径中</td>
+</tr>
+</tbody></table>
+<h2 id="11-搜索"><a href="#11-搜索" class="headerlink" title="11) 搜索"></a>11) 搜索</h2><table>
+<thead>
+<tr>
+<th>grep ‘pattern’ files</th>
+<th>在文件中搜索给定的模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>grep -r pattern dir</td>
+<td>递归搜索给定目录中的模式</td>
+</tr>
+<tr>
+<td>locate file</td>
+<td>查找文件的所有实例</td>
+</tr>
+<tr>
+<td>find &#x2F;home -name “index”</td>
+<td>在 &#x2F;home 文件夹中查找以 ‘index’ 开头的文件名</td>
+</tr>
+<tr>
+<td>find &#x2F;home -size +10000k</td>
+<td>在主文件夹中查找大于 10000k 的文件</td>
+</tr>
+</tbody></table>
+<h2 id="12-登录"><a href="#12-登录" class="headerlink" title="12) 登录"></a>12) 登录</h2><table>
+<thead>
+<tr>
+<th>ssh user@host</th>
+<th>以用户身份安全连接到主机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ssh -p port_number user@host</td>
+<td>使用指定端口安全连接到主机</td>
+</tr>
+<tr>
+<td>ssh host</td>
+<td>通过 SSH 默认端口 22 安全连接到系统</td>
+</tr>
+<tr>
+<td>telnet host</td>
+<td>通过 telnet 默认端口 23 连接到主机</td>
+</tr>
+</tbody></table>
+<h2 id="13-文件传输"><a href="#13-文件传输" class="headerlink" title="13) 文件传输"></a>13) 文件传输</h2><table>
+<thead>
+<tr>
+<th>scp file1.txt server2&#x2F;tmp</th>
+<th>安全地将 file1.txt 复制到 &#x2F;tmp 目录中的 server2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rsync -a &#x2F;home&#x2F;apps  &#x2F;backup&#x2F;</td>
+<td>将 &#x2F;home&#x2F;apps 目录中的内容与 &#x2F;backup 目录同步</td>
+</tr>
+</tbody></table>
+<h2 id="14-磁盘使用情况"><a href="#14-磁盘使用情况" class="headerlink" title="14) 磁盘使用情况"></a>14) 磁盘使用情况</h2><table>
+<thead>
+<tr>
+<th>df -h</th>
+<th>显示已安装系统上的可用空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>df -i</td>
+<td>显示文件系统上的空闲 inode</td>
+</tr>
+<tr>
+<td>fdisk -l</td>
+<td>显示磁盘分区、大小和类型</td>
+</tr>
+<tr>
+<td>du -sh</td>
+<td>以人类可读的格式显示当前目录中的磁盘使用情况</td>
+</tr>
+<tr>
+<td>findmnt</td>
+<td>显示所有文件系统的目标挂载点</td>
+</tr>
+<tr>
+<td>mount device-path mount-point</td>
+<td>挂载设备</td>
+</tr>
+</tbody></table>
+<h2 id="15-目录遍历"><a href="#15-目录遍历" class="headerlink" title="15)目录遍历"></a>15)目录遍历</h2><table>
+<thead>
+<tr>
+<th>cd ..</th>
+<th>在目录树结构中上移一级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cd</td>
+<td>将目录更改为 $HOME 目录</td>
+</tr>
+<tr>
+<td>cd &#x2F;test</td>
+<td>将目录更改为 &#x2F;test 目录</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/css/%E3%80%90css%E3%80%91sass%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/" title="【css】sass超出省略号">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【css】sass超出省略号</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/linux/%E3%80%90linux%E3%80%91centos7%E9%83%A8%E7%BD%B2gitea-1.21.7/" title="【linux】centos7部署gitea-1.21.7">
+                        <span class="hidden-mobile">【linux】centos7部署gitea-1.21.7</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【node】npm从入门到私服搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【node】npm从入门到私服搭建">
+<meta property="og:url" content="https://rocyuan666.gitee.io/node/%E3%80%90node%E3%80%91npm%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【node】npm从入门到私服搭建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/1.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/2.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/3.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/4.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/5.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/6.png">
+<meta property="article:published_time" content="2020-12-31T09:04:07.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.671Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/1.png">
+  
+  
+  
+  <title>【node】npm从入门到私服搭建 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【node】npm从入门到私服搭建"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-12-31 17:04" pubdate>
+          2020年12月31日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【node】npm从入门到私服搭建</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="什么是npm"><a href="#什么是npm" class="headerlink" title="什么是npm"></a>什么是npm</h2><p>Npm（全称:Node Package Manager）是Node包管理工具。</p>
+<h2 id="为什么要使用npm"><a href="#为什么要使用npm" class="headerlink" title="为什么要使用npm"></a>为什么要使用npm</h2><p>一个项目是成长的，可能规模越来越大或者越来越复杂，所以需要的包或依赖也会越来越多。每个包都有自己的生长方式，生长的快慢他们肯定是有不同的版本，每个包都有它们各自的版本。<br>如果一个包依赖另一个包。比如：有Jquery插件叫”A”依赖着Jquery，那这个插件”A”现在版本是2然后它依赖的Jquery版本是1，现在如果把Jquery版本升到2那插件”A”很有可能会停止工作表现出来是满页都报错。<br>这时就必须查看文档了解当前这个Jquery插件用的是哪个版本的Jquery,然后把Jquery也更新掉之后你发现插件”A”好像开始工作了(但是插件”B”也依赖着Jquery)插件”B”又挂掉了（同时插件”C”又依赖着插件”B”）插件”C”也跟着挂掉了。<br>基于上述糟糕的情况，Npm应运而生。它不但可以把代码从网上download下来最重要的是它可以帮我们管理不同包之间的关系（比如:这个包依赖着哪个包并且依赖那个版本号是多少当前版本号是多少）。</p>
+<h2 id="没有npm之前我们的操作"><a href="#没有npm之前我们的操作" class="headerlink" title="没有npm之前我们的操作"></a>没有npm之前我们的操作</h2><p>当前项目需依赖哪个包就到”bootcdn.cn”官网找到相应包拷贝链接cdn引入，或者下载代码到本地引用。</p>
+<h2 id="Npm安装和更新"><a href="#Npm安装和更新" class="headerlink" title="Npm安装和更新"></a>Npm安装和更新</h2><p>npm不需要单独安装。在安装Node的时候，会连带一起安装npm。但是，Node附带的npm可能不是最新版本。<br>查看版本：<code>npm -v</code><br>更新版本：<code>npm install -g npm@latest</code></p>
+<h2 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h2><p><code>npm config list</code><br>查看基本配置npm仓库地址，根目录等配置信息<br><code>npm config list -l</code><br>查看全部npm默认配置</p>
+<h2 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h2><p><code>npm config get registry</code><br>查看当前配置的源地址<br><code>npm config set registry=https://registry.npmmirror.com</code><br>配置源地址</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p><code>npm init</code><br><code>npm init</code> 用来初始化生成一个新的package.json文件。它会向用户提问一系列问题，如果你觉得不用修改默认配置，一路回车就可以了。</p>
+<h2 id="Package-json文件详解"><a href="#Package-json文件详解" class="headerlink" title="Package.json文件详解"></a>Package.json文件详解</h2><p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/1.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>	<span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;demo1&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 包名</span><br>	<span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 包版本号</span><br>	<span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 包描述</span><br>	<span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.js&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 包入口文件</span><br>	<span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span>  <span class="hljs-comment">// 定义执行脚本</span><br>		<span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo \”Error: no test specified\” &amp;&amp; exit 1&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>	<span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rocyuan&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 作者</span><br>	<span class="hljs-attr">&quot;license&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISC&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 开源许可证</span><br>	<span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// 生产时依赖的包</span><br>	<span class="hljs-attr">&quot;devDependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span>  <span class="hljs-comment">// 开发时依赖的包</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="npm安装包"><a href="#npm安装包" class="headerlink" title="npm安装包"></a>npm安装包</h2><p><code>npm install</code><br>此命令会将项目所依赖的包安装到项目的node_modules中，但是不会修改package.json</p>
+<p><code>npm install &lt;PackageName&gt;@&lt;version&gt; -g</code><br>此命令会将包及对应的版本安装到全局目录中(npm config list prefix所对应的目录)，不修改package.json，执行npm install不会自动安装。</p>
+<p><code>npm install &lt;PackageName&gt;@&lt;version&gt; –save</code><br>此命令会将包及对应的版本安装到node_modules中，同时修改package.json文件，添加到dependencies节点。执行npm install 时会自动安装这个包到node_modules中。</p>
+<p><code>npm install &lt;PackageName&gt;@&lt;version&gt; –save-dev</code><br>此命令会将包及对应的版本安装到node_modules中，同时修改packgage.json,将包添加到devDependencies节中，执行npm install 会自动安装这个包到node_modules中。</p>
+<h2 id="npm卸载包"><a href="#npm卸载包" class="headerlink" title="npm卸载包"></a>npm卸载包</h2><p><code>npm uninstall &lt;PackageName&gt;</code><br>此命令会将node_modules中的 包卸载，同时修改packgage.json。</p>
+<h2 id="npm更新包"><a href="#npm更新包" class="headerlink" title="npm更新包"></a>npm更新包</h2><p><code>npm update &lt;PackageName&gt;</code><br>此命令会将node_modules中的包进行更新，但是此更新是按照package.json中指定的版本进行更新的（一般默认只会更新当前大版本的最新版本），只会更新到当前大版本的最新版本，同时修改packgage.json。</p>
+<h2 id="npm查看包"><a href="#npm查看包" class="headerlink" title="npm查看包"></a>npm查看包</h2><p><code>npm list</code><br>此命令会以树形结构打印出当前项目所依赖的包结构，-depth代表深度，0代表一级</p>
+<h2 id="npm查看全局安装的包"><a href="#npm查看全局安装的包" class="headerlink" title="npm查看全局安装的包"></a>npm查看全局安装的包</h2><p><code>npm list -g -depth 0</code><br>此命令会以树形结构打印出全局安装的包结构，-depth代表深度，0代表一级</p>
+<h2 id="npm执行脚本"><a href="#npm执行脚本" class="headerlink" title="npm执行脚本"></a>npm执行脚本</h2><p><code>npm run &lt;ScriptName&gt;</code><br>此命令会执行package.json文件中定义的脚本。</p>
+<h2 id="npm创建用户"><a href="#npm创建用户" class="headerlink" title="npm创建用户"></a>npm创建用户</h2><p><code>npm adduser</code><br>此命令会在npm指向的镜像源注册一个账户，会让输入用户名密码以及邮箱</p>
+<h2 id="npm登录"><a href="#npm登录" class="headerlink" title="npm登录"></a>npm登录</h2><p><code>npm login</code><br>此命令会在npm指向的镜像源进行登录（前提是注册过的账号），会让输入用户名密码以及邮箱。</p>
+<p><code>npm login --registry=http://192.168.0.106:8081/repository/npm-hosted/</code><br>登陆到指定的源</p>
+<h2 id="npm当前登录的用户"><a href="#npm当前登录的用户" class="headerlink" title="npm当前登录的用户"></a>npm当前登录的用户</h2><p><code>npm whoami</code><br>此命令会打印当前登录的npm用户名</p>
+<p><code>npm whoami --registry=http://192.168.0.106:8081/repository/npm-hosted/</code><br>查看当前命令行 指定源登陆的账号</p>
+<h2 id="npm发布包"><a href="#npm发布包" class="headerlink" title="npm发布包"></a>npm发布包</h2><p><code>npm publish</code><br>此命令会在npm指向的镜像源上传当前的包，提供install。</p>
+<h2 id="npm删除发布包"><a href="#npm删除发布包" class="headerlink" title="npm删除发布包"></a>npm删除发布包</h2><p><code>npm unpublish &lt;PackageName&gt;</code><br>此命令会在npm指向的镜像源上删除发布的包</p>
+<h2 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h2><p>npm由于镜像源在国外，在国内使用可能会比较慢，使用以下命令可安装cnpm包并指向taobao镜像源。<br><code>npm install cnpm -g --registry=https://registry.npm.taobao.org</code></p>
+<h2 id="npm私服介绍"><a href="#npm私服介绍" class="headerlink" title="npm私服介绍"></a>npm私服介绍</h2><p>如果公司或团队处于隐私保护的需要，不想将自己封的包推到npm社区，但又需要一套完整的包管理工具来管理越来越多的组件、模块等等，那么搭建私服实际上就是我们搭建本地镜像源服务（私有源），切换npm镜像源到我们本地的私有源，这里介绍两个工具：nrm与verdaccio。</p>
+<h2 id="nrm工具介绍"><a href="#nrm工具介绍" class="headerlink" title="nrm工具介绍"></a>nrm工具介绍</h2><p>nrm(npm registry manager )是npm的镜像源管理工具，使用这个就可以快速地在 npm 所有配置的镜像源之间切换</p>
+<h2 id="nrm安装"><a href="#nrm安装" class="headerlink" title="nrm安装"></a>nrm安装</h2><p><code>npm install -g nrm</code><br>此命令会全局安装nrm工具</p>
+<h2 id="nrm增加源"><a href="#nrm增加源" class="headerlink" title="nrm增加源"></a>nrm增加源</h2><p><code>nrm add &lt;RegistryName&gt; &lt;RegistryUrl&gt;</code><br>此命令会在添加镜像源，RegistryName：镜像源的名称；RegistryUrl：镜像源的地址</p>
+<h2 id="nrm删除源"><a href="#nrm删除源" class="headerlink" title="nrm删除源"></a>nrm删除源</h2><p><code>nrm del &lt;RegistryName&gt;</code><br>此命令会删除镜像源。</p>
+<h2 id="nrm切换源"><a href="#nrm切换源" class="headerlink" title="nrm切换源"></a>nrm切换源</h2><p><code>nrm use &lt;RegistryName&gt;</code><br>此命令会切换到对应名称的镜像源</p>
+<h2 id="nrm查看源"><a href="#nrm查看源" class="headerlink" title="nrm查看源"></a>nrm查看源</h2><p><code>nrm ls</code><br>此命令会查看当前的npm的所有镜像源名称及地址，带*号的是当前所用的镜像源</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/2.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="nrm测试当前npm源的响应速度"><a href="#nrm测试当前npm源的响应速度" class="headerlink" title="nrm测试当前npm源的响应速度"></a>nrm测试当前npm源的响应速度</h2><p><code>nrm test npm</code><br>此命令会打印出响应的毫秒数</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/3.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="verdaccio工具介绍"><a href="#verdaccio工具介绍" class="headerlink" title="verdaccio工具介绍"></a>verdaccio工具介绍</h2><p><a target="_blank" rel="noopener" href="https://verdaccio.org/">Verdaccio</a>是一个比较简单的配置本地私有npm镜像源的工具。</p>
+<h2 id="verdaccio的安装"><a href="#verdaccio的安装" class="headerlink" title="verdaccio的安装"></a>verdaccio的安装</h2><p><code>npm install -g verdaccio</code><br>此命令会全局安装verdaccio</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/4.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="verdaccio运行"><a href="#verdaccio运行" class="headerlink" title="verdaccio运行"></a>verdaccio运行</h2><p><code>verdaccio</code><br>此命令会运行verdaccio，运行完成后打开浏览器进入本地服务：</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:4873/">http://localhost:4873/</a></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/6.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/node/" class="category-chain-item">node</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/react/%E3%80%90react%E3%80%91jsx%E4%B8%8E%E6%B8%B2%E6%9F%93/" title="【react】jsx与渲染">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【react】jsx与渲染</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/record/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91TP5%20Linux%E4%B8%8BPermission%20denied/" title="【记录】TP5 Linux下Permission denied">
+                        <span class="hidden-mobile">【记录】TP5 Linux下Permission denied</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

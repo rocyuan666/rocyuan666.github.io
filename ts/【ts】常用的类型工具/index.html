@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【ts】类型工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ts】类型工具">
+<meta property="og:url" content="https://rocyuan666.gitee.io/ts/%E3%80%90ts%E3%80%91%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【ts】类型工具">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-25T12:15:31.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.687Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【ts】类型工具 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【ts】类型工具"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-03-25 20:15" pubdate>
+          2023年3月25日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【ts】类型工具</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>TypeScript 内部提供了一些方便使用的类型工具。</p>
+<h1 id="Awaited"><a href="#Awaited" class="headerlink" title="Awaited&lt;Type&gt;"></a><code>Awaited&lt;Type&gt;</code></h1><p><code>Awaited&lt;Type&gt;</code>用来取出 Promise 的返回值类型，适合用在描述<code>then()</code>方法和 await 命令的参数类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// string</span><br><span class="hljs-keyword">type</span> A = <span class="hljs-title class_">Awaited</span>&lt;<span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Awaited&lt;Type&gt;</code>会返回 Promise 的返回值类型（string）。</p>
+<p>它也可以返回多重 Promise 的返回值类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// number</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">Awaited</span>&lt;<span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt;&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>如果它的类型参数不是 Promise 类型，那么就会原样返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// number | boolean</span><br><span class="hljs-keyword">type</span> C = <span class="hljs-title class_">Awaited</span>&lt;<span class="hljs-built_in">boolean</span> | <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，类型参数是一个联合类型，其中的<code>boolean</code>会原样返回，所以最终返回的是<code>number|boolean</code>。</p>
+<p><code>Awaited&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Awaited</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span><br>  ? T<br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span> &amp; &#123;<br>      <span class="hljs-title function_">then</span>(<span class="hljs-attr">onfulfilled</span>: infer F, ...<span class="hljs-attr">args</span>: infer _): <span class="hljs-built_in">any</span>;<br>    &#125;<br>  ? F <span class="hljs-keyword">extends</span> (<span class="hljs-attr">value</span>: infer V, ...<span class="hljs-attr">args</span>: infer _) =&gt; <span class="hljs-built_in">any</span><br>    ? <span class="hljs-title class_">Awaited</span>&lt;V&gt;<br>    : <span class="hljs-built_in">never</span><br>  : T;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Partial"><a href="#Partial" class="headerlink" title="Partial&lt;Type&gt;"></a><code>Partial&lt;Type&gt;</code></h1><p><code>Partial&lt;Type&gt;</code>返回一个新类型，将参数类型<code>Type</code>的所有属性变为可选属性。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Partial</span>&lt;A&gt;; <span class="hljs-comment">// &#123; x?: number; y?: number; &#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Partial&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Partial</span>&lt;T&gt; = &#123;<br>  [P <span class="hljs-keyword">in</span> keyof T]?: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Required"><a href="#Required" class="headerlink" title="Required&lt;Type&gt;"></a><code>Required&lt;Type&gt;</code></h1><p><code>Required&lt;Type&gt;</code>返回一个新类型，将参数类型<code>Type</code>的所有属性变为必选属性。它与<code>Partial&lt;Type&gt;</code>的作用正好相反。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  x?: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Required</span>&lt;A&gt;; <span class="hljs-comment">// &#123; x: number; y: number; &#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Required&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Required</span>&lt;T&gt; = &#123;<br>  [P <span class="hljs-keyword">in</span> keyof T]-?: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中，符号<code>-?</code>表示去除可选属性的“问号”，使其变成必选属性。</p>
+<p>相对应地，符号<code>+?</code>表示增加可选属性的“问号”，等同于<code>?</code>。因此，前面的<code>Partial&lt;Type&gt;</code>的定义也可以写成下面这样。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Partial</span>&lt;T&gt; = &#123;<br>  [P <span class="hljs-keyword">in</span> keyof T]+?: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Readonly"><a href="#Readonly" class="headerlink" title="Readonly&lt;Type&gt;"></a><code>Readonly&lt;Type&gt;</code></h1><p><code>Readonly&lt;Type&gt;</code>返回一个新类型，将参数类型<code>Type</code>的所有属性变为只读属性。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  y?: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-comment">// &#123; readonly x: number; readonly y?: number; &#125;</span><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Readonly</span>&lt;A&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>y</code>是可选属性，<code>Readonly&lt;Type&gt;</code>不会改变这一点，只会让<code>y</code>变成只读。</p>
+<p><code>Readonly&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Readonly</span>&lt;T&gt; = &#123;<br>  <span class="hljs-keyword">readonly</span> [P <span class="hljs-keyword">in</span> keyof T]: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>我们可以自定义类型工具<code>Mutable&lt;Type&gt;</code>，将参数类型的所有属性变成可变属性。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Mutable</span>&lt;T&gt; = &#123;<br>  -<span class="hljs-keyword">readonly</span> [P <span class="hljs-keyword">in</span> keyof T]: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>-readonly</code>表示去除属性的只读标志。</p>
+<p>相应地，<code>+readonly</code>就表示增加只读标志，等同于<code>readonly</code>。因此，<code>Readonly&lt;Type&gt;</code>的实现也可以写成下面这样。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Readonly</span>&lt;T&gt; = &#123;<br>  +<span class="hljs-keyword">readonly</span> [P <span class="hljs-keyword">in</span> keyof T]: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><code>Readonly&lt;Type&gt;</code>可以与<code>Partial&lt;Type&gt;</code>结合使用，将所有属性变成只读的可选属性。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Person</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">worker</span>: <span class="hljs-title class_">Readonly</span>&lt;<span class="hljs-title class_">Partial</span>&lt;<span class="hljs-title class_">Person</span>&gt;&gt; = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;张三&quot;</span> &#125;;<br><br>worker.<span class="hljs-property">name</span> = <span class="hljs-string">&quot;李四&quot;</span>; <span class="hljs-comment">// 报错</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="Record"><a href="#Record" class="headerlink" title="Record&lt;Keys, Type&gt;"></a><code>Record&lt;Keys, Type&gt;</code></h1><p><code>Record&lt;Keys, Type&gt;</code>返回一个对象类型，参数<code>Keys</code>用作键名，参数<code>Type</code>用作键值类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// &#123; a: number &#125;</span><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Record</span>&lt;<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-built_in">number</span>&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Record&lt;Keys, Type&gt;</code>的第一个参数<code>a</code>，用作对象的键名，第二个参数<code>number</code>是<code>a</code>的键值类型。</p>
+<p>参数<code>Keys</code>可以是联合类型，这时会依次展开为多个键。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// &#123; a: number, b: number &#125;</span><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Record</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-built_in">number</span>&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，第一个参数是联合类型<code>&#39;a&#39;|&#39;b&#39;</code>，展开成两个键名<code>a</code>和<code>b</code>。</p>
+<p>如果参数<code>Type</code>是联合类型，就表明键值是联合类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// &#123; a: number|string &#125;</span><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Record</span>&lt;<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>参数<code>Keys</code>的类型必须兼容<code>string|number|symbol</code>，否则不能用作键名，会报错。</p>
+<p><code>Record&lt;Keys, Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Record</span>&lt;K <span class="hljs-keyword">extends</span> <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-built_in">symbol</span>, T&gt; = &#123; [P <span class="hljs-keyword">in</span> K]: T &#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Pick"><a href="#Pick" class="headerlink" title="Pick&lt;Type, Keys&gt;"></a><code>Pick&lt;Type, Keys&gt;</code></h1><p><code>Pick&lt;Type, Keys&gt;</code>返回一个新的对象类型，第一个参数<code>Type</code>是一个对象类型，第二个参数<code>Keys</code>是<code>Type</code>里面被选定的键名。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Pick</span>&lt;A, <span class="hljs-string">&quot;x&quot;</span>&gt;; <span class="hljs-comment">// &#123; x: number &#125;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Pick</span>&lt;A, <span class="hljs-string">&quot;y&quot;</span>&gt;; <span class="hljs-comment">// &#123; y: number &#125;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">Pick</span>&lt;A, <span class="hljs-string">&quot;x&quot;</span> | <span class="hljs-string">&quot;y&quot;</span>&gt;; <span class="hljs-comment">// &#123; x: number; y: number &#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Pick&lt;Type, Keys&gt;</code>会从对象类型<code>A</code>里面挑出指定的键名，组成一个新的对象类型。</p>
+<p>指定的键名<code>Keys</code>必须是对象键名<code>Type</code>里面已经存在的键名，否则会报错。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Pick</span>&lt;A, <span class="hljs-string">&quot;z&quot;</span>&gt;; <span class="hljs-comment">// 报错</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，对象类型<code>A</code>不存在键名<code>z</code>，所以报错了。</p>
+<p><code>Pick&lt;Type, Keys&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Pick</span>&lt;T, K <span class="hljs-keyword">extends</span> keyof T&gt; = &#123;<br>  [P <span class="hljs-keyword">in</span> K]: T[P];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Omit"><a href="#Omit" class="headerlink" title="Omit&lt;Type, Keys&gt;"></a><code>Omit&lt;Type, Keys&gt;</code></h1><p><code>Omit&lt;Type, Keys&gt;</code>用来从对象类型<code>Type</code>中，删除指定的属性<code>Keys</code>，组成一个新的对象类型返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Omit</span>&lt;A, <span class="hljs-string">&quot;x&quot;</span>&gt;; <span class="hljs-comment">// &#123; y: number &#125;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Omit</span>&lt;A, <span class="hljs-string">&quot;y&quot;</span>&gt;; <span class="hljs-comment">// &#123; x: number &#125;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">Omit</span>&lt;A, <span class="hljs-string">&quot;x&quot;</span> | <span class="hljs-string">&quot;y&quot;</span>&gt;; <span class="hljs-comment">// &#123; &#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Omit&lt;Type, Keys&gt;</code>从对象类型<code>A</code>里面删除指定属性，返回剩下的属性。</p>
+<p>指定删除的键名<code>Keys</code>可以是对象类型<code>Type</code>中不存在的属性，但必须兼容<code>string|number|symbol</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> A &#123;<br>  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Omit</span>&lt;A, <span class="hljs-string">&quot;z&quot;</span>&gt;; <span class="hljs-comment">// &#123; x: number; y: number &#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，对象类型<code>A</code>中不存在属性<code>z</code>，所以就原样返回了。</p>
+<p><code>Omit&lt;Type, Keys&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Omit</span>&lt;T, K <span class="hljs-keyword">extends</span> keyof <span class="hljs-built_in">any</span>&gt; = <span class="hljs-title class_">Pick</span>&lt;T, <span class="hljs-title class_">Exclude</span>&lt;keyof T, K&gt;&gt;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Exclude"><a href="#Exclude" class="headerlink" title="Exclude&lt;UnionType, ExcludedMembers&gt;"></a><code>Exclude&lt;UnionType, ExcludedMembers&gt;</code></h1><p><code>Exclude&lt;UnionType, ExcludedMembers&gt;</code>用来从联合类型<code>UnionType</code>里面，删除某些类型<code>ExcludedMembers</code>，组成一个新的类型返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>&gt;; <span class="hljs-comment">// &#x27;b&#x27;|&#x27;c&#x27;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span>&gt;; <span class="hljs-comment">// &#x27;c&#x27;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-built_in">string</span> | (<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>), <span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// string</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T4</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[], <span class="hljs-built_in">any</span>[]&gt;; <span class="hljs-comment">// string</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T5</span> = <span class="hljs-title class_">Exclude</span>&lt;(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>) | <span class="hljs-literal">null</span>, <span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// null</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T6</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-number">200</span> | <span class="hljs-number">400</span>, <span class="hljs-number">200</span> | <span class="hljs-number">201</span>&gt;; <span class="hljs-comment">// 400</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T7</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">boolean</span>&gt;; <span class="hljs-comment">// number</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Exclude&lt;UnionType, ExcludedMembers&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Exclude</span>&lt;T, U&gt; = T <span class="hljs-keyword">extends</span> U ? <span class="hljs-built_in">never</span> : T;<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中，等号右边的部分，表示先判断<code>T</code>是否兼容<code>U</code>，如果是的就返回<code>never</code>类型，否则返回当前类型<code>T</code>。由于<code>never</code>类型是任何其他类型的子类型，它跟其他类型组成联合类型时，可以直接将<code>never</code>类型从联合类型中“消掉”，因此<code>Exclude&lt;T, U&gt;</code>就相当于删除兼容的类型，剩下不兼容的类型。</p>
+<h1 id="Extract"><a href="#Extract" class="headerlink" title="Extract&lt;Type, Union&gt;"></a><code>Extract&lt;Type, Union&gt;</code></h1><p><code>Extract&lt;UnionType, Union&gt;</code>用来从联合类型<code>UnionType</code>之中，提取指定类型<code>Union</code>，组成一个新类型返回。它与<code>Exclude&lt;T, U&gt;</code>正好相反。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>&gt;; <span class="hljs-comment">// &#x27;a&#x27;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span>&gt;; <span class="hljs-comment">// &#x27;a&#x27;|&#x27;b&#x27;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;d&quot;</span>&gt;; <span class="hljs-comment">// &#x27;a&#x27;</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T4</span> = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[], <span class="hljs-built_in">any</span>[]&gt;; <span class="hljs-comment">// string[]</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T5</span> = <span class="hljs-title class_">Extract</span>&lt;(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>) | <span class="hljs-literal">null</span>, <span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// () =&gt; void</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T6</span> = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-number">200</span> | <span class="hljs-number">400</span>, <span class="hljs-number">200</span> | <span class="hljs-number">201</span>&gt;; <span class="hljs-comment">// 200</span><br></code></pre></td></tr></table></figure>
+
+<p>如果参数类型<code>Union</code>不包含在联合类型<code>UnionType</code>之中，则返回<code>never</code>类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">Extract</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>, <span class="hljs-built_in">boolean</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Extract&lt;UnionType, Union&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extract</span>&lt;T, U&gt; = T <span class="hljs-keyword">extends</span> U ? T : <span class="hljs-built_in">never</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="NonNullable"><a href="#NonNullable" class="headerlink" title="NonNullable&lt;Type&gt;"></a><code>NonNullable&lt;Type&gt;</code></h1><p><code>NonNullable&lt;Type&gt;</code>用来从联合类型<code>Type</code>删除<code>null</code>类型和<code>undefined</code>类型，组成一个新类型返回，也就是返回<code>Type</code>的非空类型版本。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// string|number</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-literal">undefined</span>&gt;;<br><br><span class="hljs-comment">// string[]</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>&gt;;<br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-built_in">boolean</span>&gt;; <span class="hljs-comment">// boolean</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T4</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span>&gt;; <span class="hljs-comment">// number</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T5</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span>&gt;; <span class="hljs-comment">// string</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T6</span> = <span class="hljs-title class_">NonNullable</span>&lt;<span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>NonNullable&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">NonNullable</span>&lt;T&gt; = T &amp; &#123;&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>T &amp; &#123;&#125;</code>等同于求<code>T &amp; Object</code>的交叉类型。由于 TypeScript 的非空值都属于<code>Object</code>的子类型，所以会返回自身；而<code>null</code>和<code>undefined</code>不属于<code>Object</code>，会返回<code>never</code>类型。</p>
+<h1 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters&lt;Type&gt;"></a><code>Parameters&lt;Type&gt;</code></h1><p><code>Parameters&lt;Type&gt;</code>从函数类型<code>Type</code>里面提取参数类型，组成一个元组返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">string</span>&gt;; <span class="hljs-comment">// []</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-function">(<span class="hljs-params">s: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>&gt;; <span class="hljs-comment">// [s:string]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">Parameters</span>&lt;&lt;T&gt;<span class="hljs-function">(<span class="hljs-params">arg: T</span>) =&gt;</span> T&gt;; <span class="hljs-comment">// [arg: unknown]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T4</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-function">(<span class="hljs-params">x: &#123; a: <span class="hljs-built_in">number</span>; b: <span class="hljs-built_in">string</span> &#125;</span>) =&gt;</span> <span class="hljs-built_in">void</span>&gt;; <span class="hljs-comment">// [x: &#123; a: number, b: string &#125;]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T5</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-function">(<span class="hljs-params">a: <span class="hljs-built_in">number</span>, b: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">number</span>&gt;; <span class="hljs-comment">// [a:number, b:number]</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Parameters&lt;Type&gt;</code>的返回值会包括函数的参数名，这一点需要注意。</p>
+<p>如果参数类型<code>Type</code>不是带有参数的函数形式，会报错。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 报错</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-built_in">string</span>&gt;;<br><br><span class="hljs-comment">// 报错</span><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-title class_">Function</span>&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>由于<code>any</code>和<code>never</code>是两个特殊值，会返回<code>unknown[]</code>和<code>never</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-built_in">any</span>&gt;; <span class="hljs-comment">// unknown[]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-built_in">never</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Parameters&lt;Type&gt;</code>主要用于从外部模块提供的函数类型中，获取参数类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">SecretName</span> &#123;<br>  <span class="hljs-attr">first</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">last</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">SecretSanta</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-title class_">SecretName</span>;<br>  <span class="hljs-attr">gift</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getGift</span>(<span class="hljs-params">name: SecretName, gift: <span class="hljs-built_in">string</span></span>): <span class="hljs-title class_">SecretSanta</span> &#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，模块只输出了函数<code>getGift()</code>，没有输出参数<code>SecretName</code>和返回值<code>SecretSanta</code>。这时就可以通过<code>Parameters&lt;T&gt;</code>和<code>ReturnType&lt;T&gt;</code>拿到这两个接口类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ParaT</span> = <span class="hljs-title class_">Parameters</span>&lt;<span class="hljs-keyword">typeof</span> getGift&gt;[<span class="hljs-number">0</span>]; <span class="hljs-comment">// SecretName</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">ReturnT</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-keyword">typeof</span> getGift&gt;; <span class="hljs-comment">// SecretSanta</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Parameters&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Parameters</span>&lt;T <span class="hljs-keyword">extends</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; <span class="hljs-built_in">any</span>&gt; = T <span class="hljs-keyword">extends</span> (...<span class="hljs-attr">args</span>: infer P) =&gt; <span class="hljs-built_in">any</span> ? P : <span class="hljs-built_in">never</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="ConstructorParameters"><a href="#ConstructorParameters" class="headerlink" title="ConstructorParameters&lt;Type&gt;"></a><code>ConstructorParameters&lt;Type&gt;</code></h1><p><code>ConstructorParameters&lt;Type&gt;</code>提取构造方法<code>Type</code>的参数类型，组成一个元组类型返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-keyword">new</span> (<span class="hljs-attr">x</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>) =&gt; <span class="hljs-built_in">object</span>&gt;; <span class="hljs-comment">// [x: string, y: number]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-keyword">new</span> (x?: <span class="hljs-built_in">string</span>) =&gt; <span class="hljs-built_in">object</span>&gt;; <span class="hljs-comment">// [x?: string | undefined]</span><br></code></pre></td></tr></table></figure>
+
+<p>它可以返回一些内置构造方法的参数类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-title class_">ErrorConstructor</span>&gt;; <span class="hljs-comment">// [message?: string]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-title class_">FunctionConstructor</span>&gt;; <span class="hljs-comment">// string[]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-title class_">RegExpConstructor</span>&gt;; <span class="hljs-comment">// [pattern:string|RegExp, flags?:string]</span><br></code></pre></td></tr></table></figure>
+
+<p>如果参数类型不是构造方法，就会报错。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-built_in">string</span>&gt;; <span class="hljs-comment">// 报错</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// 报错</span><br></code></pre></td></tr></table></figure>
+
+<p><code>any</code>类型和<code>never</code>类型是两个特殊值，分别返回<code>unknown[]</code>和<code>never</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-built_in">any</span>&gt;; <span class="hljs-comment">// unknown[]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ConstructorParameters</span>&lt;<span class="hljs-built_in">never</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>ConstructorParameters&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ConstructorParameters</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">new</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; <span class="hljs-built_in">any</span>&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">new</span> (...<span class="hljs-attr">args</span>: infer P) =&gt; <span class="hljs-built_in">any</span> ? P : <span class="hljs-built_in">never</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="ReturnType"><a href="#ReturnType" class="headerlink" title="ReturnType&lt;Type&gt;"></a><code>ReturnType&lt;Type&gt;</code></h1><p><code>ReturnType&lt;Type&gt;</code>提取函数类型<code>Type</code>的返回值类型，作为一个新类型返回。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">string</span>&gt;; <span class="hljs-comment">// string</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ReturnType</span>&lt;<br>  <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span>;<br>    <span class="hljs-attr">b</span>: <span class="hljs-built_in">number</span>;<br>  &#125;<br>&gt;; <span class="hljs-comment">// &#123; a: string; b: number &#125;</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T3</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-function">(<span class="hljs-params">s: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>&gt;; <span class="hljs-comment">// void</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T4</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">any</span>[]&gt;; <span class="hljs-comment">// () =&gt; any[]</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T5</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-keyword">typeof</span> <span class="hljs-title class_">Math</span>.<span class="hljs-property">random</span>&gt;; <span class="hljs-comment">// number</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T6</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-keyword">typeof</span> <span class="hljs-title class_">Array</span>.<span class="hljs-property">isArray</span>&gt;; <span class="hljs-comment">// boolean</span><br></code></pre></td></tr></table></figure>
+
+<p>如果参数类型是泛型函数，返回值取决于泛型类型。如果泛型不带有限制条件，就会返回<code>unknown</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ReturnType</span>&lt;&lt;T&gt;<span class="hljs-function">() =&gt;</span> T&gt;; <span class="hljs-comment">// unknown</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ReturnType</span>&lt;&lt;T <span class="hljs-keyword">extends</span> U, U <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span>[]&gt;<span class="hljs-function">() =&gt;</span> T&gt;; <span class="hljs-comment">// number[]</span><br></code></pre></td></tr></table></figure>
+
+<p>如果类型不是函数，会报错。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-built_in">boolean</span>&gt;; <span class="hljs-comment">// 报错</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// 报错</span><br></code></pre></td></tr></table></figure>
+
+<p><code>any</code>和<code>never</code>是两个特殊值，分别返回<code>any</code>和<code>never</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-built_in">any</span>&gt;; <span class="hljs-comment">// any</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-built_in">never</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>ReturnType&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ReturnType</span>&lt;T <span class="hljs-keyword">extends</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; <span class="hljs-built_in">any</span>&gt; = T <span class="hljs-keyword">extends</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; infer R ? R : <span class="hljs-built_in">any</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="InstanceType"><a href="#InstanceType" class="headerlink" title="InstanceType&lt;Type&gt;"></a><code>InstanceType&lt;Type&gt;</code></h1><p><code>InstanceType&lt;Type&gt;</code>提取构造函数的返回值的类型（即实例类型），参数<code>Type</code>是一个构造函数，等同于构造函数的<code>ReturnType&lt;Type&gt;</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-keyword">new</span> () =&gt; <span class="hljs-built_in">object</span>&gt;; <span class="hljs-comment">// object</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，类型参数是一个构造函数<code>new () =&gt; object</code>，返回值是该构造函数的实例类型（<code>object</code>）。</p>
+<p>下面是一些例子。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> A = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-title class_">ErrorConstructor</span>&gt;; <span class="hljs-comment">// Error</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-title class_">FunctionConstructor</span>&gt;; <span class="hljs-comment">// Function</span><br><span class="hljs-keyword">type</span> C = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-title class_">RegExpConstructor</span>&gt;; <span class="hljs-comment">// RegExp</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>InstanceType&lt;T&gt;</code>的参数都是 TypeScript 内置的原生对象的构造函数类型，<code>InstanceType&lt;T&gt;</code>的返回值就是这些构造函数的实例类型。</p>
+<p>由于 Class 作为类型，代表实例类型。要获取它的构造方法，必须把它当成值，然后用<code>typeof</code>运算符获取它的构造方法类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> &#123;<br>  x = <span class="hljs-number">0</span>;<br>  y = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-keyword">typeof</span> C&gt;; <span class="hljs-comment">// C</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>typeof C</code>是<code>C</code>的构造方法类型，然后 InstanceType 就能获得实例类型，即<code>C</code>本身。</p>
+<p>如果类型参数不是构造方法，就会报错。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-built_in">string</span>&gt;; <span class="hljs-comment">// 报错</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-title class_">Function</span>&gt;; <span class="hljs-comment">// 报错</span><br></code></pre></td></tr></table></figure>
+
+<p>如果类型参数是<code>any</code>或<code>never</code>两个特殊值，分别返回<code>any</code>和<code>never</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-built_in">any</span>&gt;; <span class="hljs-comment">// any</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-title class_">InstanceType</span>&lt;<span class="hljs-built_in">never</span>&gt;; <span class="hljs-comment">// never</span><br></code></pre></td></tr></table></figure>
+
+<p><code>InstanceType&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">InstanceType</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">new</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; <span class="hljs-built_in">any</span>&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">new</span> (...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>) =&gt; infer R ? R : <span class="hljs-built_in">any</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="NoInfer"><a href="#NoInfer" class="headerlink" title="NoInfer&lt;Type&gt;"></a><code>NoInfer&lt;Type&gt;</code></h1><p><code>NoInfer&lt;Type&gt;</code>用来防止类型推断。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> createStreetLight&lt;C <span class="hljs-keyword">extends</span> <span class="hljs-built_in">string</span>&gt;(<span class="hljs-attr">colors</span>: C[], defaultColor?: <span class="hljs-title class_">NoInfer</span>&lt;C&gt;) &#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;<br><span class="hljs-title function_">createStreetLight</span>([<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>], <span class="hljs-string">&quot;red&quot;</span>); <span class="hljs-comment">// OK</span><br><span class="hljs-title function_">createStreetLight</span>([<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>], <span class="hljs-string">&quot;blue&quot;</span>); <span class="hljs-comment">// Error</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="ThisParameterType"><a href="#ThisParameterType" class="headerlink" title="ThisParameterType&lt;Type&gt;"></a><code>ThisParameterType&lt;Type&gt;</code></h1><p><code>ThisParameterType&lt;Type&gt;</code>提取函数类型中<code>this</code>参数的类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">toHex</span>(<span class="hljs-params"><span class="hljs-variable language_">this</span>: <span class="hljs-built_in">number</span></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">ThisParameterType</span>&lt;<span class="hljs-keyword">typeof</span> toHex&gt;; <span class="hljs-comment">// number</span><br></code></pre></td></tr></table></figure>
+
+<p>如果函数没有<code>this</code>参数，则返回<code>unknown</code>。</p>
+<p><code>ThisParameterType&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ThisParameterType</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> (<span class="hljs-attr">this</span>: infer U, ...<span class="hljs-attr">args</span>: <span class="hljs-built_in">never</span>) =&gt; <span class="hljs-built_in">any</span> ? U : <span class="hljs-built_in">unknown</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="OmitThisParameter"><a href="#OmitThisParameter" class="headerlink" title="OmitThisParameter&lt;Type&gt;"></a><code>OmitThisParameter&lt;Type&gt;</code></h1><p><code>OmitThisParameter&lt;Type&gt;</code>从函数类型中移除 this 参数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">toHex</span>(<span class="hljs-params"><span class="hljs-variable language_">this</span>: <span class="hljs-built_in">Number</span></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);<br>&#125;<br><br><span class="hljs-keyword">type</span> T = <span class="hljs-title class_">OmitThisParameter</span>&lt;<span class="hljs-keyword">typeof</span> toHex&gt;; <span class="hljs-comment">// () =&gt; string</span><br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>OmitThisParameter&lt;T&gt;</code>给出了函数<code>toHex()</code>的类型，并将其中的<code>this</code>参数删除。</p>
+<p>如果函数没有 this 参数，则返回原始函数类型。</p>
+<p><code>OmitThisParameter&lt;Type&gt;</code>的实现如下。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">OmitThisParameter</span>&lt;T&gt; = <span class="hljs-built_in">unknown</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ThisParameterType</span>&lt;T&gt; ? T : T <span class="hljs-keyword">extends</span> (...<span class="hljs-attr">args</span>: infer A) =&gt; infer R ? <span class="hljs-function">(<span class="hljs-params">...args: A</span>) =&gt;</span> R : T;<br></code></pre></td></tr></table></figure>
+
+<h1 id="ThisType"><a href="#ThisType" class="headerlink" title="ThisType&lt;Type&gt;"></a><code>ThisType&lt;Type&gt;</code></h1><p><code>ThisType&lt;Type&gt;</code>不返回类型，只用来跟其他类型组成交叉类型，用来提示 TypeScript 其他类型里面的<code>this</code>的类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">HelperThisValue</span> &#123;<br>  <span class="hljs-attr">logError</span>: <span class="hljs-function">(<span class="hljs-params">error: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> <span class="hljs-attr">helperFunctions</span>: &#123; [<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>]: <span class="hljs-title class_">Function</span> &#125; &amp; <span class="hljs-title class_">ThisType</span>&lt;<span class="hljs-title class_">HelperThisValue</span>&gt; = &#123;<br>  <span class="hljs-attr">hello</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">logError</span>(<span class="hljs-string">&quot;Error: Something wrong!&quot;</span>); <span class="hljs-comment">// 正确</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">update</span>(); <span class="hljs-comment">// 报错</span><br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，变量<code>helperFunctions</code>的类型是一个正常的对象类型与<code>ThisType&lt;HelperThisValue&gt;</code>组成的交叉类型。</p>
+<p>这里的<code>ThisType</code>的作用是提示 TypeScript，变量<code>helperFunctions</code>的<code>this</code>应该满足<code>HelperThisValue</code>的条件。所以，<code>this.logError()</code>可以正确调用，而<code>this.update()</code>会报错，因为<code>HelperThisValue</code>里面没有这个方法。</p>
+<p>注意，使用这个类型工具时，必须打开<code>noImplicitThis</code>设置。</p>
+<p>下面是另一个例子。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">obj</span>: <span class="hljs-title class_">ThisType</span>&lt;&#123; <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span> &#125;&gt; &amp; &#123; <span class="hljs-attr">getX</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">number</span> &#125;;<br><br>obj = &#123;<br>  <span class="hljs-title function_">getX</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">y</span>; <span class="hljs-comment">// 报错</span><br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>getX()</code>里面的<code>this.y</code>会报错，因为根据<code>ThisType&lt;&#123; x: number &#125;&gt;</code>，这个对象的<code>this</code>不包含属性<code>y</code>。</p>
+<p><code>ThisType&lt;Type&gt;</code>的实现就是一个空接口。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">ThisType</span>&lt;T&gt; &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串类型工具"><a href="#字符串类型工具" class="headerlink" title="字符串类型工具"></a>字符串类型工具</h1><p>TypeScript 内置了四个字符串类型工具，专门用来操作字符串类型。这四个工具类型都定义在 TypeScript 自带的<code>.d.ts</code>文件里面。</p>
+<p>它们的实现都是在底层调用 JavaScript 引擎提供 JavaScript 字符操作方法。</p>
+<h2 id="Uppercase"><a href="#Uppercase" class="headerlink" title="Uppercase&lt;StringType&gt;"></a><code>Uppercase&lt;StringType&gt;</code></h2><p><code>Uppercase&lt;StringType&gt;</code>将字符串类型的每个字符转为大写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> A = <span class="hljs-string">&quot;hello&quot;</span>;<br><br><span class="hljs-comment">// &quot;HELLO&quot;</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">Uppercase</span>&lt;A&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Uppercase&lt;T&gt;</code>将 hello 转为 HELLO。</p>
+<h2 id="Lowercase"><a href="#Lowercase" class="headerlink" title="Lowercase&lt;StringType&gt;"></a><code>Lowercase&lt;StringType&gt;</code></h2><p><code>Lowercase&lt;StringType&gt;</code>将字符串的每个字符转为小写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> A = <span class="hljs-string">&quot;HELLO&quot;</span>;<br><br><span class="hljs-comment">// &quot;hello&quot;</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">Lowercase</span>&lt;A&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Lowercase&lt;T&gt;</code>将 HELLO 转为 hello。</p>
+<h2 id="Capitalize"><a href="#Capitalize" class="headerlink" title="Capitalize&lt;StringType&gt;"></a><code>Capitalize&lt;StringType&gt;</code></h2><p><code>Capitalize&lt;StringType&gt;</code>将字符串的第一个字符转为大写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> A = <span class="hljs-string">&quot;hello&quot;</span>;<br><br><span class="hljs-comment">// &quot;Hello&quot;</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">Capitalize</span>&lt;A&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Capitalize&lt;T&gt;</code>将 hello 转为 Hello。</p>
+<h2 id="Uncapitalize"><a href="#Uncapitalize" class="headerlink" title="Uncapitalize&lt;StringType&gt;"></a><code>Uncapitalize&lt;StringType&gt;</code></h2><p><code>Uncapitalize&lt;StringType&gt;</code> 将字符串的第一个字符转为小写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">type</span> A = <span class="hljs-string">&quot;HELLO&quot;</span>;<br><br><span class="hljs-comment">// &quot;hELLO&quot;</span><br><span class="hljs-keyword">type</span> B = <span class="hljs-title class_">Uncapitalize</span>&lt;A&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>上面示例中，<code>Uncapitalize&lt;T&gt;</code>将 HELLO 转为 hELLO。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/utility-types.html">https://www.typescriptlang.org/docs/handbook/utility-types.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wangdoc/typescript-tutorial">https://github.com/wangdoc/typescript-tutorial</a></p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/ts/" class="category-chain-item">ts</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/record/%E3%80%90%E8%AE%B0%E5%BD%95%E3%80%91noVNC%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/" title="【记录】noVNC使用配置">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【记录】noVNC使用配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/js/%E3%80%90js%E3%80%91JavaScript%20obfuscator%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86/" title="【js】JavaScript obfuscator代码混淆">
+                        <span class="hidden-mobile">【js】JavaScript obfuscator代码混淆</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

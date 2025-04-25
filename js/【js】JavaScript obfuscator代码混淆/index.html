@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【js】JavaScript obfuscator代码混淆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【js】JavaScript obfuscator代码混淆">
+<meta property="og:url" content="https://rocyuan666.gitee.io/js/%E3%80%90js%E3%80%91JavaScript%20obfuscator%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【js】JavaScript obfuscator代码混淆">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-22T01:46:00.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.656Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【js】JavaScript obfuscator代码混淆 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【js】JavaScript obfuscator代码混淆"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-03-22 09:46" pubdate>
+          2023年3月22日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          24k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          101 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【js】JavaScript obfuscator代码混淆</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="JavaScript-obfuscator"><a href="#JavaScript-obfuscator" class="headerlink" title="JavaScript obfuscator"></a>JavaScript obfuscator</h2><p>JavaScript obfuscator 是一款功能强大的免费JavaScript混淆处理程序，包含多种功能，可为源代码提供保护。</p>
+<p>github：<a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/javascript-obfuscator">https://github.com/javascript-obfuscator/javascript-obfuscator</a></p>
+<h2 id="构建工具插件"><a href="#构建工具插件" class="headerlink" title="构建工具插件"></a>构建工具插件</h2><p>常用webpack与rollup的插件</p>
+<ul>
+<li>Webpack plugin: <a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/webpack-obfuscator">webpack-obfuscator</a></li>
+<li>Webpack loader: <a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/obfuscator-loader">obfuscator-loader</a></li>
+<li>Rollup: <a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/rollup-plugin-javascript-obfuscator">rollup-plugin-javascript-obfuscator</a></li>
+<li>Gulp: <a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/gulp-javascript-obfuscator">gulp-javascript-obfuscator</a></li>
+<li>Grunt: <a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/grunt-contrib-obfuscator">grunt-contrib-obfuscator</a></li>
+<li>Weex: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/weex-devtool">weex-devtool</a></li>
+<li>Malta: <a target="_blank" rel="noopener" href="https://github.com/fedeghe/malta-js-obfuscator">malta-js-obfuscator</a></li>
+<li>Netlify plugin: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/netlify-plugin-js-obfuscator">netlify-plugin-js-obfuscator</a></li>
+</ul>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-attr">compact</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">controlFlowFlattening</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">controlFlowFlatteningThreshold</span>: <span class="hljs-number">0.75</span>,<br>  <span class="hljs-attr">deadCodeInjection</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">deadCodeInjectionThreshold</span>: <span class="hljs-number">0.4</span>,<br>  <span class="hljs-attr">debugProtection</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">debugProtectionInterval</span>: <span class="hljs-number">0</span>,<br>  <span class="hljs-attr">disableConsoleOutput</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">domainLock</span>: [],<br>  <span class="hljs-attr">domainLockRedirectUrl</span>: <span class="hljs-string">&#x27;about:blank&#x27;</span>,<br>  <span class="hljs-attr">forceTransformStrings</span>: [],<br>  <span class="hljs-attr">identifierNamesCache</span>: <span class="hljs-literal">null</span>,<br>  <span class="hljs-attr">identifierNamesGenerator</span>: <span class="hljs-string">&#x27;hexadecimal&#x27;</span>,<br>  <span class="hljs-attr">identifiersDictionary</span>: [],<br>  <span class="hljs-attr">identifiersPrefix</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">ignoreImports</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">inputFileName</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">log</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">numbersToExpressions</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">optionsPreset</span>: <span class="hljs-string">&#x27;default&#x27;</span>,<br>  <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">renameProperties</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">renamePropertiesMode</span>: <span class="hljs-string">&#x27;safe&#x27;</span>,<br>  <span class="hljs-attr">reservedNames</span>: [],<br>  <span class="hljs-attr">reservedStrings</span>: [],<br>  <span class="hljs-attr">seed</span>: <span class="hljs-number">0</span>,<br>  <span class="hljs-attr">selfDefending</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">simplify</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">sourceMap</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">sourceMapBaseUrl</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">sourceMapFileName</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">sourceMapMode</span>: <span class="hljs-string">&#x27;separate&#x27;</span>,<br>  <span class="hljs-attr">sourceMapSourcesMode</span>: <span class="hljs-string">&#x27;sources-content&#x27;</span>,<br>  <span class="hljs-attr">splitStrings</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">splitStringsChunkLength</span>: <span class="hljs-number">10</span>,<br>  <span class="hljs-attr">stringArray</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayCallsTransform</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayCallsTransformThreshold</span>: <span class="hljs-number">0.5</span>,<br>  <span class="hljs-attr">stringArrayEncoding</span>: [],<br>  <span class="hljs-attr">stringArrayIndexesType</span>: [<br>  	<span class="hljs-string">&#x27;hexadecimal-number&#x27;</span><br>	],<br>  <span class="hljs-attr">stringArrayIndexShift</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayRotate</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayShuffle</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayWrappersCount</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">stringArrayWrappersChainedCalls</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">stringArrayWrappersParametersMaxCount</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-attr">stringArrayWrappersType</span>: <span class="hljs-string">&#x27;variable&#x27;</span>,<br>  <span class="hljs-attr">stringArrayThreshold</span>: <span class="hljs-number">0.75</span>,<br>  <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;browser&#x27;</span>,<br>  <span class="hljs-attr">transformObjectKeys</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">unicodeEscapeSequence</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="选项说明"><a href="#选项说明" class="headerlink" title="选项说明"></a>选项说明</h2><h3 id="compact"><a href="#compact" class="headerlink" title="compact"></a><code>compact</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p>在一行上输出紧凑的代码。</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a><code>config</code></h3><p>Type: <code>string</code> Default: &#96;&#96;</p>
+<p>包含混淆器选项的JS&#x2F;JSON配置文件的名称。这些将被直接传递给CLI的选项覆盖</p>
+<h3 id="controlFlowFlattening"><a href="#controlFlowFlattening" class="headerlink" title="controlFlowFlattening"></a><code>controlFlowFlattening</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>此选项极大地影响性能，最多可使运行时速度慢1.5倍。使用<code>controlFlowFlatteningThreshold</code>值来设置受控制流扁平化影响的节点百分比。</strong></p>
+<p>启用代码控制流扁平化。控制流扁平化是一种阻碍程序理解的源代码结构转换。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> sum = <span class="hljs-number">1</span> + <span class="hljs-number">2</span>;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">6</span>);<br>    &#125;;<br>  &#125;<br><br>  <span class="hljs-title function_">foo</span>()();<br>&#125;)();<br><br><span class="hljs-comment">// output</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x3bfc5c</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x3260a5 = &#123;<br>        <span class="hljs-title class_">WtABe</span>: <span class="hljs-string">&quot;4|0|6|5|3|2|1&quot;</span>,<br>        <span class="hljs-title class_">GokKo</span>: <span class="hljs-keyword">function</span> <span class="hljs-title function_">_0xf87260</span>(<span class="hljs-params">_0x427a8e, _0x43354c</span>) &#123;<br>          <span class="hljs-keyword">return</span> _0x427a8e + _0x43354c;<br>        &#125;,<br>      &#125;;<br>      <span class="hljs-keyword">var</span> _0x1ad4d6 = _0x3260a5[<span class="hljs-string">&quot;WtABe&quot;</span>][<span class="hljs-string">&quot;split&quot;</span>](<span class="hljs-string">&quot;|&quot;</span>),<br>        _0x1a7b12 = <span class="hljs-number">0x0</span>;<br>      <span class="hljs-keyword">while</span> (!![]) &#123;<br>        <span class="hljs-keyword">switch</span> (_0x1ad4d6[_0x1a7b12++]) &#123;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;0&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x1</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;1&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x6</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;2&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x5</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;3&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x4</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;4&quot;</span>:<br>            <span class="hljs-keyword">var</span> _0x1f2f2f = _0x3260a5[<span class="hljs-string">&quot;GokKo&quot;</span>](<span class="hljs-number">0x1</span>, <span class="hljs-number">0x2</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;5&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x3</span>);<br>            <span class="hljs-keyword">continue</span>;<br>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;6&quot;</span>:<br>            <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x2</span>);<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;;<br>  &#125;<br><br>  <span class="hljs-title function_">_0x3bfc5c</span>()();<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="controlFlowFlatteningThreshold"><a href="#controlFlowFlatteningThreshold" class="headerlink" title="controlFlowFlatteningThreshold"></a><code>controlFlowFlatteningThreshold</code></h3><p>Type: <code>number</code> Default: <code>0.75</code> Min: <code>0</code> Max: <code>1</code></p>
+<p><code>controlFlowFlattening</code>变换将应用于任何给定节点的概率。</p>
+<p>此设置对于大代码特别有用，因为大量的控制流转换会降低代码速度并增加代码大小。</p>
+<p><code>controlFlowFlatteningThreshold: 0</code> 等于 <code>controlFlowFlattening: false</code>.</p>
+<h3 id="deadCodeInjection"><a href="#deadCodeInjection" class="headerlink" title="deadCodeInjection"></a><code>deadCodeInjection</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>显著增加混淆代码的大小(高达200%)，仅在混淆代码的大小无关紧要时使用。使用<code>deadCodeInjectionThreshold</code>设置受死代码注入影响的节点百分比。</strong></p>
+<p><strong>该选项强制启用<code>stringArray</code>选项。</strong></p>
+<p>使用此选项，随机的死代码块将被添加到混淆的代码中。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>    <span class="hljs-keyword">var</span> foo = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br>    &#125;;<br>    <span class="hljs-keyword">var</span> bar = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;def&quot;</span>);<br>    &#125;;<br>    <span class="hljs-keyword">var</span> baz = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;ghi&quot;</span>);<br>    &#125;;<br>    <span class="hljs-keyword">var</span> bark = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;jkl&quot;</span>);<br>    &#125;;<br>    <span class="hljs-keyword">var</span> hawk = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;mno&quot;</span>);<br>    &#125;;<br><br>    <span class="hljs-title function_">foo</span>();<br>    <span class="hljs-title function_">bar</span>();<br>    <span class="hljs-title function_">baz</span>();<br>    <span class="hljs-title function_">bark</span>();<br>    <span class="hljs-title function_">hawk</span>();<br>  &#125;<br>&#125;)();<br><br><span class="hljs-comment">// output</span><br><span class="hljs-keyword">var</span> _0x37b8 = [<br>  <span class="hljs-string">&quot;YBCtz&quot;</span>,<br>  <span class="hljs-string">&quot;GlrkA&quot;</span>,<br>  <span class="hljs-string">&quot;urPbb&quot;</span>,<br>  <span class="hljs-string">&quot;abc&quot;</span>,<br>  <span class="hljs-string">&quot;NMIhC&quot;</span>,<br>  <span class="hljs-string">&quot;yZgAj&quot;</span>,<br>  <span class="hljs-string">&quot;zrAId&quot;</span>,<br>  <span class="hljs-string">&quot;EtyJA&quot;</span>,<br>  <span class="hljs-string">&quot;log&quot;</span>,<br>  <span class="hljs-string">&quot;mno&quot;</span>,<br>  <span class="hljs-string">&quot;jkl&quot;</span>,<br>  <span class="hljs-string">&quot;def&quot;</span>,<br>  <span class="hljs-string">&quot;Quzya&quot;</span>,<br>  <span class="hljs-string">&quot;IWbBa&quot;</span>,<br>  <span class="hljs-string">&quot;ghi&quot;</span>,<br>];<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x43a7</span>(<span class="hljs-params">_0x12cf56, _0x587376</span>) &#123;<br>  _0x43a7 = <span class="hljs-keyword">function</span> (<span class="hljs-params">_0x2f87a8, _0x47eac2</span>) &#123;<br>    _0x2f87a8 = _0x2f87a8 - (<span class="hljs-number">0x16a7</span> * <span class="hljs-number">0x1</span> + <span class="hljs-number">0x5</span> * <span class="hljs-number">0x151</span> + -<span class="hljs-number">0x1c92</span>);<br>    <span class="hljs-keyword">var</span> _0x341e03 = _0x37b8[_0x2f87a8];<br>    <span class="hljs-keyword">return</span> _0x341e03;<br>  &#125;;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">_0x43a7</span>(_0x12cf56, _0x587376);<br>&#125;<br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (!![]) &#123;<br>    <span class="hljs-keyword">var</span> _0xbbe28f = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x2fc85f = _0x43a7;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xaf</span>) === <span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xae</span>)) &#123;<br>        _0x1dd94f[<span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xb5</span>));<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x2fc85f</span>(<span class="hljs-number">0xad</span>));<br>      &#125;<br>    &#125;;<br>    <span class="hljs-keyword">var</span> _0x5e46bc = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x15b472 = _0x43a7;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xb6</span>) !== <span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xaa</span>)) &#123;<br>        <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xb5</span>));<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        _0x47eac2[<span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x15b472</span>(<span class="hljs-number">0xad</span>));<br>      &#125;<br>    &#125;;<br>    <span class="hljs-keyword">var</span> _0x3669e8 = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x47a442 = _0x43a7;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb7</span>) !== <span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb0</span>)) &#123;<br>        <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb8</span>));<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        _0x24e0bf[<span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x47a442</span>(<span class="hljs-number">0xb3</span>));<br>      &#125;<br>    &#125;;<br>    <span class="hljs-keyword">var</span> _0x28b05a = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x497902 = _0x43a7;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb1</span>) === <span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb1</span>)) &#123;<br>        <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb4</span>));<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        _0x59c9c6[<span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x497902</span>(<span class="hljs-number">0xb4</span>));<br>      &#125;<br>    &#125;;<br>    <span class="hljs-keyword">var</span> _0x402a54 = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">var</span> _0x1906b7 = _0x43a7;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xab</span>) === <span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xac</span>)) &#123;<br>        _0xb89cd0[<span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xb8</span>));<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xb2</span>)](<span class="hljs-title function_">_0x1906b7</span>(<span class="hljs-number">0xb3</span>));<br>      &#125;<br>    &#125;;<br>    <span class="hljs-title function_">_0xbbe28f</span>();<br>    <span class="hljs-title function_">_0x5e46bc</span>();<br>    <span class="hljs-title function_">_0x3669e8</span>();<br>    <span class="hljs-title function_">_0x28b05a</span>();<br>    <span class="hljs-title function_">_0x402a54</span>();<br>  &#125;<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="deadCodeInjectionThreshold"><a href="#deadCodeInjectionThreshold" class="headerlink" title="deadCodeInjectionThreshold"></a><code>deadCodeInjectionThreshold</code></h3><p>Type: <code>number</code> Default: <code>0.4</code> Min: <code>0</code> Max: <code>1</code></p>
+<p>允许设置受<code>deadCodeInjection</code>影响的节点百分比。</p>
+<h3 id="debugProtection"><a href="#debugProtection" class="headerlink" title="debugProtection"></a><code>debugProtection</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>如果打开开发者工具，则可以冻结浏览器。</strong></p>
+<p>这个选项使得几乎不可能使用开发人员工具的调试器功能(无论是在基于webkit的还是在Mozilla Firefox上)。</p>
+<h3 id="debugProtectionInterval"><a href="#debugProtectionInterval" class="headerlink" title="debugProtectionInterval"></a><code>debugProtectionInterval</code></h3><p>Type: <code>number</code> Default: <code>0</code></p>
+<p><strong>可以冻结您的浏览器！使用风险自负。！2.6.0版本类型为<code>boolean</code>,默认<code>false</code></strong></p>
+<p>如果设置了，将使用以毫秒为单位的间隔强制控制台选项卡上的调试模式，从而使使用开发者工具的其他功能更加困难。启用<code>debugProtection</code>时生效。建议取值范围是2000 ~ 4000毫秒。<br>2.6.0版本的描述：如果选中，则会使用一个间隔来强制“console”选项卡上的调试模式，从而使开发人员工具的其他功能更难使用。如果启用了<code>debugProtection</code>，则有效。</p>
+<h3 id="disableConsoleOutput"><a href="#disableConsoleOutput" class="headerlink" title="disableConsoleOutput"></a><code>disableConsoleOutput</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>此选项全局禁用所有脚本的<code>console</code>调用</strong></p>
+<p>禁用 <code>console.log</code>, <code>console.info</code>, <code>console.error</code>, <code>console.warn</code>, <code>console.debug</code>, <code>console.exception</code> 和 <code>console.trace</code> 通过用空函数替换它们。这使得调试器的使用更加困难。</p>
+<h3 id="domainLock"><a href="#domainLock" class="headerlink" title="domainLock"></a><code>domainLock</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p><strong>此选项不适用于<code>target: &#39;node&#39;</code></strong></p>
+<p>允许只在特定的域和&#x2F;或子域上运行混淆的源代码。这使得别人很难复制粘贴您的源代码并在其他地方运行。</p>
+<p>如果源代码没有在此选项指定的域上运行，浏览器将被重定向到传递给<code>domainLockRedirectUrl</code>选项URL的地址。</p>
+<h5 id="多个域和子域"><a href="#多个域和子域" class="headerlink" title="多个域和子域"></a>多个域和子域</h5><p>可以将代码锁定到多个域或子域。例如，要锁定它，使代码仅在<code>www.example.com</code>上运行，请添加<code>www.example.com</code>。要使它在包括任何子域（<code>example.com</code>，<code>sub.example.com</code>）在根域上工作，请使用<code>.example.com</code>。</p>
+<h3 id="domainLockRedirectUrl"><a href="#domainLockRedirectUrl" class="headerlink" title="domainLockRedirectUrl"></a><code>domainLockRedirectUrl</code></h3><p>Type: <code>string</code> Default: <code>about:blank</code></p>
+<p><strong>此选项不适用于<code>target: &#39;node&#39;</code></strong></p>
+<p>如果源代码未在<code>domainLock</code>指定的域上运行，则允许将浏览器重定向到传递的URL</p>
+<h3 id="exclude"><a href="#exclude" class="headerlink" title="exclude"></a><code>exclude</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p>一种文件名或globs，表示要从混淆处理中排除的文件。</p>
+<h3 id="forceTransformStrings"><a href="#forceTransformStrings" class="headerlink" title="forceTransformStrings"></a><code>forceTransformStrings</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p>启用字符串文字的强制转换，这些文字由传递的RegExp模式匹配。</p>
+<p><strong>此选项只影响不应该由<code>stringArrayThreshold</code>（或将来可能的其他阈值）转换的字符串</strong></p>
+<p>该选项的优先级高于<code>reservedStrings</code>选项，但没有高于条件注释的优先级。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&#123;<br>  <span class="hljs-attr">forceTransformStrings</span>: [<span class="hljs-string">&quot;some-important-value&quot;</span>, <span class="hljs-string">&quot;some-string_d&quot;</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="identifierNamesCache"><a href="#identifierNamesCache" class="headerlink" title="identifierNamesCache"></a><code>identifierNamesCache</code></h3><p>Type: <code>Object | null</code> Default: <code>null</code></p>
+<p>该选项的主要目标是在混淆多个源&#x2F;文件时使用相同的标识符名称。</p>
+<p>目前支持两种类型的标识符：</p>
+<ul>
+<li>全局标识符：<ul>
+<li>所有全局标识符将被写入缓存;</li>
+<li>所有匹配的未声明的全局标识符将被缓存中的值替换。</li>
+</ul>
+</li>
+<li>属性标识符，仅当启用<code>renameProperties</code>选项时：<ul>
+<li>所有属性标识符都将写入缓存；</li>
+<li>所有匹配的属性标识符将被缓存中的值替换。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Node-js-API"><a href="#Node-js-API" class="headerlink" title="Node.js API"></a>Node.js API</h4><p>如果传递了<code>null</code>值，则完全禁用缓存。</p>
+<p>如果传递了一个空对象（<code>&#123;&#125;</code>），则启用将标识符名称写入缓存对象（<code>TIdentifierNamesCache</code>类型）。将通过<code>ObfuscationResult</code>对象的<code>getIdentifierNamesCache</code>方法调用来访问此缓存对象。</p>
+<p>生成的缓存对象接下来可以用作<code>identifierNamesGenerator</code>选项值，用于在混淆下一个源的所有匹配标识符名称期间使用这些名称。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">const</span> source1ObfuscationResult = <span class="hljs-title class_">JavaScriptObfuscator</span>.<span class="hljs-title function_">obfuscate</span>(<br>  <span class="hljs-string">`</span><br><span class="hljs-string">        function foo(arg) &#123;</span><br><span class="hljs-string">           console.log(arg)</span><br><span class="hljs-string">        &#125;</span><br><span class="hljs-string">        </span><br><span class="hljs-string">        function bar() &#123;</span><br><span class="hljs-string">            var bark = 2;</span><br><span class="hljs-string">        &#125;</span><br><span class="hljs-string">    `</span>,<br>  &#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">identifierNamesCache</span>: &#123;&#125;,<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">true</span>,<br>  &#125;<br>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(source1ObfuscationResult.<span class="hljs-title function_">getIdentifierNamesCache</span>());<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    &#123; </span><br><span class="hljs-comment">        globalIdentifiers: &#123;</span><br><span class="hljs-comment">            foo: &#x27;_0x5de86d&#x27;,</span><br><span class="hljs-comment">            bar: &#x27;_0x2a943b&#x27;</span><br><span class="hljs-comment">        &#125;</span><br><span class="hljs-comment">    &#125;</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">const</span> source2ObfuscationResult = <span class="hljs-title class_">JavaScriptObfuscator</span>.<span class="hljs-title function_">obfuscate</span>(<br>  <span class="hljs-string">`</span><br><span class="hljs-string">        // Expecting that these global functions are defined in another obfuscated file</span><br><span class="hljs-string">        foo(1);</span><br><span class="hljs-string">        bar();</span><br><span class="hljs-string">        </span><br><span class="hljs-string">        // Expecting that this global function is defined in third-party package</span><br><span class="hljs-string">        baz();</span><br><span class="hljs-string">    `</span>,<br>  &#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">identifierNamesCache</span>: source1ObfuscationResult.<span class="hljs-title function_">getIdentifierNamesCache</span>(),<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">true</span>,<br>  &#125;<br>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(source2ObfuscationResult.<span class="hljs-title function_">getObfuscatedCode</span>());<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    _0x5de86d(0x1);</span><br><span class="hljs-comment">    _0x2a943b();</span><br><span class="hljs-comment">    baz();</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>CLI有一个不同的选项<code>--identifier-names-cache-path</code>，它允许定义现有<code>.json</code>文件的路径，该文件将用于读取和写入标识符名称缓存。</p>
+<p>如果将传递到空文件的路径，则标识符名称缓存将写入该文件。</p>
+<p>这个具有现有缓存的文件可以再次用作<code>--identifier-names-cache-path</code>选项值，用于在混淆下一个文件的所有匹配的标识符名称时使用这些名称。</p>
+<h3 id="identifierNamesGenerator"><a href="#identifierNamesGenerator" class="headerlink" title="identifierNamesGenerator"></a><code>identifierNamesGenerator</code></h3><p>Type: <code>string</code> Default: <code>hexadecimal</code></p>
+<p>设置标识符名称生成器。</p>
+<p>可用值：</p>
+<ul>
+<li><code>dictionary</code>: 标识符中的<code>identifiersDictionary</code>列表</li>
+<li><code>hexadecimal</code>: 标识符名称，如<code>_0xabc123</code></li>
+<li><code>mangled</code>: 短标识符名称，如 <code>a</code>, <code>b</code>, <code>c</code></li>
+<li><code>mangled-shuffled</code>: 同等与 <code>mangled</code> 但是使用混乱的字母</li>
+</ul>
+<h3 id="identifiersDictionary"><a href="#identifiersDictionary" class="headerlink" title="identifiersDictionary"></a><code>identifiersDictionary</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p>为<code>identifierNamesGenerator</code>:<code>dictionary</code>选项设置标识符字典。字典中的每个标识符都将在几个变体中使用，每个字符的大小写不同。因此，字典中标识符的数量应该取决于原始源代码中的标识符数量。</p>
+<h3 id="identifiersPrefix"><a href="#identifiersPrefix" class="headerlink" title="identifiersPrefix"></a><code>identifiersPrefix</code></h3><p>Type: <code>string</code> Default: <code>&#39;&#39;</code></p>
+<p>为所有全局标识符设置前缀。</p>
+<p>当您想要混淆多个文件时，请使用此选项。此选项有助于避免这些文件的全局标识符之间的冲突。每个文件的前缀应该不同。</p>
+<h3 id="ignoreImports"><a href="#ignoreImports" class="headerlink" title="ignoreImports"></a><code>ignoreImports</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>防止混淆<code>require</code>。在某些情况下，当运行时环境出于某种原因只需要使用静态字符串进行这些导入时，可能会有所帮助。</p>
+<h3 id="inputFileName"><a href="#inputFileName" class="headerlink" title="inputFileName"></a><code>inputFileName</code></h3><p>Type: <code>string</code> Default: <code>&#39;&#39;</code></p>
+<p>允许使用源代码设置输入文件的名称。此名称将在内部用于生成源映射。<br>使用NodeJS API时需要，并且<code>sourceMapSourcesMode</code>选项具有<code>sources</code>值&#96;。</p>
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a><code>log</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>启用将信息记录到控制台</p>
+<h3 id="numbersToExpressions"><a href="#numbersToExpressions" class="headerlink" title="numbersToExpressions"></a><code>numbersToExpressions</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>启用数字转换为表达式</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br><span class="hljs-keyword">const</span> foo = <span class="hljs-number">1234</span>;<br><br><span class="hljs-comment">// output</span><br><span class="hljs-keyword">const</span> foo = -<span class="hljs-number">0xd93</span> + -<span class="hljs-number">0x10b4</span> + <span class="hljs-number">0x41</span> * <span class="hljs-number">0x67</span> + <span class="hljs-number">0x84e</span> * <span class="hljs-number">0x3</span> + -<span class="hljs-number">0xff8</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="optionsPreset"><a href="#optionsPreset" class="headerlink" title="optionsPreset"></a><code>optionsPreset</code></h3><p>Type: <code>string</code> Default: <code>default</code></p>
+<p>允许设置预设选项(<code>options preset</code>)。</p>
+<p>可用值：</p>
+<ul>
+<li><code>default</code>;</li>
+<li><code>low-obfuscation</code>;</li>
+<li><code>medium-obfuscation</code>;</li>
+<li><code>high-obfuscation</code>.</li>
+</ul>
+<p>所有添加选项将与预设的选定选项合并。</p>
+<h3 id="renameGlobals"><a href="#renameGlobals" class="headerlink" title="renameGlobals"></a><code>renameGlobals</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>此选项可能会破坏您的代码。只有当你知道它的作用时才启用它！</strong></p>
+<p>使用声明启用全局变量和函数名的混淆处理。</p>
+<h3 id="renameProperties"><a href="#renameProperties" class="headerlink" title="renameProperties"></a><code>renameProperties</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>此选项可能会破坏您的代码。只有当你知道它的作用时才启用它！</strong></p>
+<p>允许重命名属性名。所有内置DOM属性和核心JavaScript类中的属性都将被忽略。</p>
+<p>要在该选项的安全模式和不安全模式之间切换，请使用<code>renamePropertiesMode</code>选项。</p>
+<p>要设置重命名属性名的格式，请使用<code>identifierNamesGenerator</code>选项。</p>
+<p>要控制重命名哪些属性，请使用<code>reservedNames</code>选项。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> foo = &#123;<br>    <span class="hljs-attr">prop1</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">prop2</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">calc</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">prop1</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">prop2</span>;<br>    &#125;,<br>  &#125;;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(foo.<span class="hljs-title function_">calc</span>());<br>&#125;)();<br><br><span class="hljs-comment">// output</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> _0x46529b = &#123;<br>    <span class="hljs-attr">_0x10cec7</span>: <span class="hljs-number">0x1</span>,<br>    <span class="hljs-attr">_0xc1c0ca</span>: <span class="hljs-number">0x2</span>,<br>    <span class="hljs-attr">_0x4b961d</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>[<span class="hljs-string">&quot;_0x10cec7&quot;</span>] + <span class="hljs-variable language_">this</span>[<span class="hljs-string">&quot;_0xc1c0ca&quot;</span>];<br>    &#125;,<br>  &#125;;<br>  <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](_0x46529b[<span class="hljs-string">&quot;_0x4b961d&quot;</span>]());<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="renamePropertiesMode"><a href="#renamePropertiesMode" class="headerlink" title="renamePropertiesMode"></a><code>renamePropertiesMode</code></h3><p>Type: <code>string</code> Default: <code>safe</code></p>
+<p><strong>即使在 <code>safe</code> 模式，<code>renameProperties</code>选项也可能破坏你的代码。</strong></p>
+<p>指定<code>renameProperties</code>选项模式：</p>
+<ul>
+<li><code>safe</code> - 2.11.0发布后的默认行为。试图以更安全的方式重命名属性以防止运行时错误。在这种模式下，一些属性将被排除在重命名之外。</li>
+<li><code>unsafe</code> - 2.11.0发布前的默认行为。以不安全的方式重命名属性，没有任何限制。</li>
+</ul>
+<p>如果一个文件使用来自其他文件的属性，则使用<code>identifierNamesCache</code>选项在这些文件之间保持相同的属性名称。</p>
+<h3 id="reservedNames"><a href="#reservedNames" class="headerlink" title="reservedNames"></a><code>reservedNames</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p>禁用标识符的混淆和生成，由传递的RegExp模式匹配。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&#123;<br>  <span class="hljs-attr">reservedNames</span>: [<span class="hljs-string">&quot;^someVariable&quot;</span>, <span class="hljs-string">&quot;functionParameter_d&quot;</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="reservedStrings"><a href="#reservedStrings" class="headerlink" title="reservedStrings"></a><code>reservedStrings</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p>禁用由传递的RegExp模式匹配的字符串字面量的转换。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&#123;<br>  <span class="hljs-attr">reservedStrings</span>: [<span class="hljs-string">&quot;react-native&quot;</span>, <span class="hljs-string">&quot;./src/test&quot;</span>, <span class="hljs-string">&quot;some-string_d&quot;</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="seed"><a href="#seed" class="headerlink" title="seed"></a><code>seed</code></h3><p>Type: <code>string|number</code> Default: <code>0</code></p>
+<p>此选项为随机生成器设置seed。这对于创建可重复的结果很有用。</p>
+<p>如果seed是0 -随机发生器将工作没有seed。</p>
+<h3 id="selfDefending"><a href="#selfDefending" class="headerlink" title="selfDefending"></a><code>selfDefending</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>在使用此选项后，不要以任何方式更改被混淆的代码，因为任何像丑陋代码这样的更改都会触发自我防御，代码将不再工作!</strong></p>
+<p><strong>此选项强制将<code>compact</code>值设置为<code>true</code></strong></p>
+<p>此选项使输出代码在格式化和变量重命名时具有弹性。如果试图在混淆的代码上使用JavaScript美化器，代码将不再工作，使其更难理解和修改。</p>
+<h3 id="simplify"><a href="#simplify" class="headerlink" title="simplify"></a><code>simplify</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p>通过简化实现额外的代码混淆。</p>
+<p><strong>在以后的版本中，<code>boolean</code>字面值的混淆(<code>true</code> &#x3D;&gt; <code>!![]</code>)将被移到这个选项下。</strong></p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br><span class="hljs-keyword">if</span> (condition1) &#123;<br>  <span class="hljs-keyword">const</span> foo = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">const</span> bar = <span class="hljs-number">2</span>;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(foo);<br><br>  <span class="hljs-keyword">return</span> bar;<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition2) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span>;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">5</span>;<br>&#125;<br><br><span class="hljs-comment">// output</span><br><span class="hljs-keyword">if</span> (condition1) &#123;<br>  <span class="hljs-keyword">const</span> foo = <span class="hljs-number">0x1</span>,<br>    bar = <span class="hljs-number">0x2</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](foo), bar;<br>&#125; <span class="hljs-keyword">else</span><br>  <span class="hljs-keyword">return</span> condition2<br>    ? (<span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x1</span>), <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x2</span>), <span class="hljs-variable language_">console</span>[<span class="hljs-string">&quot;log&quot;</span>](<span class="hljs-number">0x3</span>), <span class="hljs-number">0x4</span>)<br>    : <span class="hljs-number">0x5</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="sourceMap"><a href="#sourceMap" class="headerlink" title="sourceMap"></a><code>sourceMap</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>为混淆的代码启用源映射生成。</p>
+<p>源映射可以帮助您调试混淆的JavaScript源代码。如果希望或需要在生产环境中进行调试，可以将单独的源映射文件上传到一个秘密位置，然后将浏览器指向该位置。</p>
+<h3 id="sourceMapBaseUrl"><a href="#sourceMapBaseUrl" class="headerlink" title="sourceMapBaseUrl"></a><code>sourceMapBaseUrl</code></h3><p>Type: <code>string</code> Default: &#96;&#96;</p>
+<p>当<code>sourceMapMode: &#39;separate&#39;</code>时，将基本url设置为源映射导入url。</p>
+<p>CLI example:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">javascript-obfuscator <span class="hljs-selector-tag">input</span><span class="hljs-selector-class">.js</span> <span class="hljs-attr">--output</span> out<span class="hljs-selector-class">.js</span> <span class="hljs-attr">--source-map</span> true <span class="hljs-attr">--source-map-base-url</span> <span class="hljs-string">&#x27;http://localhost:9000&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>Result:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">//# </span><span class="language-bash">sourceMappingURL=http://localhost:9000/out.js.map</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="sourceMapFileName"><a href="#sourceMapFileName" class="headerlink" title="sourceMapFileName"></a><code>sourceMapFileName</code></h3><p>Type: <code>string</code> Default: &#96;&#96;</p>
+<p>当<code>sourceMapMode: &#39;separate&#39;</code>时，设置输出源映射的文件名。</p>
+<p>CLI example:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">javascript-obfuscator <span class="hljs-built_in">input</span>.js --output out.js --<span class="hljs-keyword">source</span>-<span class="hljs-keyword">map</span> true --<span class="hljs-keyword">source</span>-<span class="hljs-keyword">map</span>-base-url <span class="hljs-string">&#x27;http://localhost:9000&#x27;</span> --<span class="hljs-keyword">source</span>-<span class="hljs-keyword">map</span>-<span class="hljs-keyword">file</span>-name example<br></code></pre></td></tr></table></figure>
+
+<p>Result:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">//# </span><span class="language-bash">sourceMappingURL=http://localhost:9000/example.js.map</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="sourceMapMode"><a href="#sourceMapMode" class="headerlink" title="sourceMapMode"></a><code>sourceMapMode</code></h3><p>Type: <code>string</code> Default: <code>separate</code></p>
+<p>指定源映射生成模式:</p>
+<ul>
+<li><code>inline</code> - 在每个.js文件的末尾添加源映射;</li>
+<li><code>separate</code> - 生成相应的<code>.map &#39;文件与源映射。如果你通过CLI运行混淆器-添加链接到源映射文件的文件末尾与混淆的代码</code>&#x2F;&#x2F;# sourceMappingUrl&#x3D;file.js.map&#96;。</li>
+</ul>
+<h3 id="sourceMapSourcesMode"><a href="#sourceMapSourcesMode" class="headerlink" title="sourceMapSourcesMode"></a><code>sourceMapSourcesMode</code></h3><p>Type: <code>string</code> Default: <code>sources-content</code></p>
+<p>允许控制<code>sources</code>和<code>sourcesContent</code>映射源的字段:</p>
+<ul>
+<li><code>sources-content</code> - 添加虚拟<code>sources</code>字段，添加原始源代码的<code>sourcesContent</code>字段;</li>
+<li><code>sources</code> - 使用有效的源描述添加<code>sources</code>字段，不添加<code>sourcesContent</code>字段。当使用NodeJS API时，需要定义<code>inputFileName</code>选项，该选项将用作<code>source</code>字段值。</li>
+</ul>
+<h3 id="splitStrings"><a href="#splitStrings" class="headerlink" title="splitStrings"></a><code>splitStrings</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>将字面值字符串分割为长度为<code>splitStringsChunkLength</code>选项值的块。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> test = <span class="hljs-string">&quot;abcdefg&quot;</span>;<br>&#125;)();<br><br><span class="hljs-comment">// output</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> _0x5a21 = <span class="hljs-string">&quot;ab&quot;</span> + <span class="hljs-string">&quot;cd&quot;</span> + <span class="hljs-string">&quot;ef&quot;</span> + <span class="hljs-string">&quot;g&quot;</span>;<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="splitStringsChunkLength"><a href="#splitStringsChunkLength" class="headerlink" title="splitStringsChunkLength"></a><code>splitStringsChunkLength</code></h3><p>Type: <code>number</code> Default: <code>10</code></p>
+<p>设置<code>splitStrings</code>选项的块长度。</p>
+<h3 id="stringArray"><a href="#stringArray" class="headerlink" title="stringArray"></a><code>stringArray</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p>删除字符串字面量并将其放置在特殊数组中。例如，字符串<code>&quot;Hello World&quot;</code>在<code>var m = &quot;Hello World&quot;;</code>将被替换为类似<code>var m = _0x12c456[0x1];</code></p>
+<h3 id="stringArrayCallsTransform"><a href="#stringArrayCallsTransform" class="headerlink" title="stringArrayCallsTransform"></a><code>stringArrayCallsTransform</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>启用对<code>stringArray</code>的调用转换。这些调用的所有参数都可以根据<code>stringArrayCallsTransformThreshold</code>的值提取到不同的对象。<br>这使得自动查找字符串数组的调用变得更加困难。</p>
+<p>Example:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> k = &#123;<br>        <span class="hljs-attr">c</span>: <span class="hljs-number">0x2f2</span>,<br>        <span class="hljs-attr">d</span>: <span class="hljs-string">&#x27;0x396&#x27;</span>,<br>        <span class="hljs-attr">e</span>: <span class="hljs-string">&#x27;0x397&#x27;</span>,<br>        <span class="hljs-attr">f</span>: <span class="hljs-string">&#x27;0x39a&#x27;</span>,<br>        <span class="hljs-attr">g</span>: <span class="hljs-string">&#x27;0x39d&#x27;</span>,<br>        <span class="hljs-attr">h</span>: <span class="hljs-number">0x398</span>,<br>        <span class="hljs-attr">l</span>: <span class="hljs-number">0x394</span>,<br>        <span class="hljs-attr">m</span>: <span class="hljs-string">&#x27;0x39b&#x27;</span>,<br>        <span class="hljs-attr">n</span>: <span class="hljs-string">&#x27;0x39f&#x27;</span>,<br>        <span class="hljs-attr">o</span>: <span class="hljs-number">0x395</span>,<br>        <span class="hljs-attr">p</span>: <span class="hljs-number">0x395</span>,<br>        <span class="hljs-attr">q</span>: <span class="hljs-number">0x399</span>,<br>        <span class="hljs-attr">r</span>: <span class="hljs-string">&#x27;0x399&#x27;</span><br>    &#125;;<br>    <span class="hljs-keyword">var</span> c = i(k.d, k.e);<br>    <span class="hljs-keyword">var</span> d = i(k.f, k.g);<br>    <span class="hljs-keyword">var</span> e = i(k.h, k.l);<br>    <span class="hljs-keyword">var</span> f = i(k.m, k.n);<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">i</span>(<span class="hljs-params">c, d</span>) &#123;<br>        <span class="hljs-keyword">return</span> b(c - k.c, d);<br>    &#125;<br>    <span class="hljs-keyword">var</span> g = i(k.o, k.p);<br>    <span class="hljs-keyword">var</span> h = i(k.q, k.r);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">j</span>(<span class="hljs-params">c, d</span>) &#123;<br>    <span class="hljs-keyword">var</span> l = &#123; <span class="hljs-attr">c</span>: <span class="hljs-number">0x14b</span> &#125;;<br>    <span class="hljs-keyword">return</span> b(c - -l.c, d);<br>&#125;<br><span class="hljs-built_in">console</span>[j(-<span class="hljs-string">&#x27;0xa6&#x27;</span>, -<span class="hljs-string">&#x27;0xa6&#x27;</span>)](foo());<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">b</span>(<span class="hljs-params">c, d</span>) &#123;<br>    <span class="hljs-keyword">var</span> e = a();<br>    b = <span class="hljs-keyword">function</span> (<span class="hljs-params">f, g</span>) &#123;<br>        f = f - <span class="hljs-number">0xa3</span>;<br>        <span class="hljs-keyword">var</span> h = e[f];<br>        <span class="hljs-keyword">return</span> h;<br>    &#125;;<br>    <span class="hljs-keyword">return</span> b(c, d);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> m = [<br>        <span class="hljs-string">&#x27;string5&#x27;</span>,<br>        <span class="hljs-string">&#x27;string1&#x27;</span>,<br>        <span class="hljs-string">&#x27;log&#x27;</span>,<br>        <span class="hljs-string">&#x27;string3&#x27;</span>,<br>        <span class="hljs-string">&#x27;string6&#x27;</span>,<br>        <span class="hljs-string">&#x27;string2&#x27;</span>,<br>        <span class="hljs-string">&#x27;string4&#x27;</span><br>    ];<br>    a = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> m;<br>    &#125;;<br>    <span class="hljs-keyword">return</span> a();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="stringArrayCallsTransformThreshold"><a href="#stringArrayCallsTransformThreshold" class="headerlink" title="stringArrayCallsTransformThreshold"></a><code>stringArrayCallsTransformThreshold</code></h3><p>Type: <code>number</code> Default: <code>0.5</code></p>
+<p><strong>必须启用<code>stringArray</code>和<code>stringArrayCallsTransformThreshold</code>选项</strong></p>
+<p>您可以使用此设置调整对字符串数组的调用将被转换的概率(从0到1)。</p>
+<h3 id="stringArrayEncoding"><a href="#stringArrayEncoding" class="headerlink" title="stringArrayEncoding"></a><code>stringArrayEncoding</code></h3><p>Type: <code>string[]</code> Default: <code>[]</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>这个选项会降低脚本的速度。</p>
+<p>使用<code>base64</code>或<code>rc4</code>编码<code>stringArray</code>的所有字符串字面量，并插入用于在运行时解码的特殊代码。</p>
+<p>每个<code>stringArray</code>值都将使用从传递列表中随机选择的编码进行编码。这使得使用多种编码成为可能。</p>
+<p>可用的值:</p>
+<ul>
+<li><code>&#39;none&#39;</code> (<code>boolean</code>): 不编码<code>stringArray</code>的值</li>
+<li><code>&#39;base64&#39;</code> (<code>string</code>): 使用<code>base64</code>编码<code>stringArray</code>值</li>
+<li><code>&#39;rc4&#39;</code> (<code>string</code>): 使用<code>rc4</code>编码<code>stringArray</code>值。**大约比base64慢30-50%**，但更难获得初始值。建议在使用<code>rc4</code>编码时禁用<code>unicodeEscapeSequence</code>选项，以防止非常大尺寸的混淆代码。</li>
+</ul>
+<p>例如，对于以下选项值，一些<code>stringArray</code>值将不会被编码，而一些值将使用<code>base64</code>和<code>rc4</code>编码:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-attr">stringArrayEncoding</span>: [<span class="hljs-string">&quot;none&quot;</span>, <span class="hljs-string">&quot;base64&quot;</span>, <span class="hljs-string">&quot;rc4&quot;</span>];<br></code></pre></td></tr></table></figure>
+
+<h3 id="stringArrayIndexesType"><a href="#stringArrayIndexesType" class="headerlink" title="stringArrayIndexesType"></a><code>stringArrayIndexesType</code></h3><p>Type: <code>string[]</code> Default: <code>[&#39;hexadecimal-number&#39;]</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>允许控制字符串数组调用索引的类型。</p>
+<p>每个<code>stringArray</code>调用索引将由从传递的列表中随机选择的类型进行转换。这使得使用多种类型成为可能。</p>
+<p>可用的值:</p>
+<ul>
+<li><code>&#39;hexadecimal-number&#39;</code> (<code>default</code>): 将字符串数组调用索引转换为十六进制数</li>
+<li><code>&#39;hexadecimal-numeric-string&#39;</code>: 将字符串数组调用索引转换为十六进制数字字符串</li>
+</ul>
+<p>在<code>2.9.0</code>发布之前，<code>javascript-obfuscator</code>将所有字符串数组调用索引转换为<code>hexadecimal-numeric-string</code>类型。这使得一些手动去混淆稍微困难一些，但它允许自动去混淆器轻松检测这些调用。</p>
+<p>新的<code>hexadecimal-number</code>类型方法使代码中更难自动检测字符串数组调用模式。</p>
+<p>未来将添加更多类型。</p>
+<h3 id="stringArrayIndexShift"><a href="#stringArrayIndexShift" class="headerlink" title="stringArrayIndexShift"></a><code>stringArrayIndexShift</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p>** <code>stringArray</code> option must be enabled**</p>
+<p>Enables additional index shift for all string array calls</p>
+<h3 id="stringArrayRotate"><a href="#stringArrayRotate" class="headerlink" title="stringArrayRotate"></a><code>stringArrayRotate</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>将<code>stringArray</code>数组移动到固定和随机的位置(在代码混淆时生成)。这使得将删除的字符串的顺序匹配到原始位置变得更加困难。</p>
+<h3 id="stringArrayShuffle"><a href="#stringArrayShuffle" class="headerlink" title="stringArrayShuffle"></a><code>stringArrayShuffle</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>随机打乱<code>stringArray</code>数组项。</p>
+<h3 id="stringArrayWrappersCount"><a href="#stringArrayWrappersCount" class="headerlink" title="stringArrayWrappersCount"></a><code>stringArrayWrappersCount</code></h3><p>Type: <code>number</code> Default: <code>1</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>为每个根或函数作用域内的<code>string array</code>设置包装器的计数。<br>每个作用域中包装器的实际数量受限于该作用域中文字节点的数量。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// Input</span><br><span class="hljs-keyword">const</span> foo = <span class="hljs-string">&quot;foo&quot;</span>;<br><span class="hljs-keyword">const</span> bar = <span class="hljs-string">&quot;bar&quot;</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> baz = <span class="hljs-string">&quot;baz&quot;</span>;<br>  <span class="hljs-keyword">const</span> bark = <span class="hljs-string">&quot;bark&quot;</span>;<br>  <span class="hljs-keyword">const</span> hawk = <span class="hljs-string">&quot;hawk&quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> eagle = <span class="hljs-string">&quot;eagle&quot;</span>;<br><br><span class="hljs-comment">// Output, stringArrayWrappersCount: 5</span><br><span class="hljs-keyword">const</span> _0x3f6c = [<span class="hljs-string">&quot;bark&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;eagle&quot;</span>, <span class="hljs-string">&quot;hawk&quot;</span>, <span class="hljs-string">&quot;baz&quot;</span>];<br><span class="hljs-keyword">const</span> _0x48f96e = _0x2e13;<br><span class="hljs-keyword">const</span> _0x4dfed8 = _0x2e13;<br><span class="hljs-keyword">const</span> _0x55e970 = _0x2e13;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x2e13</span>(<span class="hljs-params">_0x33c4f5, _0x3f6c62</span>) &#123;<br>  _0x2e13 = <span class="hljs-keyword">function</span> (<span class="hljs-params">_0x2e1388, _0x60b1e</span>) &#123;<br>    _0x2e1388 = _0x2e1388 - <span class="hljs-number">0xe2</span>;<br>    <span class="hljs-keyword">let</span> _0x53d475 = _0x3f6c[_0x2e1388];<br>    <span class="hljs-keyword">return</span> _0x53d475;<br>  &#125;;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">_0x2e13</span>(_0x33c4f5, _0x3f6c62);<br>&#125;<br><span class="hljs-keyword">const</span> foo = <span class="hljs-title function_">_0x48f96e</span>(<span class="hljs-number">0xe4</span>);<br><span class="hljs-keyword">const</span> bar = <span class="hljs-title function_">_0x4dfed8</span>(<span class="hljs-number">0xe3</span>);<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> _0x1c262f = _0x2e13;<br>  <span class="hljs-keyword">const</span> _0x54d7a4 = _0x2e13;<br>  <span class="hljs-keyword">const</span> _0x5142fe = _0x2e13;<br>  <span class="hljs-keyword">const</span> _0x1392b0 = <span class="hljs-title function_">_0x1c262f</span>(<span class="hljs-number">0xe7</span>);<br>  <span class="hljs-keyword">const</span> _0x201a58 = <span class="hljs-title function_">_0x1c262f</span>(<span class="hljs-number">0xe2</span>);<br>  <span class="hljs-keyword">const</span> _0xd3a7fb = <span class="hljs-title function_">_0x1c262f</span>(<span class="hljs-number">0xe6</span>);<br>&#125;<br><span class="hljs-keyword">const</span> eagle = <span class="hljs-title function_">_0x48f96e</span>(<span class="hljs-number">0xe5</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="stringArrayWrappersChainedCalls"><a href="#stringArrayWrappersChainedCalls" class="headerlink" title="stringArrayWrappersChainedCalls"></a><code>stringArrayWrappersChainedCalls</code></h3><p>Type: <code>boolean</code> Default: <code>true</code></p>
+<p><strong>必须启用<code>stringArray</code>和<code>stringArrayWrappersCount</code>选项</strong></p>
+<p>启用<code>string array</code>包装器之间的链式调用。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// Input</span><br><span class="hljs-keyword">const</span> foo = <span class="hljs-string">&quot;foo&quot;</span>;<br><span class="hljs-keyword">const</span> bar = <span class="hljs-string">&quot;bar&quot;</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> baz = <span class="hljs-string">&quot;baz&quot;</span>;<br>  <span class="hljs-keyword">const</span> bark = <span class="hljs-string">&quot;bark&quot;</span>;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">test1</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> hawk = <span class="hljs-string">&quot;hawk&quot;</span>;<br>    <span class="hljs-keyword">const</span> eagle = <span class="hljs-string">&quot;eagle&quot;</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// Output, stringArrayWrappersCount: 5, stringArrayWrappersChainedCalls: true</span><br><span class="hljs-keyword">const</span> _0x40c2 = [<span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-string">&quot;bark&quot;</span>, <span class="hljs-string">&quot;hawk&quot;</span>, <span class="hljs-string">&quot;eagle&quot;</span>, <span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;baz&quot;</span>];<br><span class="hljs-keyword">const</span> _0x31c087 = _0x3280;<br><span class="hljs-keyword">const</span> _0x31759a = _0x3280;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x3280</span>(<span class="hljs-params">_0x1f52ee, _0x40c2a2</span>) &#123;<br>  _0x3280 = <span class="hljs-keyword">function</span> (<span class="hljs-params">_0x3280a4, _0xf07b02</span>) &#123;<br>    _0x3280a4 = _0x3280a4 - <span class="hljs-number">0x1c4</span>;<br>    <span class="hljs-keyword">let</span> _0x57a182 = _0x40c2[_0x3280a4];<br>    <span class="hljs-keyword">return</span> _0x57a182;<br>  &#125;;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">_0x3280</span>(_0x1f52ee, _0x40c2a2);<br>&#125;<br><span class="hljs-keyword">const</span> foo = <span class="hljs-title function_">_0x31c087</span>(<span class="hljs-number">0x1c8</span>);<br><span class="hljs-keyword">const</span> bar = <span class="hljs-title function_">_0x31c087</span>(<span class="hljs-number">0x1c4</span>);<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> _0x848719 = _0x31759a;<br>  <span class="hljs-keyword">const</span> _0x2693bf = _0x31c087;<br>  <span class="hljs-keyword">const</span> _0x2c08e8 = <span class="hljs-title function_">_0x848719</span>(<span class="hljs-number">0x1c9</span>);<br>  <span class="hljs-keyword">const</span> _0x359365 = <span class="hljs-title function_">_0x2693bf</span>(<span class="hljs-number">0x1c5</span>);<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x175e90</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> _0x310023 = _0x848719;<br>    <span class="hljs-keyword">const</span> _0x2302ef = _0x2693bf;<br>    <span class="hljs-keyword">const</span> _0x237437 = <span class="hljs-title function_">_0x310023</span>(<span class="hljs-number">0x1c6</span>);<br>    <span class="hljs-keyword">const</span> _0x56145c = <span class="hljs-title function_">_0x310023</span>(<span class="hljs-number">0x1c7</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="stringArrayWrappersParametersMaxCount"><a href="#stringArrayWrappersParametersMaxCount" class="headerlink" title="stringArrayWrappersParametersMaxCount"></a><code>stringArrayWrappersParametersMaxCount</code></h3><p>Type: <code>number</code> Default: <code>2</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p><strong>目前该选项仅影响由<code>stringArrayWrappersType``function</code> 选项值添加的包装器</strong></p>
+<p>允许控制字符串数组包装器参数的最大数量。<br>默认值和最小值为2。建议值为2 ~ 5。</p>
+<h3 id="stringArrayWrappersType"><a href="#stringArrayWrappersType" class="headerlink" title="stringArrayWrappersType"></a><code>stringArrayWrappersType</code></h3><p>Type: <code>string</code> Default: <code>variable</code></p>
+<p><strong>必须启用<code>stringArray</code>和<code>stringArrayWrappersCount</code>选项</strong></p>
+<p>允许选择由<code>stringArrayWrappersCount</code>选项附加的包装器类型。</p>
+<p>可用的值:</p>
+<ul>
+<li><code>&#39;variable&#39;</code>: 在每个作用域的顶部追加变量包装器。快速的性能。</li>
+<li><code>&#39;function&#39;</code>: 在每个作用域内的随机位置追加函数包装器。性能比变量更慢，但提供了更严格的混淆。</li>
+</ul>
+<p>当性能损失对被混淆的应用程序影响不大时，强烈建议使用<code>function</code>包装器来实现更严重的混淆。</p>
+<p>‘function’选项值的示例:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br><span class="hljs-keyword">const</span> foo = <span class="hljs-string">&quot;foo&quot;</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> bar = <span class="hljs-string">&quot;bar&quot;</span>;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(foo, bar);<br>&#125;<br><br><span class="hljs-title function_">test</span>();<br><br><span class="hljs-comment">// output</span><br><span class="hljs-keyword">const</span> a = [<span class="hljs-string">&quot;log&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-string">&quot;foo&quot;</span>];<br><span class="hljs-keyword">const</span> foo = <span class="hljs-title function_">d</span>(<span class="hljs-number">0x567</span>, <span class="hljs-number">0x568</span>);<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">b</span>(<span class="hljs-params">c, d</span>) &#123;<br>  b = <span class="hljs-keyword">function</span> (<span class="hljs-params">e, f</span>) &#123;<br>    e = e - <span class="hljs-number">0x185</span>;<br>    <span class="hljs-keyword">let</span> g = a[e];<br>    <span class="hljs-keyword">return</span> g;<br>  &#125;;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">b</span>(c, d);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> c = <span class="hljs-title function_">e</span>(<span class="hljs-number">0x51c</span>, <span class="hljs-number">0x51b</span>);<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">e</span>(<span class="hljs-params">c, g</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">b</span>(c - <span class="hljs-number">0x396</span>, g);<br>  &#125;<br>  <span class="hljs-variable language_">console</span>[<span class="hljs-title function_">f</span>(<span class="hljs-number">0x51b</span>, <span class="hljs-number">0x51d</span>)](foo, c);<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">c, g</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">b</span>(c - <span class="hljs-number">0x396</span>, g);<br>  &#125;<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">d</span>(<span class="hljs-params">c, g</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">b</span>(g - <span class="hljs-number">0x3e1</span>, c);<br>&#125;<br><span class="hljs-title function_">test</span>();<br></code></pre></td></tr></table></figure>
+
+<h3 id="stringArrayThreshold"><a href="#stringArrayThreshold" class="headerlink" title="stringArrayThreshold"></a><code>stringArrayThreshold</code></h3><p>Type: <code>number</code> Default: <code>0.8</code> Min: <code>0</code> Max: <code>1</code></p>
+<p><strong>必须启用<code>stringArray</code>选项</strong></p>
+<p>您可以使用此设置来调整将字符串字面值插入到<code>stringArray</code>的概率(从0到1)。</p>
+<p>此设置对于大代码特别有用，因为它会重复调用字符串数组，并降低代码速度。</p>
+<p><code>stringArrayThreshold: 0</code> 等于 <code>stringArray: false</code>.</p>
+<h3 id="target"><a href="#target" class="headerlink" title="target"></a><code>target</code></h3><p>Type: <code>string</code> Default: <code>browser</code></p>
+<p>允许为混淆的代码设置目标环境。</p>
+<p>可用的值:</p>
+<ul>
+<li><code>browser</code>;</li>
+<li><code>browser-no-eval</code>;</li>
+<li><code>node</code>.</li>
+</ul>
+<p>目前<code>browser</code>和<code>node</code>目标的输出代码是相同的，但某些浏览器特定的选项不允许与<code>节点</code>目标一起使用。<br><code>browser-no-eval</code>目标的输出代码没有使用<code>eval</code>。</p>
+<h3 id="transformObjectKeys"><a href="#transformObjectKeys" class="headerlink" title="transformObjectKeys"></a><code>transformObjectKeys</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>启用对象键的转换。</p>
+<p>Example:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// input</span><br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> <span class="hljs-built_in">object</span> = &#123;<br>    <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;test1&quot;</span>,<br>    <span class="hljs-attr">bar</span>: &#123;<br>      <span class="hljs-attr">baz</span>: <span class="hljs-string">&quot;test2&quot;</span>,<br>    &#125;,<br>  &#125;;<br>&#125;)();<br><br><span class="hljs-comment">// output</span><br><span class="hljs-keyword">var</span> _0x4735 = [<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;baz&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-string">&quot;test1&quot;</span>, <span class="hljs-string">&quot;test2&quot;</span>];<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">_0x390c</span>(<span class="hljs-params">_0x33d6b6, _0x4735f4</span>) &#123;<br>  _0x390c = <span class="hljs-keyword">function</span> (<span class="hljs-params">_0x390c37, _0x1eed85</span>) &#123;<br>    _0x390c37 = _0x390c37 - <span class="hljs-number">0x198</span>;<br>    <span class="hljs-keyword">var</span> _0x2275f8 = _0x4735[_0x390c37];<br>    <span class="hljs-keyword">return</span> _0x2275f8;<br>  &#125;;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">_0x390c</span>(_0x33d6b6, _0x4735f4);<br>&#125;<br>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> _0x17d1b7 = _0x390c;<br>  <span class="hljs-keyword">var</span> _0xc9b6bb = &#123;&#125;;<br>  _0xc9b6bb[<span class="hljs-title function_">_0x17d1b7</span>(<span class="hljs-number">0x199</span>)] = <span class="hljs-title function_">_0x17d1b7</span>(<span class="hljs-number">0x19c</span>);<br>  <span class="hljs-keyword">var</span> _0x3d959a = &#123;&#125;;<br>  _0x3d959a[<span class="hljs-title function_">_0x17d1b7</span>(<span class="hljs-number">0x198</span>)] = <span class="hljs-title function_">_0x17d1b7</span>(<span class="hljs-number">0x19b</span>);<br>  _0x3d959a[<span class="hljs-title function_">_0x17d1b7</span>(<span class="hljs-number">0x19a</span>)] = _0xc9b6bb;<br>  <span class="hljs-keyword">var</span> _0x41fd86 = _0x3d959a;<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="unicodeEscapeSequence"><a href="#unicodeEscapeSequence" class="headerlink" title="unicodeEscapeSequence"></a><code>unicodeEscapeSequence</code></h3><p>Type: <code>boolean</code> Default: <code>false</code></p>
+<p>允许启用&#x2F;禁用字符串转换到unicode转义序列。</p>
+<p>Unicode转义序列极大地增加了代码大小，并且字符串可以很容易地恢复到原始视图。建议仅对小源代码启用此选项。</p>
+<h2 id="预设选项"><a href="#预设选项" class="headerlink" title="预设选项"></a>预设选项</h2><p>配置<code>optionsPreset</code>的选项</p>
+<h3 id="高混淆，低性能（high-obfuscation）"><a href="#高混淆，低性能（high-obfuscation）" class="headerlink" title="高混淆，低性能（high-obfuscation）"></a>高混淆，低性能（high-obfuscation）</h3><p>性能将比没有混淆时慢得多</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlattening</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlatteningThreshold</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">deadCodeInjection</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">deadCodeInjectionThreshold</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">debugProtection</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">debugProtectionInterval</span>: <span class="hljs-number">4000</span>,<br>    <span class="hljs-attr">disableConsoleOutput</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">identifierNamesGenerator</span>: <span class="hljs-string">&#x27;hexadecimal&#x27;</span>,<br>    <span class="hljs-attr">log</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">numbersToExpressions</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">selfDefending</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">simplify</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStrings</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStringsChunkLength</span>: <span class="hljs-number">5</span>,<br>    <span class="hljs-attr">stringArray</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayCallsTransform</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayEncoding</span>: [<span class="hljs-string">&#x27;rc4&#x27;</span>],<br>    <span class="hljs-attr">stringArrayIndexShift</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayRotate</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayShuffle</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersCount</span>: <span class="hljs-number">5</span>,<br>    <span class="hljs-attr">stringArrayWrappersChainedCalls</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersParametersMaxCount</span>: <span class="hljs-number">5</span>,<br>    <span class="hljs-attr">stringArrayWrappersType</span>: <span class="hljs-string">&#x27;function&#x27;</span>,<br>    <span class="hljs-attr">stringArrayThreshold</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">transformObjectKeys</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">unicodeEscapeSequence</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="中等混淆，性能最佳（medium-obfuscation）"><a href="#中等混淆，性能最佳（medium-obfuscation）" class="headerlink" title="中等混淆，性能最佳（medium-obfuscation）"></a>中等混淆，性能最佳（medium-obfuscation）</h3><p>性能会比没有混淆时慢</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlattening</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlatteningThreshold</span>: <span class="hljs-number">0.75</span>,<br>    <span class="hljs-attr">deadCodeInjection</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">deadCodeInjectionThreshold</span>: <span class="hljs-number">0.4</span>,<br>    <span class="hljs-attr">debugProtection</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">debugProtectionInterval</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">disableConsoleOutput</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">identifierNamesGenerator</span>: <span class="hljs-string">&#x27;hexadecimal&#x27;</span>,<br>    <span class="hljs-attr">log</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">numbersToExpressions</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">selfDefending</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">simplify</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStrings</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStringsChunkLength</span>: <span class="hljs-number">10</span>,<br>    <span class="hljs-attr">stringArray</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayCallsTransform</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayCallsTransformThreshold</span>: <span class="hljs-number">0.75</span>,<br>    <span class="hljs-attr">stringArrayEncoding</span>: [<span class="hljs-string">&#x27;base64&#x27;</span>],<br>    <span class="hljs-attr">stringArrayIndexShift</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayRotate</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayShuffle</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersCount</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">stringArrayWrappersChainedCalls</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersParametersMaxCount</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-attr">stringArrayWrappersType</span>: <span class="hljs-string">&#x27;function&#x27;</span>,<br>    <span class="hljs-attr">stringArrayThreshold</span>: <span class="hljs-number">0.75</span>,<br>    <span class="hljs-attr">transformObjectKeys</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">unicodeEscapeSequence</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="低混淆，高性能（low-obfuscation）"><a href="#低混淆，高性能（low-obfuscation）" class="headerlink" title="低混淆，高性能（low-obfuscation）"></a>低混淆，高性能（low-obfuscation）</h3><p>性能将处于一个相对正常的水平</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlattening</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">deadCodeInjection</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">debugProtection</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">debugProtectionInterval</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">disableConsoleOutput</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">identifierNamesGenerator</span>: <span class="hljs-string">&#x27;hexadecimal&#x27;</span>,<br>    <span class="hljs-attr">log</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">numbersToExpressions</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">selfDefending</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">simplify</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStrings</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">stringArray</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayCallsTransform</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">stringArrayEncoding</span>: [],<br>    <span class="hljs-attr">stringArrayIndexShift</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayRotate</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayShuffle</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersCount</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">stringArrayWrappersChainedCalls</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersParametersMaxCount</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">stringArrayWrappersType</span>: <span class="hljs-string">&#x27;variable&#x27;</span>,<br>    <span class="hljs-attr">stringArrayThreshold</span>: <span class="hljs-number">0.75</span>,<br>    <span class="hljs-attr">unicodeEscapeSequence</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="默认设置，高性能（default）"><a href="#默认设置，高性能（default）" class="headerlink" title="默认设置，高性能（default）"></a>默认设置，高性能（default）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-attr">compact</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">controlFlowFlattening</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">deadCodeInjection</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">debugProtection</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">debugProtectionInterval</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">disableConsoleOutput</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">identifierNamesGenerator</span>: <span class="hljs-string">&#x27;hexadecimal&#x27;</span>,<br>    <span class="hljs-attr">log</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">numbersToExpressions</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">renameGlobals</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">selfDefending</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">simplify</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">splitStrings</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">stringArray</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayCallsTransform</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">stringArrayCallsTransformThreshold</span>: <span class="hljs-number">0.5</span>,<br>    <span class="hljs-attr">stringArrayEncoding</span>: [],<br>    <span class="hljs-attr">stringArrayIndexShift</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayRotate</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayShuffle</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersCount</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">stringArrayWrappersChainedCalls</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">stringArrayWrappersParametersMaxCount</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">stringArrayWrappersType</span>: <span class="hljs-string">&#x27;variable&#x27;</span>,<br>    <span class="hljs-attr">stringArrayThreshold</span>: <span class="hljs-number">0.75</span>,<br>    <span class="hljs-attr">unicodeEscapeSequence</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/js/" class="category-chain-item">js</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/ts/%E3%80%90ts%E3%80%91%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%B7%A5%E5%85%B7/" title="【ts】类型工具">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【ts】类型工具</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/node/%E3%80%90node%E3%80%91.prettierrc.json%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/" title="【node】.prettierrc.json配置详解">
+                        <span class="hidden-mobile">【node】.prettierrc.json配置详解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【node】nexus搭建私服npm仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【node】nexus搭建私服npm仓库">
+<meta property="og:url" content="https://rocyuan666.gitee.io/node/%E3%80%90node%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【node】nexus搭建私服npm仓库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/1.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/2.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/3.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/4.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/5.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/6.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/7.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/8.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/9.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/10.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/11.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/12.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/13.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/14.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/15.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/16.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/17.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/18.png">
+<meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/19.png">
+<meta property="article:published_time" content="2022-08-28T12:02:45.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.671Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/1.png">
+  
+  
+  
+  <title>【node】nexus搭建私服npm仓库 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【node】nexus搭建私服npm仓库"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-28 20:02" pubdate>
+          2022年8月28日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【node】nexus搭建私服npm仓库</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="下载nexus"><a href="#下载nexus" class="headerlink" title="下载nexus"></a>下载nexus</h1><p>官网下载：<a target="_blank" rel="noopener" href="https://help.sonatype.com/repomanager3/product-information/download/download-archives---repository-manager-3">https://help.sonatype.com/repomanager3/product-information/download/download-archives---repository-manager-3</a></p>
+<p>百度网盘下载：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SgfjT0MhcX9ceIT0sCTmGQ?pwd=66sj">https://pan.baidu.com/s/1SgfjT0MhcX9ceIT0sCTmGQ?pwd=66sj</a> 提取码：66sj</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>下载完后进行解压 <code>tar -zxvf nexus-3.21.2-03-unix.tar.gz</code><br>进入解压后目录 nexus-3.21.2-03&#x2F;bin 运行<code>./nexus</code>，会提示nexus的命令<code>Usage: ./nexus &#123;start|stop|run|run-redirect|status|restart|force-reload&#125;</code><br>启动运行<code>./nexus start</code><br>查看状态<code>./nexus status</code></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/1.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>./nexus status</code>是看不到打印日志的；使用<code>./nexus run</code>可以看到打印日志。</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>配置文件是<code>nexus-3.21.2-03/etc/nexus-default.properties</code> 可以看到默认配置端口是8081</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/2.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h1><p>访问<code>ip:8081</code>即可访问，打不开的请检查端口是否开放，服务器配置安全组。</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/3.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p>登录管理员，用户名为：admin密码存放在<code>sonatype-work/nexus3/admin.password</code>；登录后根据提示设置新密码。</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/4.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="创建npm仓库"><a href="#创建npm仓库" class="headerlink" title="创建npm仓库"></a>创建npm仓库</h1><p>创建顺序：</p>
+<ol>
+<li>npm(proxy) 代理仓库 可以设置官方源或者镜像源</li>
+<li>npm(hosted) 本地仓库</li>
+<li>npm(group) 组仓库</li>
+</ol>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/6.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="创建npm代理仓库"><a href="#创建npm代理仓库" class="headerlink" title="创建npm代理仓库"></a>创建npm代理仓库</h1><p>填写仓库唯一标识（名称）和源地址，其他默认，点击创建仓库(Create repository)</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/7.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="创建npm本地仓库"><a href="#创建npm本地仓库" class="headerlink" title="创建npm本地仓库"></a>创建npm本地仓库</h1><p>填写仓库唯一标识（名称）和设置允许重新部署，其他默认，点击创建仓库(Create repository)</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/8.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="创建npm组仓库"><a href="#创建npm组仓库" class="headerlink" title="创建npm组仓库"></a>创建npm组仓库</h1><p>填写仓库唯一标识（名称）和设置之前创建的本地仓库和代理仓库（注意优先级，优先本地仓库，其次代理仓库），其他默认，点击创建仓库(Create repository)</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/9.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="创建完成"><a href="#创建完成" class="headerlink" title="创建完成"></a>创建完成</h1><p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/10.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="设置npm使用创建的npm-group源"><a href="#设置npm使用创建的npm-group源" class="headerlink" title="设置npm使用创建的npm-group源"></a>设置npm使用创建的npm-group源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置源</span><br>npm config <span class="hljs-built_in">set</span> registry=http://192.168.10.15:8081/repository/npm-group/<br><span class="hljs-comment">#查看源</span><br>npm config get registry<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/11.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="npm安装"><a href="#npm安装" class="headerlink" title="npm安装"></a>npm安装</h1><p>以安装vue为例，安装完成后会被拉取到自己服务器上，下次安装就会优先使用本地仓库。</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/13.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="发布npm私有包"><a href="#发布npm私有包" class="headerlink" title="发布npm私有包"></a>发布npm私有包</h1><h2 id="注册用户"><a href="#注册用户" class="headerlink" title="注册用户"></a>注册用户</h2><p>发布前需要在命令行登录（建议新建用户登录），可以创建角色（我这块使用admin角色）</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/14.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="命令行登录"><a href="#命令行登录" class="headerlink" title="命令行登录"></a>命令行登录</h2><p>注意：登录的时候需要指定本地仓库源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm login --registry=http://192.168.10.15:8081/repository/npm-hosted/<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/15.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="发布包"><a href="#发布包" class="headerlink" title="发布包"></a>发布包</h2><p>发布前需要添加<code>npm Bearer Token Realm</code></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/16.png" srcset="/img/loading.gif" lazyload></p>
+<p>创建项目<code>npm init -y</code>随便写个测试包，我起的名字为：<code>npmtest</code></p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/17.png" srcset="/img/loading.gif" lazyload></p>
+<p>发布</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm publish --registry=http://192.168.10.15:8081/repository/npm-hosted/<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/18.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="测试引入刚才发布的私有包"><a href="#测试引入刚才发布的私有包" class="headerlink" title="测试引入刚才发布的私有包"></a>测试引入刚才发布的私有包</h1><p>创建一个项目（rocyuan666）<code>npm install npmtest</code>引入npmtest；打印出了npmtest包中的打印</p>
+<p><img src="/../../assets/%E3%80%90npm%E3%80%91nexus%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%8Dnpm%E4%BB%93%E5%BA%93/19.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/node/" class="category-chain-item">node</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/vue/%E3%80%90vue%E3%80%91%E5%88%9B%E5%BB%BAUI%E5%BA%93%E5%B9%B6%E4%B8%8A%E4%BC%A0npm%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" title="【vue】创建UI库并上传npm私有仓库">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【vue】创建UI库并上传npm私有仓库</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/ts/%E3%80%90ts%E3%80%91typescript%E7%AC%94%E8%AE%B0/" title="【ts】typescript笔记">
+                        <span class="hidden-mobile">【ts】typescript笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

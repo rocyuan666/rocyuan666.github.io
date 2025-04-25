@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rocyuan.jpg">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="rocyuan">
+  <meta name="keywords" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+  
+    <meta name="description" content="【linux】centos7部署gitea-1.21.7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【linux】centos7部署gitea-1.21.7">
+<meta property="og:url" content="https://rocyuan666.gitee.io/linux/%E3%80%90linux%E3%80%91centos7%E9%83%A8%E7%BD%B2gitea-1.21.7/index.html">
+<meta property="og:site_name" content="rocyuan">
+<meta property="og:description" content="【linux】centos7部署gitea-1.21.7">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-02T14:20:00.000Z">
+<meta property="article:modified_time" content="2025-04-25T01:56:59.671Z">
+<meta property="article:author" content="rocyuan">
+<meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【linux】centos7部署gitea-1.21.7 - rocyuan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="/css/fluid/iconfont.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rocyuan666.gitee.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"8715c3f4fcf6dcff42ed58a50eb88e64","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8715c3f4fcf6dcff42ed58a50eb88e64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>RocYuan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://threejs.rocyuan.top" target="_blank">
+                <i class="iconfont icon-threejs"></i>
+                <span>Threejs</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://github.com/rocyuan666" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://www.npmjs.com/search?q=rocyuan" target="_blank">
+                <i class="iconfont icon-npm"></i>
+                <span>Npm</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://linux.rocyuan.top" target="_blank">
+                <i class="iconfont icon-linux"></i>
+                <span>Linux</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              
+              <a class="nav-link" href="https://nginx.rocyuan.top" target="_blank">
+                <i class="iconfont icon-nginx"></i>
+                <span>Nginx</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【linux】centos7部署gitea-1.21.7"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-10-02 22:20" pubdate>
+          2020年10月2日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【linux】centos7部署gitea-1.21.7</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>Gitea 的首要目标是创建一个极易安装，运行非常快速，安装和使用体验良好的自建 Git 服务。</p>
+<h1 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h1><p>安装 <code>git &gt;= 2.0</code> 与 <code>mysql &gt;= 5.7</code></p>
+<p>Gitea 支持 PostgreSQL（&gt;&#x3D;10）、MySQL（&gt;&#x3D;5.7）、SQLite 和 MSSQL（&gt;&#x3D;2008R2 SP3）这几种数据库。我这里选择 MySQL</p>
+<h1 id="下载-gitea"><a href="#下载-gitea" class="headerlink" title="下载 gitea:"></a>下载 gitea:</h1><p>官方下载地址：<a target="_blank" rel="noopener" href="https://dl.gitea.com/gitea">https://dl.gitea.com/gitea</a></p>
+<p>这里使用二进制文件安装，版本为：<code>gitea-1.21.7</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">wget -O gitea https://dl.gitea.com/gitea/<span class="hljs-number">1.21</span>.<span class="hljs-number">7</span>/gitea-<span class="hljs-number">1.21</span>.<span class="hljs-number">7</span>-linux-amd64<br>chmod +x gitea<br></code></pre></td></tr></table></figure>
+
+<h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>Gitea 需要一个用户运行，不能使用 root 用户，推荐使用名称 git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">groupadd --system git<br>adduser \<br>   --system \<br>   --shell /bin/bash \<br>   --comment <span class="hljs-string">&#x27;Git Version Control&#x27;</span> \<br>   --gid git \<br>   --home-dir /home/git \<br>   --create-home \<br>   git<br></code></pre></td></tr></table></figure>
+
+<h2 id="创建工作路径"><a href="#创建工作路径" class="headerlink" title="创建工作路径"></a>创建工作路径</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Gitea 工作目录</span><br><span class="hljs-built_in">mkdir</span> -p /var/lib/gitea/&#123;custom,data,<span class="hljs-built_in">log</span>&#125;<br><span class="hljs-built_in">chown</span> -R git:git /var/lib/gitea/<br><span class="hljs-built_in">chmod</span> -R 750 /var/lib/gitea/<br><br><span class="hljs-comment"># Gitea 配置目录</span><br><span class="hljs-built_in">mkdir</span> /etc/gitea<br><span class="hljs-built_in">chown</span> git:git /etc/gitea<br><span class="hljs-built_in">chmod</span> 770 /etc/gitea<br></code></pre></td></tr></table></figure>
+
+<h2 id="将二进制文件放到全局位置"><a href="#将二进制文件放到全局位置" class="headerlink" title="将二进制文件放到全局位置"></a>将二进制文件放到全局位置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mv</span> gitea /usr/local/bin/gitea<br></code></pre></td></tr></table></figure>
+
+<h1 id="systemd-服务管理"><a href="#systemd-服务管理" class="headerlink" title="systemd 服务管理"></a>systemd 服务管理</h1><h2 id="添加服务文件"><a href="#添加服务文件" class="headerlink" title="添加服务文件"></a>添加服务文件</h2><p>官方提供的 gitea.service 文件：<br><a target="_blank" rel="noopener" href="https://github.com/go-gitea/gitea/blob/v1.21.7/contrib/systemd/gitea.service">https://github.com/go-gitea/gitea/blob/v1.21.7/contrib/systemd/gitea.service</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /lib/systemd/system/gitea.service<br></code></pre></td></tr></table></figure>
+
+<p>将以下内容粘贴到 gitea.service 文件中</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Gitea (Git with a cup of tea)<br><span class="hljs-attr">After</span>=syslog.target<br><span class="hljs-attr">After</span>=network.target<br><span class="hljs-comment">###</span><br><span class="hljs-comment"># Don&#x27;t forget to add the database service dependencies</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#Wants=mysql.service</span><br><span class="hljs-comment">#After=mysql.service</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#Wants=mariadb.service</span><br><span class="hljs-comment">#After=mariadb.service</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#Wants=postgresql.service</span><br><span class="hljs-comment">#After=postgresql.service</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#Wants=memcached.service</span><br><span class="hljs-comment">#After=memcached.service</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#Wants=redis.service</span><br><span class="hljs-comment">#After=redis.service</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment"># If using socket activation for main http/s</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#After=gitea.main.socket</span><br><span class="hljs-comment">#Requires=gitea.main.socket</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment"># (You can also provide gitea an http fallback and/or ssh socket too)</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># An example of /etc/systemd/system/gitea.main.socket</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment">##</span><br><span class="hljs-comment">## [Unit]</span><br><span class="hljs-comment">## Description=Gitea Web Socket</span><br><span class="hljs-comment">## PartOf=gitea.service</span><br><span class="hljs-comment">##</span><br><span class="hljs-comment">## [Socket]</span><br><span class="hljs-comment">## Service=gitea.service</span><br><span class="hljs-comment">## ListenStream=&lt;some_port&gt;</span><br><span class="hljs-comment">## NoDelay=true</span><br><span class="hljs-comment">##</span><br><span class="hljs-comment">## [Install]</span><br><span class="hljs-comment">## WantedBy=sockets.target</span><br><span class="hljs-comment">##</span><br><span class="hljs-comment">###</span><br><br><span class="hljs-section">[Service]</span><br><span class="hljs-comment"># Uncomment the next line if you have repos with lots of files and get a HTTP 500 error because of that</span><br><span class="hljs-comment"># LimitNOFILE=524288:524288</span><br><span class="hljs-attr">RestartSec</span>=<span class="hljs-number">2</span>s<br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=git<br><span class="hljs-attr">Group</span>=git<br><span class="hljs-attr">WorkingDirectory</span>=/var/lib/gitea/<br><span class="hljs-comment"># If using Unix socket: tells systemd to create the /run/gitea folder, which will contain the gitea.sock file</span><br><span class="hljs-comment"># (manually creating /run/gitea doesn&#x27;t work, because it would not persist across reboots)</span><br><span class="hljs-comment">#RuntimeDirectory=gitea</span><br><span class="hljs-attr">ExecStart</span>=/usr/local/bin/gitea web --config /etc/gitea/app.ini<br><span class="hljs-attr">Restart</span>=always<br><span class="hljs-attr">Environment</span>=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea<br><span class="hljs-comment"># If you install Git to directory prefix other than default PATH (which happens</span><br><span class="hljs-comment"># for example if you install other versions of Git side-to-side with</span><br><span class="hljs-comment"># distribution version), uncomment below line and add that prefix to PATH</span><br><span class="hljs-comment"># Don&#x27;t forget to place git-lfs binary on the PATH below if you want to enable</span><br><span class="hljs-comment"># Git LFS support</span><br><span class="hljs-comment">#Environment=PATH=/path/to/git/bin:/bin:/sbin:/usr/bin:/usr/sbin</span><br><span class="hljs-comment"># If you want to bind Gitea to a port below 1024, uncomment</span><br><span class="hljs-comment"># the two values below, or use socket activation to pass Gitea its ports as above</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment">#CapabilityBoundingSet=CAP_NET_BIND_SERVICE</span><br><span class="hljs-comment">#AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment"># In some cases, when using CapabilityBoundingSet and AmbientCapabilities option, you may want to</span><br><span class="hljs-comment"># set the following value to false to allow capabilities to be applied on gitea process. The following</span><br><span class="hljs-comment"># value if set to true sandboxes gitea service and prevent any processes from running with privileges</span><br><span class="hljs-comment"># in the host user namespace.</span><br><span class="hljs-comment">###</span><br><span class="hljs-comment">#PrivateUsers=false</span><br><span class="hljs-comment">###</span><br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p>添加完后重新加载 systemd 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl daemon-reload<br></code></pre></td></tr></table></figure>
+
+<h2 id="systemd-命令"><a href="#systemd-命令" class="headerlink" title="systemd 命令"></a>systemd 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动</span><br>systemctl start gitea<br><span class="hljs-comment"># 停止</span><br>systemctl stop gitea<br><span class="hljs-comment"># 重启</span><br>systemctl restart gitea<br><span class="hljs-comment"># 开启开机自启</span><br>systemctl <span class="hljs-built_in">enable</span> gitea<br><span class="hljs-comment"># 关闭开机自启</span><br>systemctl <span class="hljs-built_in">disable</span> gitea<br></code></pre></td></tr></table></figure>
+
+<h1 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h1><p>按照以上命令启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start gitea<br></code></pre></td></tr></table></figure>
+
+<p>访问 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> 即可进入安装界面，安装完成后即可。</p>
+<h1 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h1><p>在 nginx 中设置反向代理：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css">server<br>  &#123;<br>      listen <span class="hljs-number">80</span>;<br>      server_name git<span class="hljs-selector-class">.rocyuan</span><span class="hljs-selector-class">.top</span>;<br>      location / &#123;<br>        proxy_pass http://localhost:<span class="hljs-number">3000</span>;<br>      &#125;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/go-gitea/gitea/tree/v1.21.7">https://github.com/go-gitea/gitea/tree/v1.21.7</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.gitea.com/zh-cn/">https://docs.gitea.com/zh-cn/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/linux/%E3%80%90linux%E3%80%91%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98%E8%A1%A8/" title="【linux】命令备忘表">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【linux】命令备忘表</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/linux/%E3%80%90linux%E3%80%91centos7%E9%83%A8%E7%BD%B2gitea-1.6.0(%E5%B7%B2%E5%BC%83%E7%94%A8)/" title="【linux】centos7部署gitea-1.6.0(已弃用)">
+                        <span class="hidden-mobile">【linux】centos7部署gitea-1.6.0(已弃用)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       rocyuan（袁鹏） 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
