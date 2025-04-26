@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/12.png">
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/13.png">
 <meta property="article:published_time" content="2022-12-03T02:26:53.000Z">
-<meta property="article:modified_time" content="2025-04-26T11:06:59.467Z">
+<meta property="article:modified_time" content="2025-04-26T11:40:07.939Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +335,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          2.2k 字
         
       </span>
     
@@ -346,7 +346,7 @@
         
         
         
-          12 分钟
+          10 分钟
         
       </span>
     
@@ -395,32 +395,31 @@
 <h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar zxvf nginx-1.22.1.tar.gz<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/2.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="依赖准备"><a href="#依赖准备" class="headerlink" title="依赖准备"></a>依赖准备</h2><p>安装前需要安装nginx编译的依赖环境，依赖的名称在centos与ubuntu下，会有所不同，以下两种发行版都有。<br>整合全部依赖安装命令（执行后可直接跳至“编译安装”的步骤）</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="依赖准备"><a href="#依赖准备" class="headerlink" title="依赖准备"></a>依赖准备</h2><p>安装前需要安装 nginx 编译的依赖环境，依赖的名称在 centos 与 ubuntu 下，会有所不同，以下两种发行版都有。<br>整合全部依赖安装命令（执行后可直接跳至“编译安装”的步骤）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># centos</span><br>yum -y install make gcc gcc-c++ zlib zlib-devel pcre pcre-devel openssl openssl-devel libffi-devel libtool<br><span class="hljs-comment"># ubuntu</span><br>apt-get install make g++ zlib1g zlib1g.dev libpcre3 libpcre3-dev openssl libssl-dev libffi-dev libtool<br></code></pre></td></tr></table></figure>
 
-<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><p>编译安装必须需要make。make在centos与ubuntu下名称一样。</p>
+<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><p>编译安装必须需要 make。make 在 centos 与 ubuntu 下名称一样。</p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/3.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="gcc-c"><a href="#gcc-c" class="headerlink" title="gcc-c++"></a>gcc-c++</h3><p>GCC用来对nginx源码进行编译。</p>
+<h3 id="gcc-c"><a href="#gcc-c" class="headerlink" title="gcc-c++"></a>gcc-c++</h3><p>GCC 用来对 nginx 源码进行编译。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># centos</span><br>yum install gcc-c++<br><span class="hljs-comment"># ubuntu</span><br>apt-get install g++<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/4.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="zlib-zlib-devel"><a href="#zlib-zlib-devel" class="headerlink" title="zlib zlib-devel"></a>zlib zlib-devel</h3><p>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。</p>
+<h3 id="zlib-zlib-devel"><a href="#zlib-zlib-devel" class="headerlink" title="zlib zlib-devel"></a>zlib zlib-devel</h3><p>zlib 库提供了开发人员的压缩算法，在 Nginx 的各种模块中需要使用 gzip 压缩。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># centos</span><br>yum -y install zlib zlib-devel<br><span class="hljs-comment"># ubuntu</span><br>apt-get install zlib1g zlib1g.dev<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/5.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="pcre-pcre-devel"><a href="#pcre-pcre-devel" class="headerlink" title="pcre pcre-devel"></a>pcre pcre-devel</h3><p>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。</p>
+<h3 id="pcre-pcre-devel"><a href="#pcre-pcre-devel" class="headerlink" title="pcre pcre-devel"></a>pcre pcre-devel</h3><p>Nginx 的 Rewrite 模块和 HTTP 核心模块会使用到 PCRE 正则表达式语法。这里需要安装两个安装包 pcre 和 pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># centos</span><br>yum -y install pcre pcre-devel<br><span class="hljs-comment"># ubuntu</span><br>apt-get install libpcre3 libpcre3-dev<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/6.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="openssl-openssl-devel"><a href="#openssl-openssl-devel" class="headerlink" title="openssl openssl-devel"></a>openssl openssl-devel</h3><p>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http）。如果使用了 https，需要安装 OpenSSL 库。</p>
+<h3 id="openssl-openssl-devel"><a href="#openssl-openssl-devel" class="headerlink" title="openssl openssl-devel"></a>openssl openssl-devel</h3><p>nginx 不仅支持 http 协议，还支持 https（即在 ssl 协议上传输 http）。如果使用了 https，需要安装 OpenSSL 库。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># centos</span><br>yum -y install openssl openssl-devel<br><span class="hljs-comment"># ubuntu</span><br>apt-get install openssl libssl-dev<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/7.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p><code>编译安装任何软件基本一致，编译安装所依赖的工具库需准备全！</code></p>
-<p>进入解压后的目录执行<code>./configure</code>，之后会生成Makefile文件。<br>可使用 <code>--prefix</code> 指定位置，如： <code>./configure --prefix=/usr/local/nginx</code></p>
-<p>常用的编译安装参数如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/usr/local/nginx --with-select_module --with-poll_module --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-http_v3_module --with-http_realip_module --with-http_addition_module --with-http_xslt_module --with-http_image_filter_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_degradation_module --with-http_slice_module --with-http_stub_status_module --with-http_perl_module --with-http_sub_module --with-pcre --with-pcre-jit --with-debug --with-stream --with-stream_ssl_module --with-mail --with-mail_ssl_module  --with-stream_realip_module<br></code></pre></td></tr></table></figure>
-
+<p>进入解压后的目录执行<code>./configure</code>，之后会生成 Makefile 文件。<br>可使用 <code>--prefix</code> 指定位置，如： <code>./configure --prefix=/usr/local/nginx</code></p>
+<p>常用的编译安装参数如下（开启 gzip 与 https 模块）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_gzip_static_module<br></code></pre></td></tr></table></figure>
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/8.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/9.png" srcset="/img/loading.gif" lazyload></p>
@@ -428,11 +427,12 @@
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/10.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="安装完成"><a href="#安装完成" class="headerlink" title="安装完成"></a>安装完成</h2><p>安装完成后进入<code>/usr/local/nginx/sbin</code>下会有<code>nginx可执行文件</code></p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/11.png" srcset="/img/loading.gif" lazyload></p>
-<p>然后访问<code>localhost</code>或者本机ip，会显示nginx的欢迎页</p>
+<p>然后访问<code>localhost</code>或者本机 ip，会显示 nginx 的欢迎页</p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/12.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/13.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="systemctl管理"><a href="#systemctl管理" class="headerlink" title="systemctl管理"></a>systemctl管理</h1><p>创建 nginx.service 文件</p>
+<h1 id="systemctl-管理"><a href="#systemctl-管理" class="headerlink" title="systemctl 管理"></a>systemctl 管理</h1><p>创建 nginx.service 文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /usr/lib/systemd/system/nginx.service<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">[Unit]<br><span class="hljs-comment"># 描述服务</span><br>Description=nginx - high performance web server<br>Documentation=https://nginx.org<br>After=network.target remote-fs.target nss-lookup.target<br><br><span class="hljs-comment">#  服务的一些具体运行参数的设置</span><br>[Service]<br><span class="hljs-comment"># 后台运行的形式</span><br>Type=forking<br><span class="hljs-comment"># 启动命令</span><br>ExecStart=/usr/local/nginx-1.24.0/sbin/nginx<br><span class="hljs-comment"># 重启命令</span><br>ExecReload=/usr/local/nginx-1.24.0/sbin/nginx -s reload<br><span class="hljs-comment"># 停止命令</span><br>ExecStop=/usr/local/nginx-1.24.0/sbin/nginx -s stop<br><span class="hljs-comment"># 快速停止</span><br>ExecQuit=/usr/local/nginx-1.24.0/sbin/nginx -s quit<br><span class="hljs-comment"># 给服务分配临时空间</span><br>PrivateTmp=<span class="hljs-literal">true</span><br><span class="hljs-comment"># 发生异常，5s后重启</span><br>RestartSec=5s<br><br>[Install]<br><span class="hljs-comment"># 服务用户的模式</span><br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure>
 
 <p>完成后重新加载 <code>systemd</code> 守护进程配置文件</p>
