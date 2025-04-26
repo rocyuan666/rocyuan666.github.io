@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/12.png">
 <meta property="og:image" content="https://rocyuan666.gitee.io/assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/13.png">
 <meta property="article:published_time" content="2022-12-03T02:26:53.000Z">
-<meta property="article:modified_time" content="2025-04-26T10:48:57.639Z">
+<meta property="article:modified_time" content="2025-04-26T11:06:59.467Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +335,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.9k 字
         
       </span>
     
@@ -346,7 +346,7 @@
         
         
         
-          9 分钟
+          12 分钟
         
       </span>
     
@@ -417,7 +417,11 @@
 
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/7.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p><code>编译安装任何软件基本一致，编译安装所依赖的工具库需准备全！</code></p>
-<p>进入解压后的目录执行<code>./configure</code>，之后会生成Makefile文件<br>默认会安装在 <code>/usr/local/nginx</code> 可指定位置 <code>./configure --prefix=/home/rocyuan/software/nginx --with-http_ssl_module</code></p>
+<p>进入解压后的目录执行<code>./configure</code>，之后会生成Makefile文件。<br>可使用 <code>--prefix</code> 指定位置，如： <code>./configure --prefix=/usr/local/nginx</code></p>
+<p>常用的编译安装参数如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/usr/local/nginx --with-select_module --with-poll_module --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-http_v3_module --with-http_realip_module --with-http_addition_module --with-http_xslt_module --with-http_image_filter_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_degradation_module --with-http_slice_module --with-http_stub_status_module --with-http_perl_module --with-http_sub_module --with-pcre --with-pcre-jit --with-debug --with-stream --with-stream_ssl_module --with-mail --with-mail_ssl_module  --with-stream_realip_module<br></code></pre></td></tr></table></figure>
+
+
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/8.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/../../assets/%E3%80%90nginx%E3%80%91linux(centos&ubuntu)%E5%AE%89%E8%A3%85nginx/9.png" srcset="/img/loading.gif" lazyload></p>
 <p>然后执行<code>make &amp;&amp; make install</code>会进行编译安装。</p>
