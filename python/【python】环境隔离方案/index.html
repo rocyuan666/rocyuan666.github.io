@@ -24,7 +24,7 @@
 <meta property="og:description" content="【python】环境隔离方案">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-21T12:15:38.000Z">
-<meta property="article:modified_time" content="2026-04-28T03:45:38.626Z">
+<meta property="article:modified_time" content="2026-04-28T03:59:40.306Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -321,7 +321,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.3k 字
         
       </span>
     
@@ -332,7 +332,7 @@
         
         
         
-          13 分钟
+          14 分钟
         
       </span>
     
@@ -412,6 +412,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda <span class="hljs-built_in">env</span> list<br></code></pre></td></tr></table></figure>
 
 <p>删除虚拟环境</p>
+<p>删除需要先退出该虚拟环境</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 推荐</span><br>conda <span class="hljs-built_in">env</span> remove -n &lt;env-name&gt;<br><br><span class="hljs-comment"># conda remove 特殊用法，加上 --all 也可删除整个虚拟环境</span><br>conda remove -n &lt;env-name&gt; --all<br></code></pre></td></tr></table></figure>
 
 <p>conda env remove 和 conda remove 区别:</p>
@@ -419,8 +420,8 @@
 <li>conda env remove：专门、直接地删除整个虚拟环境</li>
 <li>conda remove：从指定环境中删除一个或多个软件包<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 从当前激活环境中删除 numpy</span><br>conda remove numpy<br><br><span class="hljs-comment"># 从指定环境 (myenv) 中删除多个包</span><br>conda remove -n myenv &lt;package-name1&gt; &lt;package-name2&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<p>包管理</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装包（可使用 -c 参数指定从哪个channel下载：`-c conda-forge` 从 conda-forge 下载）</span><br>conda install &lt;package-name&gt;<br><br><span class="hljs-comment"># 卸载包</span><br>conda remove &lt;package-name&gt;<br><br><span class="hljs-comment"># 导出依赖配置文件</span><br>conda <span class="hljs-built_in">env</span> <span class="hljs-built_in">export</span> &gt; environment.yml<br><br><span class="hljs-comment"># 从 environment.yml 创建虚拟环境（-f 参数指定环境配置文件，默认是：environment.yml）</span><br>conda <span class="hljs-built_in">env</span> create -f environment.yml<br></code></pre></td></tr></table></figure>
+<p>包管理相关</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装包（可使用 -c 参数指定从哪个channel下载：`-c conda-forge` 从 conda-forge 下载）</span><br>conda install &lt;package-name&gt;<br>conda install -c conda-forge &lt;package-name&gt;<br><br><span class="hljs-comment"># 卸载包 uninstall 是 remove 的别名</span><br>conda remove &lt;package-name&gt;<br>conda uninstall &lt;package-name&gt;<br><br><span class="hljs-comment"># 导出依赖配置文件</span><br><span class="hljs-comment"># 4.14 版本以下，只支持导出 YAML 格式</span><br>conda <span class="hljs-built_in">env</span> <span class="hljs-built_in">export</span> &gt; environment.yml<br><span class="hljs-comment"># 4.14 版本以上，支持更多格式（YAML/JSON/ 显式列表 /requirements.txt）</span><br>conda <span class="hljs-built_in">export</span> &gt; environment.yml<br><br><span class="hljs-comment"># 从 environment.yml 创建虚拟环境（-f 参数指定环境配置文件，默认是：environment.yml）</span><br>conda <span class="hljs-built_in">env</span> create -f environment.yml<br></code></pre></td></tr></table></figure>
 
 <p>镜像源：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#设置清华镜像</span><br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/<br><span class="hljs-comment">#设置bioconda</span><br>conda config --add channels bioconda<br>conda config --add channels conda-forge<br><span class="hljs-comment">#设置搜索时显示通道地址</span><br>conda config --<span class="hljs-built_in">set</span> show_channel_urls <span class="hljs-built_in">yes</span><br></code></pre></td></tr></table></figure>
