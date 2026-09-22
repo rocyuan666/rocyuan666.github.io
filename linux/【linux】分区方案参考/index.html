@@ -24,7 +24,7 @@
 <meta property="og:description" content="【linux】分区方案参考">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-17T09:10:09.000Z">
-<meta property="article:modified_time" content="2025-04-25T01:56:59.671Z">
+<meta property="article:modified_time" content="2026-09-22T11:57:52.376Z">
 <meta property="article:author" content="rocyuan">
 <meta property="article:tag" content="rocyuan,rocyuan666,大鹏一日同风起,扶摇直上九万里,博客,技术,前端,后端,java,c#,javascript,typescript,vue,react">
 <meta name="twitter:card" content="summary_large_image">
@@ -321,7 +321,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          203 字
+          343 字
         
       </span>
     
@@ -332,7 +332,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -375,6 +375,7 @@
               <div class="markdown-body">
                 
                 <p>个人 linux 分区方案参考，以 16 GB 内存 + 1TB 硬盘为例</p>
+<p>方案1（服务器）：</p>
 <table>
 <thead>
 <tr>
@@ -384,7 +385,7 @@
 </thead>
 <tbody><tr>
 <td>&#x2F;boot&#x2F;efi</td>
-<td>200 MB</td>
+<td>512 MB</td>
 </tr>
 <tr>
 <td>&#x2F;boot</td>
@@ -392,7 +393,7 @@
 </tr>
 <tr>
 <td>swap</td>
-<td>4 GB（物理内存 &gt;&#x3D; 16 GB ? 4 GB : 8 GB）</td>
+<td>4 GB ~ 8 GB（物理内存 &gt;&#x3D; 16 GB ? 4 GB : 8 GB）</td>
 </tr>
 <tr>
 <td>&#x2F;usr</td>
@@ -404,7 +405,36 @@
 </tr>
 <tr>
 <td>&#x2F;</td>
-<td>20 GB</td>
+<td>50 GB</td>
+</tr>
+<tr>
+<td>&#x2F;data 或 &#x2F;home</td>
+<td>剩余空间</td>
+</tr>
+</tbody></table>
+<p>方案2（桌面）：</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;boot&#x2F;efi</td>
+<td>512 MB</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>1024 MB</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>4 GB ~ 8 GB（物理内存 &gt;&#x3D; 16 GB ? 4 GB : 8 GB）</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>256 GB</td>
 </tr>
 <tr>
 <td>&#x2F;data 或 &#x2F;home</td>
